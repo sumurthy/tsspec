@@ -1,0 +1,54 @@
+{
+  "kind": "package",
+  "exports": {
+    "IClientSideComponentContext": {
+      "kind": "interface",
+      "summaryMarkup": [
+        {
+          "type": "text",
+          "description": "The base context interface for client-side components."
+        }
+      ],
+      "remarksMarkup": [
+        {
+          "type": "text",
+          "description": "A \"context\" object is a collection of well-known services and other objects that are likely to be needed by any business logic working with a component. Each component type has its own specialized extension of this interface, e.g. IWebPartContext for web parts, ICodePartContext for code parts, etc."
+        }
+      ],
+      "returnsMarkup": [],
+      "paramsMarkup": [],
+      "members": {
+        "manifest": {
+          "kind": "property",
+          "isOptional": false,
+          "isReadOnly": false,
+          "isStatic": false,
+          "type": "IClientSideComponentManifest",
+          "summaryMarkup": [
+            {
+              "type": "text",
+              "description": "Manifest for the client side component."
+            }
+          ],
+          "returnsMarkup": [],
+          "paramsMarkup": []
+        },
+        "serviceScope": {
+          "kind": "property",
+          "isOptional": false,
+          "isReadOnly": false,
+          "isStatic": false,
+          "type": "ServiceScope",
+          "summaryMarkup": [
+            {
+              "type": "text",
+              "description": "Service scope instance that is scoped to this particular web part."
+            }
+          ],
+          "returnsMarkup": [],
+          "paramsMarkup": []
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,12 @@
+{
+  "app" : "SharePoint",
+  "customResourceNote" : "",
+  "isGa": false,
+  "openSpecRun": false,
+  "metadataFilePath": "./input",
+  "markdownOutputPath": "./markdown",
+  "logFile": "../logs",
+  "jsonStructure": "../config/json_structure.json",
+  "mdTemplateMain": "../config/md_template_main.md",
+  "mdTemplateMethod": "../config/md_template_method.md"
+}
