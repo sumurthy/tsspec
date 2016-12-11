@@ -748,13 +748,14 @@ try {
 
 }
 
-let inputFiles = FileOps.walkFiles('./input', '.ts')
+let inputFiles = FileOps.walkFiles('./input', '.json')
 inputFiles.forEach((e) => {
     console.log('** Processing: ' + e);
-    let files = FileOps.walkFiles('./json', e)
-    loadModule(files)
-    moduleName = e.split('.')[0]
-    genExtModuleView()
+    // let moduleObject = JSON.parse(FileOps.loadJson('./types/allTypes.json'))    
+    // let files = FileOps.walkFiles('./json', e)
+    // loadModule(files)
+    // moduleName = e.split('.')[0]
+    // genExtModuleView()
     file_reset()
 })
 

@@ -1,12 +1,12 @@
 {
-  "name": "ojsdocs",
+  "name": "tsspec",
   "version": "1.0.0",
   "description": "",
   "main": "app.js",
   "scripts": {
-    "json": "./node_modules/.bin/babel-node spec.js",
-    "md": "./node_modules/.bin/babel-node md.js",
-    "scrub": "./node_modules/.bin/babel-node scrub.js",
+    "json": "babel-node spec.js",
+    "md": "babel-node md.js",
+    "scrub": "babel-node scrub.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "github.com/sumurthy",
