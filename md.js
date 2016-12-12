@@ -3,7 +3,7 @@ import SetUp from './modules/setuproutine'
 import Utils from './modules/utils'
 
 let allTypes = {}
-let allVarsTypes = {}
+let allMembers = {}
 let functionObj = {}
 let iObj = {}
 let classObj = {}
@@ -96,12 +96,12 @@ function getLinkForType(type = '', adjustLink = false) {
             out = out + e + ','
         }
         // variables and types match
-        else if (Object.keys(allVarsTypes).includes(Utils.trimGenerics(e,true))) {
-            out = out + `[\`${e}\`](${allVarsTypes[Utils.trimGenerics(e,true)].toLowerCase()})` + ','
+        else if (Object.keys(allMembers).includes(Utils.trimGenerics(e,true))) {
+            out = out + `[\`${e}\`](${allMembers[Utils.trimGenerics(e,true)].toLowerCase()})` + ','
         }
         // objectName.method name match
-        else if (Object.keys(allVarsTypes).includes(Utils.trimGenerics(e.toLowerCase(),true))) {
-            out = out + `[\`${e}\`](${allVarsTypes[Utils.trimGenerics(e)].toLowerCase()})` + ','
+        else if (Object.keys(allMembers).includes(Utils.trimGenerics(e.toLowerCase(),true))) {
+            out = out + `[\`${e}\`](${allMembers[Utils.trimGenerics(e)].toLowerCase()})` + ','
         }
         else {
             out = out + '`' + e + '`' + ','
@@ -739,7 +739,7 @@ try {
     methodfuncT = FileOps.loadFile('./config/method_function.md')
     enumT = FileOps.loadFile('./config/enum.md')
     allTypes = JSON.parse(FileOps.loadJson('./types/allTypes.json'))
-    allVarsTypes = JSON.parse(FileOps.loadJson('./types/allVarsTypes.json'))
+    allMembers = JSON.parse(FileOps.loadJson('./types/allMembers.json'))
     console.log('** Config and type files read')
 } catch (e) {
     console.log(`Error Loading config files.`)
@@ -751,19 +751,21 @@ try {
 let inputFiles = FileOps.walkFiles('./input', '.json')
 inputFiles.forEach((e) => {
     console.log('** Processing: ' + e);
-    // let moduleObject = JSON.parse(FileOps.loadJson('./types/allTypes.json'))    
-    // let files = FileOps.walkFiles('./json', e)
-    // loadModule(files)
-    // moduleName = e.split('.')[0]
-    // genExtModuleView()
+    let files = FileOps.walkFiles('./json', e.replace('.json',''))
+    console.log(files);
+    loadModule(files)
+    moduleName = e.split('.')[0]
+    genExtModuleView()
     file_reset()
 })
 
 function loadModule(files = []) {
     files.forEach((e) => {
-        console.log('*** Processing: ' + e);
-        anchor = e.split('.ts')[0].toLowerCase()
+        anchor = e.split('_')[0].toLowerCase()
+        console.log('*** Processing: ' + anchor);
+
         FileOps.createFolder(`./markdown/${anchor}`)
+
         if (e.includes('_module.json')) {
             moduleObj = JSON.parse(FileOps.loadJson(`./json/${e}`))
             console.log(`*** Read Module JSON file, ${Object.keys(moduleObj)}`)

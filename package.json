@@ -4,7 +4,7 @@
   "description": "",
   "main": "app.js",
   "scripts": {
-    "json": "babel-node spec.js",
+    "json": "babel-node to_json.js",
     "md": "babel-node md.js",
     "scrub": "babel-node scrub.js",
     "test": "echo \"Error: no test specified\" && exit 1"

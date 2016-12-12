@@ -1,5 +1,6 @@
 {
   "kind": "package",
+  "name": "sp-component-base",
   "exports": {
     "IClientSideComponentContext": {
       "kind": "interface",

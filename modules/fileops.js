@@ -6,13 +6,13 @@ var self = module.exports  = {
   walkFiles: (path='', pattern=null) => {
     try {
         var fl = fs.readdirSync(path)
-				if (pattern) {
-					var fo = fl.filter((e) => e.includes(pattern))
-					return fo
-				}
-				else {
-					return fl
-				}
+		if (pattern) {
+			var fo = fl.filter((e) => e.includes(pattern))
+			return fo
+		}
+		else {
+			return fl
+		}
     }
     catch(e)
     {

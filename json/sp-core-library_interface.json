@@ -1,0 +1,94 @@
+{
+  "IRandomNumberGenerator": {
+    "implementsExtendsName": "",
+    "genericType": "",
+    "descr": "This is a ServiceScope interface that enables unit tests to provide a deterministic source of pseudorandom numbers.",
+    "properties": {},
+    "functions": {},
+    "methods": {
+      "generate": {
+        "descr": "Returns a psuedorandom number between 0 (inclusive) and 1 (exclusive), following the contract of Math.random().",
+        "accessModifier": "",
+        "signature": "generate(): number;",
+        "isStatic": false,
+        "isOptional": false,
+        "genericType": null,
+        "returnType": "number",
+        "returnDescr": "",
+        "params": [],
+        "docName": "generate()",
+        "mdLink": "generate"
+      }
+    },
+    "constructor": {},
+    "types": {},
+    "variables": {},
+    "modules": {},
+    "objects": {}
+  },
+  "IServiceCollection": {
+    "implementsExtendsName": "",
+    "genericType": "",
+    "descr": "A shorthand pattern for extracting well-known services from a ServiceScope.",
+    "properties": {
+      "serviceScope": {
+        "descr": "Returns the underlying ServiceScope that the members belong to.",
+        "dataType": "ServiceScope",
+        "isOptional": false,
+        "readonly": false,
+        "accessModifier": "public",
+        "isCollection": false,
+        "function": null,
+        "returnType": null,
+        "assignValue": null
+      }
+    },
+    "functions": {},
+    "methods": {},
+    "constructor": {},
+    "types": {},
+    "variables": {},
+    "modules": {},
+    "objects": {}
+  },
+  "ITimeProvider": {
+    "implementsExtendsName": "",
+    "genericType": "",
+    "descr": "This is a ServiceScope interface that enables unit tests to simulate the system clock.",
+    "properties": {},
+    "functions": {},
+    "methods": {
+      "getDate": {
+        "descr": "Returns the current date/time.",
+        "accessModifier": "",
+        "signature": "getDate(): Date;",
+        "isStatic": false,
+        "isOptional": false,
+        "genericType": null,
+        "returnType": "Date",
+        "returnDescr": "",
+        "params": [],
+        "docName": "getDate()",
+        "mdLink": "getdate"
+      },
+      "getTimestamp": {
+        "descr": "Returns a DOMHighResTimeStamp timing measurement, as defined by the standard performance.now() API.",
+        "accessModifier": "",
+        "signature": "getTimestamp(): number;",
+        "isStatic": false,
+        "isOptional": false,
+        "genericType": null,
+        "returnType": "number",
+        "returnDescr": "",
+        "params": [],
+        "docName": "getTimestamp()",
+        "mdLink": "gettimestamp"
+      }
+    },
+    "constructor": {},
+    "types": {},
+    "variables": {},
+    "modules": {},
+    "objects": {}
+  }
+}

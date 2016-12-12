@@ -81,36 +81,22 @@ var self = module.exports = {
      * @return {[type]}                   [description]
      */
 
-    buildParamList: (line = '', paramComment = []) => {
-
+    getParamList: (param={}) => {
         var out = []
-        // var p = BETWEEN_BRACKETS.exec(line)
-        var p = self.inParen(line)
-        if (!p) {
-            return out
-        }
-        p = self.replaceCommaInGenerics(p)
-        var parray = p.split(',').map((_) => _.trim()) //between brackets list
-        // Build a parameter object.
-        parray.forEach((e) => {
+        Object.keys(param).forEach((e) => {
             var fp = {}
-            fp['name'] = e.substring(0, e.indexOf(':')).replace('?', '').replace(/\^/g, ',').trim()
-            fp['dataType'] = e.substring((e.indexOf(':') + 1)).replace(/\^/g, ',').trim()
-            if (!fp['dataType']) {
-                fp['dataType'] = null
-            }
-            fp['isOptional'] = false
-            if (e.substring(0, e.indexOf(':')).includes('?')) {
-                fp['isOptional'] = true
+            fp['name'] = param[e]['name']
+            if (param[e]['isSpread']){
+                fp['name'] = '...' + fp['name']
             }
             fp['descr'] = ''
-            // For each element, determine if there is a @param description. If so, add description element to function object
-            if (paramComment.length > 0) {
-                paramComment.forEach((d) => {
-                    if (d[0] === fp['name']) {
-                        fp['descr'] = d[1]
-                    }
-                })
+            if (param[e]['description'].length > 0) {
+                fp['descr'] = param[e]['description'][0]['value']
+            }
+            fp['isOptional'] = param[e]['isOptional']
+            fp['dataType'] = param[e]['type']
+            if (!fp['dataType']) {
+                fp['dataType'] = null
             }
             out.push(fp)
         })
@@ -243,89 +229,80 @@ var self = module.exports = {
         return am
     },
     getSignature: (line = '') => {
-        // var signature = ''
-        // if (line.includes('constructor')) {
-        //     signature = line
-        // } else {
-        //     signature = line.substr(line.indexOf(" ") + 1);
-        // }
         line = self.stripQualifier(line)
         return line
 
     },
-    processMethod: (line = '', descr = '', commentObject = {}, parentName = '', name = '', isStatic = false) => {
+    processMethod: (method={}, name="") => {
         var m = {}
-        var firstWord = line.split(' ', 1)[0]
-        var secondWord = line.split(' ', 2)[1]
-        var lastWord = line.split(':').pop()
-        m['accessModifier'] = self.getAccessModifier(line)
-        m['signature'] = self.getSignature(line)
-        m['isStatic'] = isStatic
-
-        if ((self.getMethodName(line, true)).includes('?')) {
-            m['isOptional'] = true
+        m['descr'] = ''
+        if (method['summary'].length > 0) {
+            m['descr'] = method['summary'][0]['value']
         }
-        else {
-            m['isOptional'] = false
-        }
-
-        m['descr'] = descr
-        m['genericType'] = self.genericInside(line.split('(')[0])
-        if (name.split('-')[0] === 'constructor') {
-            m['returnType'] = parentName.replace(')', '').trim()
-        } else {
-            m['returnType'] = lastWord.replace(')', '').trim()
-            // var lcolon = line.lastIndexOf(':')
-            // m['returnType'] = line.substr(lcolon+1).trim()
+        m['accessModifier'] = method['accessModifier']
+        m['signature'] = method['signature']
+        m['isStatic'] = method['isStatic']
+        m['isOptional'] = method['isOptional']
+        m['genericType'] = null
+        m['returnType'] = method['returnType']['type']
+        m['returnDescr'] = ""
+        if (method['returnType']['description'].length > 0) {
+            m['returnDescr'] = method['returnType']['description'][0]['value']
         }
 
-        m['returnDescr'] = (commentObject['returnDescr'] === undefined) ?
-            '' : commentObject['returnDescr']
-        m['params'] = self.buildParamList(line, commentObject['param'])
+        m['params'] = self.getParamList(method['parameters'])
+
         var list = ''
         m['params'].forEach((e) => {
             list = list + e['name'] + ','
         })
         if (list) list = list.slice(0,-1)
+        name = name.replace(/_/g,'')
         m['docName'] = name.split('-')[0] + '(' + list + ')'
         // Create markdown in-line page link. Makes it easy to display...
         m['mdLink'] = m['docName'].toLowerCase().replace(/,|\(|\)/g,'') //.replace(/\s+/,'-')
-
         return m
     },
-    processProperty: (name = '', line = '', descr = '', assignValue = null, isClass = true, readonly = false) => {
+
+    processProperty: (property={}, name="") => {
         var p = {}
-        var firstWord = line.split(' ')[0]
-        var start = line.indexOf(':')
-        var lastWord = line.substr(start + 1).trim()
-
-        p['dataType'] = lastWord.replace(')', '').trim()
-        p['accessModifier'] = self.getAccessModifier(line)
-
-        if (self.getPropName(line, false).includes('?')) {
-
-            p['isOptional'] = true
-        } else {
-            p['isOptional'] = false
+        p['descr'] = ''
+        if (property['summary'].length > 0) {
+            p['descr'] = property['summary'][0]['value']
         }
-        p['readonly'] = readonly
 
-        if (line.includes(')') && line.includes('(')) {
-            p['isCollection'] = ''
-            p['dataType'] = 'function'
-            p['function'] = '(' + self.inParen(line) + ')'
-            p['returnType'] = line.split('=>')[1].trim()
-        }
-        else {
-            p['isCollection'] = (lastWord.includes('[]')) ? true : false
-            p['dataType'] = lastWord.replace(')', '').trim()
-            p['function'] = null
-            p['returnType'] = null
-        }
-        p['assignValue'] = assignValue
-        p['descr'] = descr
+        p['dataType'] = property['type']
+        p['isOptional'] = property['isOptional']
+        p['readonly'] = property['isReadOnly']
+        p['accessModifier'] = self.getAccessModifier('')
+        p['isCollection'] = false
+        p['function'] = null
+        p['returnType'] = null
+        p['assignValue'] = null
         return p
     },
+
+    processEnum: (enumObj={}, name="") => {
+        var en = {}
+        en['descr'] = ''
+        if (enumObj['summary'].length > 0) {
+            en['descr'] = enumObj['summary'][0]['value']
+        }
+        en['values'] = []
+        Object.keys(enumObj['values']).forEach((e) => {
+            var item = []
+            item[0] = e
+            item[1] = enumObj['values'][e]['value']
+            item[2] = ''
+            if (enumObj['values'][e]['summary'].length > 0) {
+                item[2] = enumObj['values'][e]['summary'][0]['value']
+            }
+            en['values'].push(item)
+        })
+
+        return en
+    },
+
     createModuleObject: (descr = '') => {
         var o = {}
         o['variable'] = {}

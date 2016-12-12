@@ -1,5 +1,6 @@
 {
   "kind": "package",
+  "name": "sp-core-library",
   "exports": {
     "DisplayMode": {
       "kind": "enum",
