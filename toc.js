@@ -62,13 +62,13 @@ try {
 
 // let inputFiles = FileOps.walkFiles('./input', '.json')
 
-let inputFiles = ['sp-component-base.json',
+let inputFiles = ['sp-webpart-base.json',
                 'sp-core-library.json',
+                'sp-component-base.json',
                 'sp-http.json'
                 ,'sp-loader.json',
                 ,'sp-odata-types.json',
-                ,'sp-page-context.json',
-                ,'sp-webpart-base.json'
+                ,'sp-page-context.json'
                 ]
 
 inputFiles.forEach((e) => {
