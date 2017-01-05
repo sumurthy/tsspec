@@ -1,8 +1,6 @@
 import FileOps from './modules/fileops'
-import Utils from './modules/utils'
 
-let allTypes = {}
-let allMembers = {}
+
 let functionObj = {}
 let iObj = {}
 let classObj = {}
@@ -10,12 +8,7 @@ let moduleObj = {}
 let enumObj = {}
 let variableObj = {}
 let typeObj = {}
-let region = ''
-let mdout = []
-let mem_mdout = []
-let funcMthd_mdout = []
-let enum_mdout = []
-let skipFlag = false
+
 let moduleName = ''
 let objectName = ''
 let interfaceName = ''
@@ -59,7 +52,7 @@ function fileSegment() {
 
 try {
     tocFile = FileOps.loadFile('./config/toc_top.xml')
-    console.log('** XML files read')
+    console.log('* XML template files read')
 } catch (e) {
     console.log(`Error Loading config files.`)
     throw e
@@ -67,7 +60,17 @@ try {
 
 }
 
-let inputFiles = FileOps.walkFiles('./input', '.json')
+// let inputFiles = FileOps.walkFiles('./input', '.json')
+
+let inputFiles = ['sp-component-base.json',
+                'sp-core-library.json',
+                'sp-http.json'
+                ,'sp-loader.json',
+                ,'sp-odata-types.json',
+                ,'sp-page-context.json',
+                ,'sp-webpart-base.json'
+                ]
+
 inputFiles.forEach((e) => {
     console.log('** Processing: ' + e);
     let files = FileOps.walkFiles('./json', e.replace('.json',''))
@@ -85,8 +88,6 @@ FileOps.writeFile(tocFile, `./toc/toc.xml`)
 function loadModule(files = [], moduleName = "") {
     files.forEach((e) => {
         anchor = e.split('_')[0].toLowerCase()
-        console.log('*** Processing: ' + anchor);
-
         FileOps.createFolder(`./markdown/${anchor}`)
 
         if (e.includes('_module.json')) {
