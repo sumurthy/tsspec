@@ -1,0 +1,121 @@
+{
+  "ILoadScriptOptions": {
+    "isBeta": false,
+    "implementsExtendsName": "",
+    "genericType": "",
+    "descr": "Options for the loadScript() method in ISPComponentLoader",
+    "remarks": null,
+    "properties": {
+      "globalExportsName": {
+        "descr": "If set, the loaded script will be stored in a global variable under this name.",
+        "remarks": null,
+        "dataType": "string",
+        "isOptional": true,
+        "readonly": false,
+        "accessModifier": "public",
+        "isCollection": false,
+        "function": null,
+        "returnType": null,
+        "assignValue": null
+      }
+    },
+    "functions": {},
+    "methods": {},
+    "constructor": {},
+    "types": {},
+    "variables": {},
+    "modules": {},
+    "objects": {}
+  },
+  "ISPComponentLoader": {
+    "isBeta": false,
+    "implementsExtendsName": "",
+    "genericType": "",
+    "descr": "Interface for the module loader. It allows to load modules and scripts (through SystemJS) and CSS on the page. Also allows access to the manifests that exist in the page.",
+    "remarks": null,
+    "properties": {},
+    "functions": {},
+    "methods": {
+      "loadComponent-ispcomponentloader": {
+        "isBeta": false,
+        "showBetaMessage": false,
+        "descr": "Loads a component from a manifest.",
+        "remarks": null,
+        "accessModifier": "",
+        "signature": "loadComponent < TComponent >(manifest: IClientSideComponentManifest): Promise<TComponent>;",
+        "isStatic": false,
+        "isOptional": false,
+        "genericType": null,
+        "returnType": "Promise<TComponent>",
+        "returnDescr": "A promise containing the loaded module.",
+        "params": [
+          {
+            "name": "manifest",
+            "descr": "Manifest of the module to load.",
+            "isOptional": false,
+            "dataType": "IClientSideComponentManifest"
+          }
+        ],
+        "docName": "loadComponent(manifest)",
+        "mdLink": "loadcomponentmanifest"
+      },
+      "loadCss-ispcomponentloader": {
+        "isBeta": false,
+        "showBetaMessage": false,
+        "descr": "Inserts a <link ... /> tag for a stylesheet.",
+        "remarks": null,
+        "accessModifier": "",
+        "signature": "loadCss(url: string): void;",
+        "isStatic": false,
+        "isOptional": false,
+        "genericType": null,
+        "returnType": "void",
+        "returnDescr": "",
+        "params": [
+          {
+            "name": "url",
+            "descr": "The CSS file URL.",
+            "isOptional": false,
+            "dataType": "string"
+          }
+        ],
+        "docName": "loadCss(url)",
+        "mdLink": "loadcssurl"
+      },
+      "loadScript-ispcomponentloader": {
+        "isBeta": false,
+        "showBetaMessage": false,
+        "descr": "Given a URL, load a script.",
+        "remarks": null,
+        "accessModifier": "",
+        "signature": "loadScript < TModule >(url: string, options?: ILoadScriptOptions): Promise<TModule>;",
+        "isStatic": false,
+        "isOptional": false,
+        "genericType": null,
+        "returnType": "Promise<TModule>",
+        "returnDescr": "A promise containing the loaded module.",
+        "params": [
+          {
+            "name": "url",
+            "descr": "The script URL.",
+            "isOptional": false,
+            "dataType": "string"
+          },
+          {
+            "name": "options",
+            "descr": "globalExportsName: If the script isn't an AMD module and loads a global member on the page, specify the global member's name.",
+            "isOptional": true,
+            "dataType": "ILoadScriptOptions"
+          }
+        ],
+        "docName": "loadScript(url,options)",
+        "mdLink": "loadscripturloptions"
+      }
+    },
+    "constructor": {},
+    "types": {},
+    "variables": {},
+    "modules": {},
+    "objects": {}
+  }
+}

@@ -12,8 +12,47 @@ const MODULEDEF = 'module '
 const FUNCTION = 'function '
 const EXTENDS = 'extends '
 const IMPLEMENTS = 'implements '
+const BETA_MESSAGE = ' Note: This is being made avaiable in **beta** mode. This is not recommended for use in Production.'
 
 var self = module.exports = {
+
+    /**
+     * Takes a string and returns last 5 bytes of SHA-256. Replaces special character with 9
+     * @param  {[type]} data [description]
+     * @return {[type]}      [description]
+     */
+    sha256: (data)  => {
+        var random = crypto.createHash("sha256").update(data).digest("base64")
+        random = random.slice(-5).replace(/\W+/g, '9')
+        return random
+    },
+    moduleTocEntry: (moduleName='') => {
+        return `<Item text="${moduleName}" url="spdx/${moduleName}" SEODescription=""> \n`
+    },
+    classTocEntry: (moduleName='', className='') => {
+        return `<Item text="${className}" url="spdx/${moduleName}/${className}" SEODescription=""/> \n`
+    },
+    genericInside: (str = '') => {
+        //var g = GENERIC_INSIDE.exec(str)
+        var g = self.inParen(str, true)
+        if (g) {
+            return g.trim()
+        } else {
+            return null
+        }
+    },
+
+    trimGenerics: (str = '', replaceSb=false) => {
+        var n = str.split('<')[0]
+        if (n) {
+            n = n.trim()
+        }
+        if (replaceSb) {
+            return n.replace('[]','')
+        } else {
+            return n
+        }
+    },
     /**
      * Retuns what's inside (parenthesis) or <generictype>. This is better than generics.
      * @param  {String}  [line='']         [description]
@@ -38,16 +77,6 @@ var self = module.exports = {
             out = line.substr(start+1, length)
             return out
         }
-    },
-    /**
-     * Takes a string and returns last 5 bytes of SHA-256. Replaces special character with 9
-     * @param  {[type]} data [description]
-     * @return {[type]}      [description]
-     */
-    sha256: (data)  => {
-        var random = crypto.createHash("sha256").update(data).digest("base64")
-        random = random.slice(-5).replace(/\W+/g, '9')
-        return random
     },
     /**
      * While splitting parameter list, we need to supress/replace commas within the param list to
@@ -103,151 +132,53 @@ var self = module.exports = {
         return out
     },
 
-    readCommentAhead: (lines = [], descr = '', current = 0) => {
-        let o = {}
-        o['descr'] = descr
-        o['skip'] = []
-
-        for (var i = (current + 1); i < lines.length; i++) {
-            let line = lines[i]
-            line = line.replace(/\s+/g, ' ').trim()
-            let fw = line.split(' ', 1)[0]
-            let sw = line.split(' ', 2)[1]
-            if (fw === '*/' || (sw !== undefined && sw.startsWith('@'))) {
-                return o
-            } else {
-                o['skip'].push(i)
-                o['descr'] = o['descr'] + ' \n' + line.substr(2)
-            }
-        }
-        return o
+    /**
+     * Append a 5 character string at the end.
+     * @param  {[type]} name [description]
+     * @return {[type]}      [description]
+     */
+    appendRandom: (name) => {
+        return (name + '-' + self.sha256(name))
     },
 
-    unWrapStatement: (lines = [], current = 0) => {
-        let o = {}
-        o['skip'] = []
-        o['line'] = self.compact(lines[current])
-        for (var i = (current + 1); i < lines.length; i++) {
-            let line = lines[i].split('//')[0].trimRight()
-            o['line'] = o['line'] + self.compact(line).trim()
-            o['skip'].push(i)
-            if (STATEMENT_END.includes(line.slice(-1))) {
-                return o
-            }
-        }
-        return o
-    },
-    compact: (line='') => {
-        var firstWord = line.trim().split(' ', 1)[0]
-        if (!SKIP.includes(firstWord)) {
-            line = line.split('//')[0].trimRight()
-        }
-        line = line.replace(/\s+</g,'<') //Replace space+< to just <.
-        line = line.replace(/<\s+/g,'<') //Replace space+< to just <.
-        line = line.replace(/\s+>/g,'>') //Replace space+< to just <.
-        line = line.replace(/\s+:/g,':') //Replace space+: to just : (helps with funcion detection).
-        line = line.replace(/\s+\?/g,'?') //Replace space+: to just : (helps with funcion detection).
-        return line
-    },
-    genericInside: (str = '') => {
-        //var g = GENERIC_INSIDE.exec(str)
-        var g = self.inParen(str, true)
-        if (g) {
-            return g.trim()
-        } else {
-            return null
-        }
-    },
-
-    trimGenerics: (str = '', replaceSb=false) => {
-        var n = str.split('<')[0]
-        if (n) {
-            n = n.trim()
-        }
-        if (replaceSb) {
-            return n.replace('[]','')
-        } else {
-            return n
-        }
-    },
-    getMethodName: (line = '', withOptional = false) => {
-        var name = line.split('(')[0]  //take left of '(' character
-        name = self.stripQualifier(name)
-        if (!withOptional) name = name.replace('?', '')
-        name = name.replace(':', '')
-        name = name.replace(/\s+/g, '') //remove spaces
-        if (name.startsWith('new')) {
-            name = name.replace('new', 'constructor')
-        }
-        //name = name + '~' + (Math.floor(Math.random() * 90000) + 10000)
-        if (!withOptional) {
-            name = name + '-' + self.sha256(line)
-            return name
-        } else {
-            return name
-        }
-
-    },
-
-    cleanupName: (name = '', removeOptional = true) => {
-        if (removeOptional) {
-            return name.split(':')[0].split('=')[0].replace('?', '').trim()
-        } else {
-            return name.split(':')[0].split('=')[0].trim()
-        }
-    },
-
-    getPropName: (line = '', removeOptional = true) => {
-
-        var o = self.cleanupName(self.stripQualifier(line), removeOptional)
-        if (removeOptional) {
-            return o.replace('?','')
-        } else {
-            return o
-        }
-
-    },
-
-    readObjectAhead: (lines = [], current = 0) => {
-        let o = {}
-        o['obj'] = {}
-        o['skip'] = []
-
-        for (var i = current; i < lines.length; i++) {
-            var line = lines[i]
-            o['skip'].push(i)
-            if (line.includes(BLOCK_END)) {
-                return o
-            }
-        }
-        return o
-    },
     getAccessModifier: (line = '') => {
         var am = 'public'
         if (line.includes('private ')) am = 'private'
         if (line.includes('protected ')) am = 'protected'
         return am
     },
-    getSignature: (line = '') => {
-        line = self.stripQualifier(line)
-        return line
-
-    },
-    processMethod: (method={}, name="") => {
+    processMethod: (method={}, name="", isClassBeta=false) => {
         var m = {}
+        m['isBeta'] = false
+        m['showBetaMessage'] = false
+        // Set member showBetaMessage flag to true only if the class's isBeta is false. That way we can avoid repearing "isBeta" all over the place.
+        if (method['isBeta'] && !isClassBeta) {
+            m['showBetaMessage'] = method['isBeta']
+        }
+        if (method['isBeta']) {
+            m['isBeta'] = method['isBeta']
+        }
+
         m['descr'] = ''
         if (method['summary'].length > 0) {
             m['descr'] = method['summary'][0]['value']
+        }
+        m['remarks'] = null
+        if (method['remarks'].length > 0) {
+            console.log('method remark');
+            console.log(method['remarks'][0]['value']);
+            console.log();
+            m['remarks'] = method['remarks'][0]['value']
         }
         m['accessModifier'] = method['accessModifier']
         m['signature'] = method['signature']
         m['isStatic'] = method['isStatic']
         m['isOptional'] = method['isOptional']
         m['genericType'] = null
-        m['returnType'] = method['returnType']['type']
+        m['returnType'] = method['returnValue']['type']
         m['returnDescr'] = ""
-        if (method['returnType']['description'].length > 0) {
-            m['returnDescr'] = method['returnType']['description'][0]['value']
+        if (method['returnValue']['description'].length > 0) {
+            m['returnDescr'] = method['returnValue']['description'][0]['value']
         }
 
         m['params'] = self.getParamList(method['parameters'])
@@ -264,11 +195,18 @@ var self = module.exports = {
         return m
     },
 
-    processProperty: (property={}, name="") => {
+    processProperty: (property={}, name="", isBeta=false) => {
         var p = {}
         p['descr'] = ''
         if (property['summary'].length > 0) {
             p['descr'] = property['summary'][0]['value']
+        }
+        if (property['isBeta'] && !isBeta) {
+            p['descr'] = p['descr'] + BETA_MESSAGE
+        }
+        p['remarks'] = null
+        if (property['remarks'].length > 0) {
+            p['remarks'] = property['remarks'][0]['value']
         }
 
         p['dataType'] = property['type']
@@ -310,23 +248,33 @@ var self = module.exports = {
         o['module'] = {}
         return o
     },
-    createClassInterfaceObject: (line='', descr = '', isClass=true) => {
+
+    createClassInterfaceObject: (obj={}) => {
         var o = {}
-        var extendsImplementsName = ''
-        if (line.includes(EXTENDS)) {
-            var extendsName = line.split('extends ')[1]
-            extendsImplementsName = extendsName.split(BLOCK_BEGIN)[0].trim()
-        } else if (line.includes(IMPLEMENTS)) {
-            extendsImplementsName = line.split('implements ')[1].split(BLOCK_BEGIN)[0].trim()
+        o['isBeta'] = false
+        if (obj['isBeta']) {
+            o['isBeta'] = obj['isBeta']
         }
-        if (isClass) {
-        o['implementsExtendsName'] = extendsImplementsName
-            var rawGenericsInside = line.split(' ')[2]
-        }else {
-            var rawGenericsInside = line.split(' ')[2]
+        o['implementsExtendsName'] = ''
+        if (obj['implements']) {
+            o['implementsExtendsName'] = obj['implements']
         }
-        o['genericType'] = self.genericInside(rawGenericsInside)
-        o['descr'] = descr
+
+        o['genericType'] = ""
+        if (obj['typeParameters']) {
+            o['genericType'] = obj['typeParameters'].join(', ')
+        }
+        o['descr'] = ''
+        if (obj['summary'].length > 0) {
+            o['descr'] = obj['summary'][0]['value']
+        }
+        o['remarks'] = null
+        if (obj['remarks'].length > 0) {
+            console.log('object remarks');
+            console.log(obj['remarks'][0]['value']);
+            console.log();
+            o['remarks'] = obj['remarks'][0]['value']
+        }
         o['properties'] = {}
         o['functions'] = {}
         o['methods'] = {}
@@ -335,68 +283,6 @@ var self = module.exports = {
         o['variables'] = {}
         o['modules'] = {}
         o['objects'] = {}
-        return o
-    },
-    getMemberType: (line = '', isClass = true) => {
-        let firstWord = line.split(' ', 1)[0]
-        let secondWord = line.split(' ', 2)[1]
-        var type = ''
-        if (line.includes(BLOCK_BEGIN) && !line.includes(BLOCK_END)) {
-            type = 'OBJECT'
-        } else if (line.includes(FUNCTION)) {
-            type = 'FUNCTION'
-        } else if (firstWord.startsWith('constructor') || secondWord.startsWith('constructor')) {
-            type = 'METHOD'
-        } else if (line.includes(VARIABLEDEF) || (firstWord === 'var')) {
-            type = 'VARIABLE'
-        } else if (line.includes(TYPEDEF)) {
-            type = 'TYPE'
-        } else if (line.includes(MODULEDEF)) {
-            type = 'MODULE'
-        } else {
-            //line = self.stripQualifier(line)
-            var colon = line.indexOf(':')
-            var paren = line.indexOf('(')
-            if (paren == -1 && colon == -1) {
-                type == 'UNDEFINED'
-            } else if (colon == -1 && paren > 0) {
-                type = 'METHOD'
-            } else if (paren == -1 && colon > 0) {
-                type = 'PROPERTY'
-            } else if (colon < paren) {
-                type = 'PROPERTY'
-            } else if (colon > paren) {
-                type = 'METHOD'
-            }
-        }
-        return type
-    },
-    stripQualifier: (line='') => {
-        line = line.replace('public ', '')
-        line = line.replace('function ', '')
-        line = line.replace('private ', '')
-        line = line.replace('protected ', '')
-        line = line.replace('static ', '')
-        line = line.replace('export ', '')
-        line = line.replace('var ', '')
-        return line
-    },
-    splitToWords: (line='') => {
-        var o = {}
-        var firstWord = line.split(' ', 1)[0]
-        var secondWord = line.split(' ', 2)[1]
-        secondWord = secondWord || 'OBJECTERROR'
-
-        if ((firstWord === 'new') || (firstWord.startsWith('new'))) {
-            firstWord = self.getMethodName(line)
-        }
-
-        var thirdWord = line.split(' ', 3)[2]
-        var lastWord = line.split(':').pop()
-        o['f'] = firstWord
-        o['s'] = secondWord
-        o['t'] = thirdWord
-        o['l'] = lastWord
         return o
     }
 }

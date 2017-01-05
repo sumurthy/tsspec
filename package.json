@@ -6,6 +6,7 @@
   "scripts": {
     "json": "babel-node to_json.js",
     "md": "babel-node md.js",
+    "toc": "babel-node toc.js",
     "scrub": "babel-node scrub.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },

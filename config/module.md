@@ -1,5 +1,5 @@
 <moduleh>
-# %module% external module
+# %module% module
 </moduleh>
 
 <module>
@@ -18,7 +18,7 @@
 
 | Class	   |  Description |
 |:-------------|:---------------|
->| [`%name%`](%link%.md)     | %description% |
+>| [`%name%`](%link%.md)     | %shortdescription% |
 
 </class>
 
@@ -28,7 +28,7 @@
 
 | Interface	   |  Description |
 |:-------------|:---------------|
->| [`%name%`](%link%.md)   | %description%  |
+>| [`%name%`](%link%.md)   | %shortdescription%  |
 
 </interface>
 

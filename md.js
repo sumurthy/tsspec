@@ -32,6 +32,7 @@ let WRITE_BACK = ['#', '|', '*', '_', '%']
 let TAKE_REPEAT_ACTION = ['>']
 let NEW_REGION = ['<']
 let IGNORE = ['/']
+const BETA_MESSAGE = ' Note: This is being made avaiable in **beta** mode. This is not recommended for use in Production.'
 
 
 function dclone(o) {
@@ -148,13 +149,17 @@ function set_region_member(tline = '', member = {}, isClass = true) {
             case 'imethod':
             case 'variable':
             case 'ifunction':
-            case 'function':
                 if (isClass) {
                     skipFlag = true
                 }
                 break;
             case 'parameter':
                 if (member['params'].length === 0) {
+                    skipFlag = true
+                }
+                break;
+            case 'remarks':
+                if (!member['remarks']) {
                     skipFlag = true
                 }
                 break;
@@ -254,6 +259,11 @@ function set_region(tline = '', obj = {}, localName = '', isClass = true) {
                     skipFlag = true
                 }
                 break;
+            case 'remarks':
+                if (!obj[localName]['remarks']) {
+                    skipFlag = true
+                }
+                break;
             case 'parameter':
                 if (Object.keys(classObj).length === 0) {
                     skipFlag = true
@@ -278,6 +288,15 @@ function doSub(tline = '') {
 function doSubClassInterface(tline = '', localO = {}, localName = '', isClass = true, isModule = false) {
 
     if (tline.includes('%resourcedescription%')) tline = tline.replace('%resourcedescription%', localO[localName]['descr'])
+    if (tline.includes('%betatext%')) {
+        if (localO[localName]['showBetaMessage'] || localO[localName]['isBeta'] ) {
+            tline = tline.replace('%betatext%', 'This is in beta mode')
+        }
+        else {
+            tline = tline.replace('%betatext%', '')
+        }
+    }
+
     if (tline.includes('%resourcename%')) tline = tline.replace('%resourcename%', localName)
     if (tline.includes('%resourcetype%')) {
         if (isClass) {
@@ -337,6 +356,9 @@ function doSubClassInterface(tline = '', localO = {}, localName = '', isClass = 
             tline = tline.replace('%cnoparam%', '')
         }
     }
+    if (tline.includes('%remarks%')) {
+        tline = tline.replace('%remarks%', localO[localName]['remarks'])
+    }
     return tline
 }
 
@@ -352,6 +374,17 @@ function doSubMember(tline = '', member = {}, membername = '', isClass = true, o
     //if (tline.includes('%membername%')) tline = tline.replace('%membername%', membername.split('-')[0])
     if (tline.includes('%membername%')) tline = tline.replace('%membername%', member['docName'])
     if (tline.includes('%memberdescription%')) tline = tline.replace('%memberdescription%', member['descr'])
+
+    if (tline.includes('%betatext%')) {
+        if (member['showBetaMessage'] || member['isBeta']) {
+            tline = tline.replace('%betatext%', BETA_MESSAGE)
+        }
+        else {
+            tline = tline.replace('%betatext%', '')
+
+        }
+    }
+
     if (tline.includes('%apisignature%')) tline = tline.replace('%apisignature%', getSmartLink(member['signature']))
 
     if (tline.includes('%noparam%')) {
@@ -363,6 +396,7 @@ function doSubMember(tline = '', member = {}, membername = '', isClass = true, o
     }
     if (tline.includes('%returntype%')) tline = tline.replace('%returntype%', `${getLinkForType(member['returnType'])}`)
     if (tline.includes('%returndescr%')) tline = tline.replace('%returndescr%', `${member['returnDescr']}`)
+    if (tline.includes('%remarks%')) tline = tline.replace('%remarks%', `${member['remarks']}`)
 
     return tline
 }
@@ -441,12 +475,14 @@ function addRegions(tline = '', type = '') {
         mline = mline.replace('%type%', `${getLinkForType(o[e]['dataType'])}`)
         mline = mline.replace('%link%', `./${anchor}/${e.replace(/'/g,'').toLowerCase()}`)
         var descr = o[e]['descr']
-        //Get first sentence
         if (descr) {
             //descr = descr.split('.')[0].replace(/\n/g, ' ')
             descr = descr.replace(/\n/g, ' ')
         }
+
         mline = mline.replace('%description%', descr)
+        mline = mline.replace('%shortdescription%', descr)
+
             // For return function add Markdown HyperLink
         if (type === 'functions') {
             var returnLink = getLinkForType(o[e]['returnType'], true)
@@ -519,7 +555,7 @@ function addParams(tline = '', member = {}, targetArray = []) {
         mline = mline.replace('%name%', e['name'])
         mline = mline.replace('%dtype%', `${getLinkForType(e['dataType'])}`)
         if (e['isOptional']) {
-            mline = mline.replace('%optional% ', '_Optional._')
+            mline = mline.replace('%optional% ', 'Optional.')
         }
         else {
             mline = mline.replace('%optional% ', '')
@@ -675,7 +711,7 @@ function genExtModuleView() {
         }
     })
     console.log(`*** Writing External Module file for ${moduleName}`)
-    FileOps.writeFile(mdout, `./markdown/${moduleName}.md`)
+    FileOps.writeFile(mdout, `./markdown/${moduleName}-module.md`)
     //genFunctionView()
     //genEnumView()
 }

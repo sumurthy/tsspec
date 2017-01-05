@@ -5,6 +5,8 @@
 
 %typeparameters%
 
+%betatext%
+
 %resourcedescription%
 
 </classheader>
@@ -21,10 +23,6 @@
 
 #### Parameters
 %cnoparam%
-
-| Parameter	   | Type    | Description |
-|:-------------|:---------------|:------------|
->| `%name%`    | %dtype% | %optional% %description% |
 
 </constructor>
 
@@ -85,3 +83,10 @@
 >|%name%      |  %description% |
 
 </variables>
+
+<remarks>
+### Remarks
+
+%remarks%
+
+</remarks>

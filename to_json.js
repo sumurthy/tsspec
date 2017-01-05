@@ -71,6 +71,10 @@ let commentParent = {
     'param': []
 }
 let commentObject = JSON.parse(JSON.stringify(commentParent))
+let toc=[]
+
+
+
 function file_reset() {
     nClass = 0
     nFunction = 0
@@ -93,86 +97,46 @@ function file_reset() {
     interfaceName = ''
     methodObj = {}
     propObj = {}
-    generalDesc = ''
-    //commentObject = JSON.parse(JSON.stringify(commentParent))
-    commentObject['param'] = []
-    commentObject['returnDescr'] = ''
-    commentObject['generalDescr'] = ''
-    comment_reset()
+
 }
 
-function block_end_reset() {
-    methodObj = {}
-    propObj = {}
-    generalDesc = ''
-    commentObject['param'] = []
-    commentObject['returnDescr'] = ''
-    commentObject['generalDescr'] = ''
-    interfaceName = ''
-    comment_reset()
-}
-
-function block_begin_reset() {
-    generalDesc = ''
-    paramEncountered = false
-    readonlyProperty = false
-}
-
-function comment_reset() {
-    block_begin_reset()
-    commentObject['param'] = []
-    commentObject['returnDescr'] = ''
-}
 
 function processClassInterface(obj={}, objName= '', fileName='') {
-    console.log("processClassInterface");
-    let o = {}
-    o['implementsExtendsName'] = ''
-    if (obj['implements']) {
-        o['implementsExtendsName'] = obj['implements']
-    }
 
-    o['genericType'] = ""
-    if (obj['typeParameters']) {
-        o['genericType'] = obj['typeParameters'].join(', ')
+    let o = Utils.createClassInterfaceObject(obj)
+
+    // Some interfaces don't have any members
+    if (!obj['members']) {
+        return o
     }
-    o['descr'] = obj['summary'][0]['value']
-    o['properties'] = {}
-    o['functions'] = {}
-    o['methods'] = {}
-    o['constructor'] = {}
-    o['types'] = {}
-    o['variables'] = {}
-    o['modules'] = {}
-    o['objects'] = {}
 
     Object.keys(obj['members']).forEach((e) => {
-        console.log('==>' + e);
         switch (obj['members'][e]['kind']) {
             case 'property':
-                var p = Utils.processProperty(obj['members'][e], e)
+                var p = Utils.processProperty(obj['members'][e], e, obj['isBeta'])
                 o['properties'][e] = p
                 break;
             case 'method':
                 // Write to all members
                 allMembers[`${objName}.${e.toLowerCase().replace(/_/g,'')}`] = '../' + fileName + '/' + objName + '#' + e.toLowerCase().replace(/_/g,'')
-                var m = Utils.processMethod(obj['members'][e], e)
+                var m = Utils.processMethod(obj['members'][e], e, obj['isBeta'])
                 if (e === '__constructor') {
                     o['constructor'] = m
                 }
                 else {
-                    o['methods'][e] = m
+                    o['methods'][e + '-'+ objName] = m
                 }
                 // Add to all-members
                 break;
             default:
+            console.log('ERROR: Unmatched sub-type: ' + obj['members'][e]['kind']);
+            break;
         }
     })
     return o
 }
 
 function processEnum(obj={}, objName='', fileName='') {
-    console.log("processEnum");
     let o = Utils.processEnum(obj)
     return o
 }
@@ -180,15 +144,14 @@ function processEnum(obj={}, objName='', fileName='') {
 /**
  * STARTING: Load input files and process each file and each line within.
  */
-console.log('** Starting Program...')
+console.log('* Starting Program...')
 SetUp.cleanupOutput('./json')
 SetUp.cleanupOutput('./types')
-
+console.log('');
 let inputFiles = FileOps.walkFiles('./input', '.json')
 inputFiles.forEach((e) => {
     console.log('** Processing: ' + e);
     let fileObj = JSON.parse(FileOps.loadJson(`./input/${e}`))
-    console.log(Object.keys(fileObj['exports']));
     processModule(fileObj['exports'], e.split('.json')[0])
     file_reset()
 })
@@ -200,23 +163,32 @@ FileOps.writeObject(allMembers, `./types/allMembers.json`)
  */
 
 function processModule(packageObj={}, fileName="error") {
+    toc.push(Utils.moduleTocEntry(fileName))
+
     Object.keys(packageObj).forEach((e) => {
-        console.log("Processing: " + e + " " + packageObj[e]['kind']);
+        //console.log("**** Processing: " + e + " " + packageObj[e]['kind']);
         allTypes[e] = '../' + fileName.toLowerCase() + '/' + e.toLowerCase() + '.md'
 
         switch (packageObj[e]['kind']) {
             case 'class':
                 classObj[e] = processClassInterface(packageObj[e], e.toLowerCase(), fileName.toLowerCase())
+                nClass++
                 break;
             case 'interface':
                 iObj[e] = processClassInterface(packageObj[e], e.toLowerCase(), fileName.toLowerCase())
+                nInterface++
                 break;
             case 'enum':
-                console.log('-----------------');
                 enumObj[e] = processEnum(packageObj[e])
+                nEnum++
+                break;
+            case 'function':
+                functionObj[e] = Utils.processMethod(packageObj[e], e)
+                nFunction++
                 break;
             default:
-
+                console.log('ERROR Unmatched type: ' + packageObj[e]['kind']);
+                break;
         }
     })
 
@@ -228,6 +200,7 @@ function processModule(packageObj={}, fileName="error") {
     FileOps.writeObject(typeObj, `./json/${fileName}_type.json`)
     FileOps.writeObject(variableObj, `./json/${fileName}_variable.json`)
 
-    console.log(`*** module = ${nModule}, interface = ${nInterface}, class = ${nClass}, function = ${nFunction}, enum = ${nEnum}, variable = ${nVariable}, type = ${nType}`);
+    console.log(`----> interface = ${nInterface}, class = ${nClass}, function = ${nFunction}, enum = ${nEnum}`);
+    console.log('');
     file_reset()
 }

@@ -1,0 +1,82 @@
+{
+  "SPComponentLoader": {
+    "isBeta": false,
+    "implementsExtendsName": "",
+    "genericType": "",
+    "descr": "Component loader. Needs to be initialized with an implemented ISPComponentLoader.",
+    "remarks": null,
+    "properties": {},
+    "functions": {},
+    "methods": {
+      "initialize-spcomponentloader": {
+        "isBeta": false,
+        "showBetaMessage": false,
+        "descr": "Initializes the component loader with an implementation. Must be called once before it can be used.",
+        "remarks": null,
+        "accessModifier": "public",
+        "signature": "public static initialize(componentLoader: ISPComponentLoader): void;",
+        "isStatic": true,
+        "isOptional": false,
+        "genericType": null,
+        "returnType": "void",
+        "returnDescr": "",
+        "params": [],
+        "docName": "initialize()",
+        "mdLink": "initialize"
+      },
+      "loadComponent-spcomponentloader": {
+        "isBeta": false,
+        "showBetaMessage": false,
+        "descr": "{@inheritdoc ISPComponentLoader.loadComponent}",
+        "remarks": null,
+        "accessModifier": "public",
+        "signature": "public static loadComponent < TComponent >(manifest: IClientSideComponentManifest): Promise<TComponent>;",
+        "isStatic": true,
+        "isOptional": false,
+        "genericType": null,
+        "returnType": "Promise<TComponent>",
+        "returnDescr": "",
+        "params": [],
+        "docName": "loadComponent()",
+        "mdLink": "loadcomponent"
+      },
+      "loadCss-spcomponentloader": {
+        "isBeta": false,
+        "showBetaMessage": false,
+        "descr": "{@inheritdoc ISPComponentLoader.loadCss}",
+        "remarks": null,
+        "accessModifier": "public",
+        "signature": "public static loadCss(url: string): void;",
+        "isStatic": true,
+        "isOptional": false,
+        "genericType": null,
+        "returnType": "void",
+        "returnDescr": "",
+        "params": [],
+        "docName": "loadCss()",
+        "mdLink": "loadcss"
+      },
+      "loadScript-spcomponentloader": {
+        "isBeta": false,
+        "showBetaMessage": false,
+        "descr": "{@inheritdoc ISPComponentLoader.loadScript}",
+        "remarks": null,
+        "accessModifier": "public",
+        "signature": "public static loadScript < TModule >(url: string, options?: ILoadScriptOptions): Promise<TModule>;",
+        "isStatic": true,
+        "isOptional": false,
+        "genericType": null,
+        "returnType": "Promise<TModule>",
+        "returnDescr": "",
+        "params": [],
+        "docName": "loadScript()",
+        "mdLink": "loadscript"
+      }
+    },
+    "constructor": {},
+    "types": {},
+    "variables": {},
+    "modules": {},
+    "objects": {}
+  }
+}

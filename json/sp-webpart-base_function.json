@@ -1,0 +1,245 @@
+{
+  "PropertyPaneButton": {
+    "isBeta": false,
+    "showBetaMessage": false,
+    "descr": "Helper method to create a Button on the PropertyPane.",
+    "remarks": null,
+    "genericType": null,
+    "returnType": "IPropertyPaneField<IPropertyPaneButtonProps>",
+    "returnDescr": "",
+    "params": [
+      {
+        "name": "targetProperty",
+        "descr": "Target property the Button is associated to.",
+        "isOptional": false,
+        "dataType": "string"
+      },
+      {
+        "name": "properties",
+        "descr": "Strongly typed Button properties.",
+        "isOptional": false,
+        "dataType": "IPropertyPaneButtonProps"
+      }
+    ],
+    "docName": "PropertyPaneButton(targetProperty,properties)",
+    "mdLink": "propertypanebuttontargetpropertyproperties"
+  },
+  "PropertyPaneCheckbox": {
+    "isBeta": false,
+    "showBetaMessage": false,
+    "descr": "Helper method to create a Checkbox on the PropertyPane.",
+    "remarks": null,
+    "genericType": null,
+    "returnType": "IPropertyPaneField<IPropertyPaneCheckboxProps>",
+    "returnDescr": "",
+    "params": [
+      {
+        "name": "targetProperty",
+        "descr": "Target property the checkbox is associated to.",
+        "isOptional": false,
+        "dataType": "string"
+      },
+      {
+        "name": "properties",
+        "descr": "Strongly typed Checkbox properties.",
+        "isOptional": false,
+        "dataType": "IPropertyPaneCheckboxProps"
+      }
+    ],
+    "docName": "PropertyPaneCheckbox(targetProperty,properties)",
+    "mdLink": "propertypanecheckboxtargetpropertyproperties"
+  },
+  "PropertyPaneChoiceGroup": {
+    "isBeta": false,
+    "showBetaMessage": false,
+    "descr": "Helper method to create a Choice Group on the PropertyPane.",
+    "remarks": null,
+    "genericType": null,
+    "returnType": "IPropertyPaneField<IPropertyPaneChoiceGroupProps>",
+    "returnDescr": "",
+    "params": [
+      {
+        "name": "targetProperty",
+        "descr": "Target property the choice group is associated to.",
+        "isOptional": false,
+        "dataType": "string"
+      },
+      {
+        "name": "properties",
+        "descr": "Strongly typed Choice Group properties.",
+        "isOptional": false,
+        "dataType": "IPropertyPaneChoiceGroupProps"
+      }
+    ],
+    "docName": "PropertyPaneChoiceGroup(targetProperty,properties)",
+    "mdLink": "propertypanechoicegrouptargetpropertyproperties"
+  },
+  "PropertyPaneDropdown": {
+    "isBeta": false,
+    "showBetaMessage": false,
+    "descr": "Helper method to create a Dropdown on the PropertyPane.",
+    "remarks": null,
+    "genericType": null,
+    "returnType": "IPropertyPaneField<IPropertyPaneDropdownProps>",
+    "returnDescr": "",
+    "params": [
+      {
+        "name": "targetProperty",
+        "descr": "Target property the dropdown is associated to.",
+        "isOptional": false,
+        "dataType": "string"
+      },
+      {
+        "name": "properties",
+        "descr": "Strongly typed Dropdown properties.",
+        "isOptional": false,
+        "dataType": "IPropertyPaneDropdownProps"
+      }
+    ],
+    "docName": "PropertyPaneDropdown(targetProperty,properties)",
+    "mdLink": "propertypanedropdowntargetpropertyproperties"
+  },
+  "PropertyPaneHorizontalRule": {
+    "isBeta": false,
+    "showBetaMessage": false,
+    "descr": "Helper method to create a Horizontal Rule on the PropertyPane.",
+    "remarks": null,
+    "genericType": null,
+    "returnType": "IPropertyPaneField<void>",
+    "returnDescr": "",
+    "params": [
+      {
+        "name": "properties",
+        "descr": "Strongly typed Horizontal Rule properties.",
+        "dataType": null
+      }
+    ],
+    "docName": "PropertyPaneHorizontalRule(properties)",
+    "mdLink": "propertypanehorizontalruleproperties"
+  },
+  "PropertyPaneLabel": {
+    "isBeta": false,
+    "showBetaMessage": false,
+    "descr": "Helper method to create a Label on the PropertyPane.",
+    "remarks": null,
+    "genericType": null,
+    "returnType": "IPropertyPaneField<IPropertyPaneLabelProps>",
+    "returnDescr": "",
+    "params": [
+      {
+        "name": "targetProperty",
+        "descr": "Target property the label is associated to.",
+        "isOptional": false,
+        "dataType": "string"
+      },
+      {
+        "name": "properties",
+        "descr": "Strongly typed Label properties.",
+        "isOptional": false,
+        "dataType": "IPropertyPaneLabelProps"
+      }
+    ],
+    "docName": "PropertyPaneLabel(targetProperty,properties)",
+    "mdLink": "propertypanelabeltargetpropertyproperties"
+  },
+  "PropertyPaneLink": {
+    "isBeta": false,
+    "showBetaMessage": false,
+    "descr": "Helper method to create a Link on the PropertyPane.",
+    "remarks": null,
+    "genericType": null,
+    "returnType": "IPropertyPaneField<IPropertyPaneLinkProps>",
+    "returnDescr": "",
+    "params": [
+      {
+        "name": "targetProperty",
+        "descr": "Target property the Link is associated to.",
+        "isOptional": false,
+        "dataType": "string"
+      },
+      {
+        "name": "properties",
+        "descr": "Strongly typed Link properties.",
+        "isOptional": false,
+        "dataType": "IPropertyPaneLinkProps"
+      }
+    ],
+    "docName": "PropertyPaneLink(targetProperty,properties)",
+    "mdLink": "propertypanelinktargetpropertyproperties"
+  },
+  "PropertyPaneSlider": {
+    "isBeta": false,
+    "showBetaMessage": false,
+    "descr": "Helper method to create a Slider on the PropertyPane.",
+    "remarks": null,
+    "genericType": null,
+    "returnType": "IPropertyPaneField<IPropertyPaneSliderProps>",
+    "returnDescr": "",
+    "params": [
+      {
+        "name": "targetProperty",
+        "descr": "Target property the slider is associated to.",
+        "isOptional": false,
+        "dataType": "string"
+      },
+      {
+        "name": "properties",
+        "descr": "Strongly typed Slider properties.",
+        "isOptional": false,
+        "dataType": "IPropertyPaneSliderProps"
+      }
+    ],
+    "docName": "PropertyPaneSlider(targetProperty,properties)",
+    "mdLink": "propertypaneslidertargetpropertyproperties"
+  },
+  "PropertyPaneTextField": {
+    "isBeta": false,
+    "showBetaMessage": false,
+    "descr": "Helper method to create a TextField on the PropertyPane.",
+    "remarks": null,
+    "genericType": null,
+    "returnType": "IPropertyPaneField<IPropertyPaneTextFieldProps>",
+    "returnDescr": "",
+    "params": [
+      {
+        "name": "targetProperty",
+        "descr": "Target property the textfield is associated to.",
+        "isOptional": false,
+        "dataType": "string"
+      },
+      {
+        "name": "properties",
+        "descr": "Strongly typed TextField properties.",
+        "isOptional": false,
+        "dataType": "IPropertyPaneTextFieldProps"
+      }
+    ],
+    "docName": "PropertyPaneTextField(targetProperty,properties)",
+    "mdLink": "propertypanetextfieldtargetpropertyproperties"
+  },
+  "PropertyPaneToggle": {
+    "isBeta": false,
+    "showBetaMessage": false,
+    "descr": "Helper method to create a Toggle on the PropertyPane.",
+    "remarks": null,
+    "genericType": null,
+    "returnType": "IPropertyPaneField<IPropertyPaneToggleProps>",
+    "returnDescr": "",
+    "params": [
+      {
+        "name": "targetProperty",
+        "descr": "Target property the toggle is associated to.",
+        "isOptional": false,
+        "dataType": "string"
+      },
+      {
+        "name": "properties",
+        "descr": "Strongly typed Toggle properties.",
+        "isOptional": false,
+        "dataType": "IPropertyPaneToggleProps"
+      }
+    ],
+    "docName": "PropertyPaneToggle(targetProperty,properties)",
+    "mdLink": "propertypanetoggletargetpropertyproperties"
+  }
+}
