@@ -2,9 +2,52 @@
 <Menu xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" SupportedProduct="|SharePoint" SupportedVersion="|V1.0|">
 <Item text="SharePoint Framework Reference" url="spdx" SEODescription="Reference documentation for the SharePoint Framework">
 
-<Item text="sp-component-base" url="spdx/sp-component-base-module" SEODescription="">
-<Item text="Interfaces" url="spdx/sp-component-base" SEODescription="">
-<Item text="IClientSideComponentContext" url="spdx/sp-component-base/iclientsidecomponentcontext" SEODescription=""/>
+<Item text="sp-webpart-base" url="spdx/sp-webpart-base-module" SEODescription="">
+<Item text="Classes" url="spdx/sp-webpart-base" SEODescription="">
+<Item text="BaseClientSideWebPart" url="spdx/sp-webpart-base/baseclientsidewebpart" SEODescription=""/>
+</Item>
+<Item text="Enumerations" url="spdx/sp-webpart-base" SEODescription="">
+<Item text="PropertyPaneButtonType" url="spdx/sp-webpart-base/propertypanebuttontype" SEODescription=""/>
+<Item text="PropertyPaneFieldType" url="spdx/sp-webpart-base/propertypanefieldtype" SEODescription=""/>
+</Item>
+<Item text="Functions" url="spdx/sp-webpart-base" SEODescription="">
+<Item text="PropertyPaneButton" url="spdx/sp-webpart-base/propertypanebutton" SEODescription=""/>
+<Item text="PropertyPaneCheckbox" url="spdx/sp-webpart-base/propertypanecheckbox" SEODescription=""/>
+<Item text="PropertyPaneChoiceGroup" url="spdx/sp-webpart-base/propertypanechoicegroup" SEODescription=""/>
+<Item text="PropertyPaneDropdown" url="spdx/sp-webpart-base/propertypanedropdown" SEODescription=""/>
+<Item text="PropertyPaneHorizontalRule" url="spdx/sp-webpart-base/propertypanehorizontalrule" SEODescription=""/>
+<Item text="PropertyPaneLabel" url="spdx/sp-webpart-base/propertypanelabel" SEODescription=""/>
+<Item text="PropertyPaneLink" url="spdx/sp-webpart-base/propertypanelink" SEODescription=""/>
+<Item text="PropertyPaneSlider" url="spdx/sp-webpart-base/propertypaneslider" SEODescription=""/>
+<Item text="PropertyPaneTextField" url="spdx/sp-webpart-base/propertypanetextfield" SEODescription=""/>
+<Item text="PropertyPaneToggle" url="spdx/sp-webpart-base/propertypanetoggle" SEODescription=""/>
+</Item>
+<Item text="Interfaces" url="spdx/sp-webpart-base" SEODescription="">
+<Item text="IClientSideWebPartStatusRenderer" url="spdx/sp-webpart-base/iclientsidewebpartstatusrenderer" SEODescription=""/>
+<Item text="IPlaceholderProps" url="spdx/sp-webpart-base/iplaceholderprops" SEODescription=""/>
+<Item text="IPlaceholderSpinnerProps" url="spdx/sp-webpart-base/iplaceholderspinnerprops" SEODescription=""/>
+<Item text="IPropertyPaneButtonProps" url="spdx/sp-webpart-base/ipropertypanebuttonprops" SEODescription=""/>
+<Item text="IPropertyPaneCheckboxProps" url="spdx/sp-webpart-base/ipropertypanecheckboxprops" SEODescription=""/>
+<Item text="IPropertyPaneChoiceGroupOption" url="spdx/sp-webpart-base/ipropertypanechoicegroupoption" SEODescription=""/>
+<Item text="IPropertyPaneChoiceGroupProps" url="spdx/sp-webpart-base/ipropertypanechoicegroupprops" SEODescription=""/>
+<Item text="IPropertyPaneConfiguration" url="spdx/sp-webpart-base/ipropertypaneconfiguration" SEODescription=""/>
+<Item text="IPropertyPaneCustomFieldProps" url="spdx/sp-webpart-base/ipropertypanecustomfieldprops" SEODescription=""/>
+<Item text="IPropertyPaneDropdownOption" url="spdx/sp-webpart-base/ipropertypanedropdownoption" SEODescription=""/>
+<Item text="IPropertyPaneDropdownProps" url="spdx/sp-webpart-base/ipropertypanedropdownprops" SEODescription=""/>
+<Item text="IPropertyPaneField" url="spdx/sp-webpart-base/ipropertypanefield" SEODescription=""/>
+<Item text="IPropertyPaneGroup" url="spdx/sp-webpart-base/ipropertypanegroup" SEODescription=""/>
+<Item text="IPropertyPaneLabelProps" url="spdx/sp-webpart-base/ipropertypanelabelprops" SEODescription=""/>
+<Item text="IPropertyPaneLinkProps" url="spdx/sp-webpart-base/ipropertypanelinkprops" SEODescription=""/>
+<Item text="IPropertyPanePage" url="spdx/sp-webpart-base/ipropertypanepage" SEODescription=""/>
+<Item text="IPropertyPanePageHeader" url="spdx/sp-webpart-base/ipropertypanepageheader" SEODescription=""/>
+<Item text="IPropertyPaneSliderProps" url="spdx/sp-webpart-base/ipropertypanesliderprops" SEODescription=""/>
+<Item text="IPropertyPaneTextFieldProps" url="spdx/sp-webpart-base/ipropertypanetextfieldprops" SEODescription=""/>
+<Item text="IPropertyPaneToggleProps" url="spdx/sp-webpart-base/ipropertypanetoggleprops" SEODescription=""/>
+<Item text="ISerializedServerProcessedData" url="spdx/sp-webpart-base/iserializedserverprocesseddata" SEODescription=""/>
+<Item text="ISerializedWebPartData" url="spdx/sp-webpart-base/iserializedwebpartdata" SEODescription=""/>
+<Item text="IWebPartContext" url="spdx/sp-webpart-base/iwebpartcontext" SEODescription=""/>
+<Item text="IWebPartData" url="spdx/sp-webpart-base/iwebpartdata" SEODescription=""/>
+<Item text="IWebPartPropertiesMetadata" url="spdx/sp-webpart-base/iwebpartpropertiesmetadata" SEODescription=""/>
 </Item>
 </Item>
 <Item text="sp-core-library" url="spdx/sp-core-library-module" SEODescription="">
@@ -29,6 +72,11 @@
 <Item text="IRandomNumberGenerator" url="spdx/sp-core-library/irandomnumbergenerator" SEODescription=""/>
 <Item text="IServiceCollection" url="spdx/sp-core-library/iservicecollection" SEODescription=""/>
 <Item text="ITimeProvider" url="spdx/sp-core-library/itimeprovider" SEODescription=""/>
+</Item>
+</Item>
+<Item text="sp-component-base" url="spdx/sp-component-base-module" SEODescription="">
+<Item text="Interfaces" url="spdx/sp-component-base" SEODescription="">
+<Item text="IClientSideComponentContext" url="spdx/sp-component-base/iclientsidecomponentcontext" SEODescription=""/>
 </Item>
 </Item>
 <Item text="sp-http" url="spdx/sp-http-module" SEODescription="">
@@ -84,54 +132,6 @@
 <Item text="SPSite" url="spdx/sp-page-context/spsite" SEODescription=""/>
 <Item text="SPUser" url="spdx/sp-page-context/spuser" SEODescription=""/>
 <Item text="SPWeb" url="spdx/sp-page-context/spweb" SEODescription=""/>
-</Item>
-</Item>
-<Item text="sp-webpart-base" url="spdx/sp-webpart-base-module" SEODescription="">
-<Item text="Classes" url="spdx/sp-webpart-base" SEODescription="">
-<Item text="BaseClientSideWebPart" url="spdx/sp-webpart-base/baseclientsidewebpart" SEODescription=""/>
-</Item>
-<Item text="Enumerations" url="spdx/sp-webpart-base" SEODescription="">
-<Item text="PropertyPaneButtonType" url="spdx/sp-webpart-base/propertypanebuttontype" SEODescription=""/>
-<Item text="PropertyPaneFieldType" url="spdx/sp-webpart-base/propertypanefieldtype" SEODescription=""/>
-</Item>
-<Item text="Functions" url="spdx/sp-webpart-base" SEODescription="">
-<Item text="PropertyPaneButton" url="spdx/sp-webpart-base/propertypanebutton" SEODescription=""/>
-<Item text="PropertyPaneCheckbox" url="spdx/sp-webpart-base/propertypanecheckbox" SEODescription=""/>
-<Item text="PropertyPaneChoiceGroup" url="spdx/sp-webpart-base/propertypanechoicegroup" SEODescription=""/>
-<Item text="PropertyPaneDropdown" url="spdx/sp-webpart-base/propertypanedropdown" SEODescription=""/>
-<Item text="PropertyPaneHorizontalRule" url="spdx/sp-webpart-base/propertypanehorizontalrule" SEODescription=""/>
-<Item text="PropertyPaneLabel" url="spdx/sp-webpart-base/propertypanelabel" SEODescription=""/>
-<Item text="PropertyPaneLink" url="spdx/sp-webpart-base/propertypanelink" SEODescription=""/>
-<Item text="PropertyPaneSlider" url="spdx/sp-webpart-base/propertypaneslider" SEODescription=""/>
-<Item text="PropertyPaneTextField" url="spdx/sp-webpart-base/propertypanetextfield" SEODescription=""/>
-<Item text="PropertyPaneToggle" url="spdx/sp-webpart-base/propertypanetoggle" SEODescription=""/>
-</Item>
-<Item text="Interfaces" url="spdx/sp-webpart-base" SEODescription="">
-<Item text="IClientSideWebPartStatusRenderer" url="spdx/sp-webpart-base/iclientsidewebpartstatusrenderer" SEODescription=""/>
-<Item text="IPlaceholderProps" url="spdx/sp-webpart-base/iplaceholderprops" SEODescription=""/>
-<Item text="IPlaceholderSpinnerProps" url="spdx/sp-webpart-base/iplaceholderspinnerprops" SEODescription=""/>
-<Item text="IPropertyPaneButtonProps" url="spdx/sp-webpart-base/ipropertypanebuttonprops" SEODescription=""/>
-<Item text="IPropertyPaneCheckboxProps" url="spdx/sp-webpart-base/ipropertypanecheckboxprops" SEODescription=""/>
-<Item text="IPropertyPaneChoiceGroupOption" url="spdx/sp-webpart-base/ipropertypanechoicegroupoption" SEODescription=""/>
-<Item text="IPropertyPaneChoiceGroupProps" url="spdx/sp-webpart-base/ipropertypanechoicegroupprops" SEODescription=""/>
-<Item text="IPropertyPaneConfiguration" url="spdx/sp-webpart-base/ipropertypaneconfiguration" SEODescription=""/>
-<Item text="IPropertyPaneCustomFieldProps" url="spdx/sp-webpart-base/ipropertypanecustomfieldprops" SEODescription=""/>
-<Item text="IPropertyPaneDropdownOption" url="spdx/sp-webpart-base/ipropertypanedropdownoption" SEODescription=""/>
-<Item text="IPropertyPaneDropdownProps" url="spdx/sp-webpart-base/ipropertypanedropdownprops" SEODescription=""/>
-<Item text="IPropertyPaneField" url="spdx/sp-webpart-base/ipropertypanefield" SEODescription=""/>
-<Item text="IPropertyPaneGroup" url="spdx/sp-webpart-base/ipropertypanegroup" SEODescription=""/>
-<Item text="IPropertyPaneLabelProps" url="spdx/sp-webpart-base/ipropertypanelabelprops" SEODescription=""/>
-<Item text="IPropertyPaneLinkProps" url="spdx/sp-webpart-base/ipropertypanelinkprops" SEODescription=""/>
-<Item text="IPropertyPanePage" url="spdx/sp-webpart-base/ipropertypanepage" SEODescription=""/>
-<Item text="IPropertyPanePageHeader" url="spdx/sp-webpart-base/ipropertypanepageheader" SEODescription=""/>
-<Item text="IPropertyPaneSliderProps" url="spdx/sp-webpart-base/ipropertypanesliderprops" SEODescription=""/>
-<Item text="IPropertyPaneTextFieldProps" url="spdx/sp-webpart-base/ipropertypanetextfieldprops" SEODescription=""/>
-<Item text="IPropertyPaneToggleProps" url="spdx/sp-webpart-base/ipropertypanetoggleprops" SEODescription=""/>
-<Item text="ISerializedServerProcessedData" url="spdx/sp-webpart-base/iserializedserverprocesseddata" SEODescription=""/>
-<Item text="ISerializedWebPartData" url="spdx/sp-webpart-base/iserializedwebpartdata" SEODescription=""/>
-<Item text="IWebPartContext" url="spdx/sp-webpart-base/iwebpartcontext" SEODescription=""/>
-<Item text="IWebPartData" url="spdx/sp-webpart-base/iwebpartdata" SEODescription=""/>
-<Item text="IWebPartPropertiesMetadata" url="spdx/sp-webpart-base/iwebpartpropertiesmetadata" SEODescription=""/>
 </Item>
 </Item>
 </Item></Menu>

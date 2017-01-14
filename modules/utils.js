@@ -165,9 +165,6 @@ var self = module.exports = {
         }
         m['remarks'] = null
         if (method['remarks'].length > 0) {
-            console.log('method remark');
-            console.log(method['remarks'][0]['value']);
-            console.log();
             m['remarks'] = method['remarks'][0]['value']
         }
         m['accessModifier'] = method['accessModifier']
@@ -270,9 +267,6 @@ var self = module.exports = {
         }
         o['remarks'] = null
         if (obj['remarks'].length > 0) {
-            console.log('object remarks');
-            console.log(obj['remarks'][0]['value']);
-            console.log();
             o['remarks'] = obj['remarks'][0]['value']
         }
         o['properties'] = {}

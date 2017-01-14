@@ -26,6 +26,7 @@ let classInterfaceT = []
 let methodfuncT = []
 let enumT = []
 let anchor = ''
+let subAnchor = ''
 
 let WRITE_BACK = ['#', '|', '*', '_', '%']
 
@@ -422,7 +423,7 @@ var dFunction = {
     functionsGenIndividual: function(e = '') {
         genMemberview(e, functionObj[e], funcMthd_mdout, false, true)
         console.log(`*** Writing Function file for ${e}`)
-        FileOps.writeFile(funcMthd_mdout, `./markdown/${anchor}/${Utils.trimGenerics(e)}.md`)
+        FileOps.writeFile(funcMthd_mdout, `./markdown/${anchor}/${subAnchor}/${Utils.trimGenerics(e)}.md`)
         funcMthd_mdout = []
         return
     },
@@ -443,23 +444,30 @@ function addRegions(tline = '', type = '') {
     switch (type) {
         case 'class':
             o = classObj
+            subAnchor = 'class'
             break;
         case 'module':
+            subAnchor = 'module'
             o = moduleObj
             break;
         case 'interface':
+            subAnchor = 'interface'
             o = iObj
             break;
         case 'functions':
+            subAnchor = 'function'
             o = functionObj
             break;
         case 'enumeration':
+            subAnchor = 'enum'
             o = enumObj
             break;
         case 'typedef':
+            subAnchor = 'type'
             o = typeObj
             break;
         case 'variable':
+            subAnchor = 'variable'
             o = variableObj
             break;
         default:
@@ -473,7 +481,7 @@ function addRegions(tline = '', type = '') {
         mline = mline.replace('%namefunc%', `${o[e]['docName']}`)
 
         mline = mline.replace('%type%', `${getLinkForType(o[e]['dataType'])}`)
-        mline = mline.replace('%link%', `./${anchor}/${e.replace(/'/g,'').toLowerCase()}`)
+        mline = mline.replace('%link%', `./${anchor}/${subAnchor}/${e.replace(/'/g,'').toLowerCase()}`)
         var descr = o[e]['descr']
         if (descr) {
             //descr = descr.split('.')[0].replace(/\n/g, ' ')
@@ -555,7 +563,7 @@ function addParams(tline = '', member = {}, targetArray = []) {
         mline = mline.replace('%name%', e['name'])
         mline = mline.replace('%dtype%', `${getLinkForType(e['dataType'])}`)
         if (e['isOptional']) {
-            mline = mline.replace('%optional% ', 'Optional.')
+            mline = mline.replace('%optional% ', '_Optional._ ')
         }
         else {
             mline = mline.replace('%optional% ', '')
@@ -626,7 +634,7 @@ function genClassInterfaceModuleView(isClass = true, localName = '', isModule = 
             // genMemberview(e, localO[localName]['methods'][e], mem_mdout, isClass)
             genMemberview(e, localO[localName]['methods'][e], funcMthd_mdout, isClass, true)
             console.log(`*** Writing Method file for ${e}`)
-            FileOps.writeFile(funcMthd_mdout, `./markdown/${anchor}/${Utils.trimGenerics(e)}.md`)
+            FileOps.writeFile(funcMthd_mdout, `./markdown/${anchor}/${subAnchor}/${Utils.trimGenerics(e)}.md`)
             funcMthd_mdout = []
         })
     }
@@ -639,9 +647,9 @@ function genClassInterfaceModuleView(isClass = true, localName = '', isModule = 
 
     console.log(`*** Writing Class/Interface/Module file for ${localName}`)
     if (!isModule) {
-        FileOps.writeFile(mem_mdout, `./markdown/${anchor}/${Utils.trimGenerics(localName)}.md`)
+        FileOps.writeFile(mem_mdout, `./markdown/${anchor}/${subAnchor}/${Utils.trimGenerics(localName)}.md`)
     } else {
-        FileOps.writeFile(mem_mdout, `./markdown/${anchor}/${Utils.trimGenerics(localName)}-imodule.md`)
+        FileOps.writeFile(mem_mdout, `./markdown/${anchor}/${subAnchor}/${Utils.trimGenerics(localName)}-imodule.md`)
     }
 
 }
@@ -715,19 +723,6 @@ function genExtModuleView() {
     //genFunctionView()
     //genEnumView()
 }
-/**
- * Not used -- remove
- * @return {[type]} [description]
- */
-// function genFunctionView() {
-//     Object.keys(functionObj).forEach((e) => {
-//         genMemberview(e, functionObj[e], funcMthd_mdout, false, true)
-//         console.log(`*** Writing Function file for ${e}`)
-//         FileOps.writeFile(funcMthd_mdout, `./markdown/${anchor}/${Utils.trimGenerics(e)}.md`)
-//         funcMthd_mdout = []
-//     })
-// }
-
 
 function genEnumView(e='') {
     enumT.forEach((tline) => {
@@ -754,7 +749,7 @@ function genEnumView(e='') {
         }
     })
     console.log(`*** Writing Enum file for ${e}`)
-    FileOps.writeFile(enum_mdout, `./markdown/${anchor}/${Utils.trimGenerics(e)}.md`)
+    FileOps.writeFile(enum_mdout, `./markdown/${anchor}/${subAnchor}/${Utils.trimGenerics(e)}.md`)
     enum_mdout = []
     return
 }
@@ -804,24 +799,31 @@ function loadModule(files = []) {
 
         if (e.includes('_module.json')) {
             moduleObj = JSON.parse(FileOps.loadJson(`./json/${e}`))
+            FileOps.createFolder(`./markdown/${anchor}/module`)
             console.log(`*** Read Module JSON file, ${Object.keys(moduleObj)}`)
         } else if (e.includes('_class.json')) {
             classObj = JSON.parse(FileOps.loadJson(`./json/${e}`))
+            FileOps.createFolder(`./markdown/${anchor}/class`)
             console.log(`*** Read Class JSON file, ${Object.keys(classObj)}`)
         } else if (e.includes('_interface.json')) {
             iObj = JSON.parse(FileOps.loadJson(`./json/${e}`))
+            FileOps.createFolder(`./markdown/${anchor}/interface`)
             console.log(`*** Read Interface JSON file, ${Object.keys(iObj)}`)
         } else if (e.includes('_enum.json')) {
             enumObj = JSON.parse(FileOps.loadJson(`./json/${e}`))
+            FileOps.createFolder(`./markdown/${anchor}/enum`)
             console.log(`*** Read Enum JSON file, ${Object.keys(enumObj)}`)
         } else if (e.includes('_function.json')) {
             functionObj = JSON.parse(FileOps.loadJson(`./json/${e}`))
+            FileOps.createFolder(`./markdown/${anchor}/function`)
             console.log(`*** Read Function JSON file, ${Object.keys(functionObj)}`)
         } else if (e.includes('_variable.json')) {
             variableObj = JSON.parse(FileOps.loadJson(`./json/${e}`))
+            FileOps.createFolder(`./markdown/${anchor}/variable`)
             console.log(`*** Read Variable JSON file, ${Object.keys(variableObj)}`)
         } else if (e.includes('_type.json')) {
             typeObj = JSON.parse(FileOps.loadJson(`./json/${e}`))
+            FileOps.createFolder(`./markdown/${anchor}/type`)
             console.log(`*** Read Typedef JSON file, ${Object.keys(typeObj)}`)
         }
         else {

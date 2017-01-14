@@ -101,7 +101,7 @@ function file_reset() {
 }
 
 
-function processClassInterface(obj={}, objName= '', fileName='') {
+function processClassInterface(obj={}, objName= '', fileName='', objectType='') {
 
     let o = Utils.createClassInterfaceObject(obj)
 
@@ -118,7 +118,7 @@ function processClassInterface(obj={}, objName= '', fileName='') {
                 break;
             case 'method':
                 // Write to all members
-                allMembers[`${objName}.${e.toLowerCase().replace(/_/g,'')}`] = '../' + fileName + '/' + objName + '#' + e.toLowerCase().replace(/_/g,'')
+                allMembers[`${objName}.${e.toLowerCase().replace(/_/g,'')}`] = '../' + fileName + '/' + objectType +'/'+ objName + '#' + e.toLowerCase().replace(/_/g,'')
                 var m = Utils.processMethod(obj['members'][e], e, obj['isBeta'])
                 if (e === '__constructor') {
                     o['constructor'] = m
@@ -167,15 +167,14 @@ function processModule(packageObj={}, fileName="error") {
 
     Object.keys(packageObj).forEach((e) => {
         //console.log("**** Processing: " + e + " " + packageObj[e]['kind']);
-        allTypes[e] = '../' + fileName.toLowerCase() + '/' + e.toLowerCase() + '.md'
 
         switch (packageObj[e]['kind']) {
             case 'class':
-                classObj[e] = processClassInterface(packageObj[e], e.toLowerCase(), fileName.toLowerCase())
+                classObj[e] = processClassInterface(packageObj[e], e.toLowerCase(), fileName.toLowerCase(), 'class')
                 nClass++
                 break;
             case 'interface':
-                iObj[e] = processClassInterface(packageObj[e], e.toLowerCase(), fileName.toLowerCase())
+                iObj[e] = processClassInterface(packageObj[e], e.toLowerCase(), fileName.toLowerCase(), 'interface')
                 nInterface++
                 break;
             case 'enum':
@@ -190,6 +189,8 @@ function processModule(packageObj={}, fileName="error") {
                 console.log('ERROR Unmatched type: ' + packageObj[e]['kind']);
                 break;
         }
+        allTypes[e] = '../' + fileName.toLowerCase() + '/' + packageObj[e]['kind'] + '/' + e.toLowerCase() + '.md'
+
     })
 
     FileOps.writeObject(enumObj, `./json/${fileName}_enum.json`)
