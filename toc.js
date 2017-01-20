@@ -71,7 +71,14 @@ let inputFiles = ['sp-webpart-base.json',
                 ,'sp-page-context.json'
                 ]
 
-inputFiles.forEach((e) => {
+let inputFilesExternal = ['es6-collections.api.json',
+                    'es6-promise.api.json',
+                    'whatwg-fetch.api.json'
+                ]
+
+
+//inputFiles.forEach((e) => {
+inputFilesExternal.forEach((e) => {
     console.log('** Processing: ' + e);
     let files = FileOps.walkFiles('./json', e.replace('.json',''))
     moduleName = e.split('.')[0]
@@ -96,7 +103,7 @@ function loadModule(files = [], moduleName = "") {
                 // Add grouping line
                 addItemLine('', "Modules", `${moduleName}`, false)
                 Object.keys(moduleObj).forEach((e) => {
-                    addItemLine(e, "", `${anchor}/${e}`, true)
+                    addItemLine(e, "", `${anchor}/module/${e}`, true)
                 })
                 endSegment()
 
@@ -107,7 +114,7 @@ function loadModule(files = [], moduleName = "") {
                 // Add grouping line
                 addItemLine('', "Classes", `${moduleName}`, false)
                 Object.keys(classObj).forEach((e) => {
-                    addItemLine(e, "", `${anchor}/${e}`, true)
+                    addItemLine(e, "", `${anchor}/class/${e}`, true)
                 })
                 endSegment()
 
@@ -118,7 +125,7 @@ function loadModule(files = [], moduleName = "") {
                 // Add grouping line
                 addItemLine('', "Interfaces", `${moduleName}`, false)
                 Object.keys(iObj).forEach((e) => {
-                    addItemLine(e, "", `${anchor}/${e}`, true)
+                    addItemLine(e, "", `${anchor}/interface/${e}`, true)
                 })
                 endSegment()
 
@@ -129,7 +136,7 @@ function loadModule(files = [], moduleName = "") {
                 // Add grouping line
                 addItemLine('', "Enumerations", `${moduleName}`, false)
                 Object.keys(enumObj).forEach((e) => {
-                    addItemLine(e, "", `${anchor}/${e}`, true)
+                    addItemLine(e, "", `${anchor}/enum/${e}`, true)
                 })
                 endSegment()
 
@@ -140,7 +147,7 @@ function loadModule(files = [], moduleName = "") {
                 // Add grouping line
                 addItemLine('', "Functions", `${moduleName}`, false)
                 Object.keys(functionObj).forEach((e) => {
-                    addItemLine(e, "", `${anchor}/${e}`, true)
+                    addItemLine(e, "", `${anchor}/function/${e}`, true)
                 })
                 endSegment()
 
@@ -151,7 +158,7 @@ function loadModule(files = [], moduleName = "") {
                 // Add grouping line
                 addItemLine('', "Variables", `${moduleName}`, false)
                 Object.keys(variableObj).forEach((e) => {
-                    addItemLine(e, "", `${anchor}/${e}`, true)
+                    addItemLine(e, "", `${anchor}/variable/${e}`, true)
                 })
                 endSegment()
 
@@ -162,7 +169,7 @@ function loadModule(files = [], moduleName = "") {
                 // Add grouping line
                 addItemLine('', "Types", `${moduleName}`, false)
                 Object.keys(typeObj).forEach((e) => {
-                    addItemLine(e, "", `${anchor}/${e}`, true)
+                    addItemLine(e, "", `${anchor}/type/${e}`, true)
                 })
                 endSegment()
 

@@ -5,9 +5,9 @@
 
 {@inheritdoc Response.error}
 
-**Signature:** _public static error(): Response;_
+**Signature:** _public static error(): [Response](../whatwg-fetch.api/class/response.md);_
 
-**Returns**: `Response`
+**Returns**: [`Response`](../whatwg-fetch.api/class/response.md)
 
 
 

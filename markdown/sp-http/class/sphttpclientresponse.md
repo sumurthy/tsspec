@@ -12,7 +12,7 @@ The Response subclass returned by methods such as SPHttpClient.fetch().
 ## Constructor
 
 
-**Signature:** _public constructor(response: Response);_
+**Signature:** _public constructor(response: [Response](../whatwg-fetch.api/class/response.md));_
 
 **Returns**: 
 

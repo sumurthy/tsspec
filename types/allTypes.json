@@ -1,4 +1,15 @@
 {
+  "ForEachable": "../es6-promise.api/interface/foreachable.md",
+  "Iterator": "../es6-promise.api/interface/iterator.md",
+  "IteratorResult": "../es6-promise.api/interface/iteratorresult.md",
+  "Map": "../es6-promise.api/interface/map.md",
+  "MapConstructor": "../es6-promise.api/interface/mapconstructor.md",
+  "Set": "../es6-promise.api/interface/set.md",
+  "SetConstructor": "../es6-promise.api/interface/setconstructor.md",
+  "WeakMap": "../es6-promise.api/interface/weakmap.md",
+  "WeakMapConstructor": "../es6-promise.api/interface/weakmapconstructor.md",
+  "WeakSet": "../es6-promise.api/interface/weakset.md",
+  "WeakSetConstructor": "../es6-promise.api/interface/weaksetconstructor.md",
   "IClientSideComponentContext": "../sp-component-base/interface/iclientsidecomponentcontext.md",
   "DisplayMode": "../sp-core-library/enum/displaymode.md",
   "Environment": "../sp-core-library/class/environment.md",
@@ -88,5 +99,13 @@
   "PropertyPaneLink": "../sp-webpart-base/function/propertypanelink.md",
   "PropertyPaneSlider": "../sp-webpart-base/function/propertypaneslider.md",
   "PropertyPaneTextField": "../sp-webpart-base/function/propertypanetextfield.md",
-  "PropertyPaneToggle": "../sp-webpart-base/function/propertypanetoggle.md"
+  "PropertyPaneToggle": "../sp-webpart-base/function/propertypanetoggle.md",
+  "Body": "../whatwg-fetch.api/class/body.md",
+  "Headers": "../whatwg-fetch.api/class/headers.md",
+  "HeadersMap": "../whatwg-fetch.api/interface/headersmap.md",
+  "Request": "../whatwg-fetch.api/class/request.md",
+  "RequestInit": "../whatwg-fetch.api/interface/requestinit.md",
+  "Response": "../whatwg-fetch.api/class/response.md",
+  "ResponseInit": "../whatwg-fetch.api/interface/responseinit.md",
+  "Window": "../whatwg-fetch.api/interface/window.md"
 }

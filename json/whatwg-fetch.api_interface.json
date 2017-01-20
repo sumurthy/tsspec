@@ -1,0 +1,218 @@
+{
+  "HeadersMap": {
+    "isBeta": false,
+    "implementsExtendsName": "",
+    "genericType": "",
+    "descr": "",
+    "remarks": null,
+    "properties": {},
+    "functions": {},
+    "methods": {
+      "__index-headersmap": {
+        "isBeta": false,
+        "showBetaMessage": false,
+        "descr": "",
+        "remarks": null,
+        "accessModifier": "",
+        "signature": "[ index: string ]: string;",
+        "isStatic": false,
+        "isOptional": false,
+        "genericType": null,
+        "returnType": "string",
+        "returnDescr": "",
+        "params": [],
+        "docName": "index()",
+        "mdLink": "index"
+      }
+    },
+    "constructor": {},
+    "types": {},
+    "variables": {},
+    "modules": {},
+    "objects": {}
+  },
+  "RequestInit": {
+    "isBeta": false,
+    "implementsExtendsName": "",
+    "genericType": "",
+    "descr": "",
+    "remarks": null,
+    "properties": {
+      "body": {
+        "descr": "",
+        "remarks": null,
+        "dataType": "BodyInit",
+        "isOptional": true,
+        "readonly": false,
+        "accessModifier": "public",
+        "isCollection": false,
+        "function": null,
+        "returnType": null,
+        "assignValue": null
+      },
+      "cache": {
+        "descr": "",
+        "remarks": null,
+        "dataType": "RequestCache",
+        "isOptional": true,
+        "readonly": false,
+        "accessModifier": "public",
+        "isCollection": false,
+        "function": null,
+        "returnType": null,
+        "assignValue": null
+      },
+      "credentials": {
+        "descr": "",
+        "remarks": null,
+        "dataType": "RequestCredentials",
+        "isOptional": true,
+        "readonly": false,
+        "accessModifier": "public",
+        "isCollection": false,
+        "function": null,
+        "returnType": null,
+        "assignValue": null
+      },
+      "headers": {
+        "descr": "",
+        "remarks": null,
+        "dataType": "HeaderInit|{ [index: string]: string }",
+        "isOptional": true,
+        "readonly": false,
+        "accessModifier": "public",
+        "isCollection": false,
+        "function": null,
+        "returnType": null,
+        "assignValue": null
+      },
+      "method": {
+        "descr": "",
+        "remarks": null,
+        "dataType": "string",
+        "isOptional": true,
+        "readonly": false,
+        "accessModifier": "public",
+        "isCollection": false,
+        "function": null,
+        "returnType": null,
+        "assignValue": null
+      },
+      "mode": {
+        "descr": "",
+        "remarks": null,
+        "dataType": "RequestMode",
+        "isOptional": true,
+        "readonly": false,
+        "accessModifier": "public",
+        "isCollection": false,
+        "function": null,
+        "returnType": null,
+        "assignValue": null
+      },
+      "redirect": {
+        "descr": "",
+        "remarks": null,
+        "dataType": "RequestRedirect",
+        "isOptional": true,
+        "readonly": false,
+        "accessModifier": "public",
+        "isCollection": false,
+        "function": null,
+        "returnType": null,
+        "assignValue": null
+      }
+    },
+    "functions": {},
+    "methods": {},
+    "constructor": {},
+    "types": {},
+    "variables": {},
+    "modules": {},
+    "objects": {}
+  },
+  "ResponseInit": {
+    "isBeta": false,
+    "implementsExtendsName": "",
+    "genericType": "",
+    "descr": "",
+    "remarks": null,
+    "properties": {
+      "headers": {
+        "descr": "",
+        "remarks": null,
+        "dataType": "HeaderInit",
+        "isOptional": true,
+        "readonly": false,
+        "accessModifier": "public",
+        "isCollection": false,
+        "function": null,
+        "returnType": null,
+        "assignValue": null
+      },
+      "status": {
+        "descr": "",
+        "remarks": null,
+        "dataType": "number",
+        "isOptional": false,
+        "readonly": false,
+        "accessModifier": "public",
+        "isCollection": false,
+        "function": null,
+        "returnType": null,
+        "assignValue": null
+      },
+      "statusText": {
+        "descr": "",
+        "remarks": null,
+        "dataType": "string",
+        "isOptional": true,
+        "readonly": false,
+        "accessModifier": "public",
+        "isCollection": false,
+        "function": null,
+        "returnType": null,
+        "assignValue": null
+      }
+    },
+    "functions": {},
+    "methods": {},
+    "constructor": {},
+    "types": {},
+    "variables": {},
+    "modules": {},
+    "objects": {}
+  },
+  "Window": {
+    "isBeta": false,
+    "implementsExtendsName": "",
+    "genericType": "",
+    "descr": "",
+    "remarks": null,
+    "properties": {},
+    "functions": {},
+    "methods": {
+      "fetch-window": {
+        "isBeta": false,
+        "showBetaMessage": false,
+        "descr": "",
+        "remarks": null,
+        "accessModifier": "",
+        "signature": "fetch(url: string|Request, init?: RequestInit): Promise<Response>;",
+        "isStatic": false,
+        "isOptional": false,
+        "genericType": null,
+        "returnType": "Promise<Response>",
+        "returnDescr": "",
+        "params": [],
+        "docName": "fetch()",
+        "mdLink": "fetch"
+      }
+    },
+    "constructor": {},
+    "types": {},
+    "variables": {},
+    "modules": {},
+    "objects": {}
+  }
+}
