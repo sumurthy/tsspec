@@ -5,7 +5,7 @@
 
 {@inheritdoc ISPComponentLoader.loadScript}
 
-**Signature:** _public static loadScript < TModule >(url: string, options?: [ILoadScriptOptions](../sp-loader/interface/iloadscriptoptions.md)): Promise<TModule>;_
+**Signature:** _public static loadScript < TModule >(url: string, options?: [ILoadScriptOptions](../../sp-loader/interface/iloadscriptoptions.md)): Promise<TModule>;_
 
 **Returns**: `Promise<TModule>`
 

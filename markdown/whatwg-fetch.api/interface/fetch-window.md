@@ -5,7 +5,7 @@
 
 
 
-**Signature:** _fetch(url: string|[Request](../whatwg-fetch.api/class/request.md), init?: [RequestInit](../whatwg-fetch.api/interface/requestinit.md)): Promise<[Response](../whatwg-fetch.api/class/response.md)>;_
+**Signature:** _fetch(url: string|[Request](../../whatwg-fetch.api/class/request.md), init?: [RequestInit](../../whatwg-fetch.api/interface/requestinit.md)): Promise<[Response](../../whatwg-fetch.api/class/response.md)>;_
 
 **Returns**: `Promise<Response>`
 

@@ -5,9 +5,9 @@
 
 
 
-**Signature:** _throw ?(e?: any): [IteratorResult](../es6-promise.api/interface/iteratorresult.md)<T>;_
+**Signature:** _throw ?(e?: any): [IteratorResult](../../es6-promise.api/interface/iteratorresult.md)<T>;_
 
-**Returns**: [`IteratorResult`](../es6-promise.api/interface/iteratorresult.md)<T>
+**Returns**: [`IteratorResult`](../../es6-promise.api/interface/iteratorresult.md)<T>
 
 
 

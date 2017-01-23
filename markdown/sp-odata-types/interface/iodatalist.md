@@ -17,7 +17,7 @@ Represents an OData SP.List object. For more information about this object see t
 |:-------------|:-------|:-----------|
 |`BaseTemplate`      | `number` | The list definition type on which the list is based. |
 |`Created`      | `string` | Example: "/Date(1453294804000)/" |
-|`CurrentChangeToken`      | [`IODataChangeToken`](../sp-odata-types/interface/iodatachangetoken.md) | The change token that will be used in logging the next change to the list. |
+|`CurrentChangeToken`      | [`IODataChangeToken`](../../sp-odata-types/interface/iodatachangetoken.md) | The change token that will be used in logging the next change to the list. |
 |`Description`      | `string` | A description of the List. |
 |`EntityTypeName`      | `string` | Example: "MyListTitleList" |
 |`Hidden`      | `boolean` | A hidden list does not appear on the Documents and Lists page, Quick Launch bar, the Modify Site Content page, or the Add Column page as an option for lookup fields. |

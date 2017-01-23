@@ -118,7 +118,7 @@ function processClassInterface(obj={}, objName= '', fileName='', objectType='') 
                 break;
             case 'method':
                 // Write to all members
-                allMembers[`${objName}.${e.toLowerCase().replace(/_/g,'')}`] = '../' + fileName + '/' + objectType +'/'+ objName + '#' + e.toLowerCase().replace(/_/g,'')
+                allMembers[`${objName}.${e.toLowerCase().replace(/_/g,'')}`] = '../../' + fileName + '/' + objectType +'/'+ objName + '#' + e.toLowerCase().replace(/_/g,'')
                 var m = Utils.processMethod(obj['members'][e], e, obj['isBeta'])
                 if (e === '__constructor') {
                     o['constructor'] = m
@@ -189,7 +189,7 @@ function processModule(packageObj={}, fileName="error") {
                 console.log('ERROR Unmatched type: ' + packageObj[e]['kind']);
                 break;
         }
-        allTypes[e] = '../' + fileName.toLowerCase() + '/' + packageObj[e]['kind'] + '/' + e.toLowerCase() + '.md'
+        allTypes[e] = '../../' + fileName.toLowerCase() + '/' + packageObj[e]['kind'] + '/' + e.toLowerCase() + '.md'
 
     })
 

@@ -5,7 +5,7 @@
 
 All network requests are routed through this method, which calls the underlying IFetchProvider.fetch().
 
-**Signature:** _protected fetchCore(configuration: [HttpClientConfiguration](../sp-http/class/httpclientconfiguration.md), request: [Request](../whatwg-fetch.api/class/request.md)): Promise<[Response](../whatwg-fetch.api/class/response.md)>;_
+**Signature:** _protected fetchCore(configuration: [HttpClientConfiguration](../../sp-http/class/httpclientconfiguration.md), request: [Request](../../whatwg-fetch.api/class/request.md)): Promise<[Response](../../whatwg-fetch.api/class/response.md)>;_
 
 **Returns**: `Promise<Response>`
 

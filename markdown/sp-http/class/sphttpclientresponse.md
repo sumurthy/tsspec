@@ -12,7 +12,7 @@ The Response subclass returned by methods such as SPHttpClient.fetch().
 ## Constructor
 
 
-**Signature:** _public constructor(response: [Response](../whatwg-fetch.api/class/response.md));_
+**Signature:** _public constructor(response: [Response](../../whatwg-fetch.api/class/response.md));_
 
 **Returns**: 
 
@@ -29,7 +29,7 @@ None
 
 | Method	   | Access Modifier | Returns	| Description|
 |:-------------|:----|:-------|:-----------|
-|[`clone()`](clone-sphttpclientresponse.md)     | `public` | [`SPHttpClientResponse`](../sp-http/class/sphttpclientresponse.md) |  |
+|[`clone()`](clone-sphttpclientresponse.md)     | `public` | [`SPHttpClientResponse`](../../sp-http/class/sphttpclientresponse.md) |  |
 
 
 

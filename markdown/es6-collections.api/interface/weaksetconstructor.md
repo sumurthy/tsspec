@@ -15,7 +15,7 @@
 
 | Property	   | Type	| Description|
 |:-------------|:-------|:-----------|
-|`prototype`      | [`WeakSet`](../es6-promise.api/interface/weakset.md)<any> |  |
+|`prototype`      | [`WeakSet`](../../es6-promise.api/interface/weakset.md)<any> |  |
 
 
 
@@ -24,7 +24,7 @@
 
 | Method	   |  Returns	| Description|
 |:-------------|:-------|:-----------|
-|[`new()`](__new-weaksetconstructor.md)      | [`WeakSet`](../es6-promise.api/interface/weakset.md)<T> |  |
+|[`new()`](__new-weaksetconstructor.md)      | [`WeakSet`](../../es6-promise.api/interface/weakset.md)<T> |  |
 
 
 

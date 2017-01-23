@@ -15,7 +15,7 @@ A shorthand pattern for extracting well-known services from a ServiceScope.
 
 | Property	   | Type	| Description|
 |:-------------|:-------|:-----------|
-|`serviceScope`      | [`ServiceScope`](../sp-core-library/class/servicescope.md) | Returns the underlying ServiceScope that the members belong to. |
+|`serviceScope`      | [`ServiceScope`](../../sp-core-library/class/servicescope.md) | Returns the underlying ServiceScope that the members belong to. |
 
 
 

@@ -12,7 +12,7 @@
 ## Constructor
 
 
-**Signature:** _constructor(body?: BodyInit, init?: [ResponseInit](../whatwg-fetch.api/interface/responseinit.md));_
+**Signature:** _constructor(body?: BodyInit, init?: [ResponseInit](../../whatwg-fetch.api/interface/responseinit.md));_
 
 **Returns**: 
 
@@ -26,7 +26,7 @@ None
 
 | Property	   | Access Modifier | Type	| Description|
 |:-------------|:----|:-------|:-----------|
-|`headers`     | `public` | [`Headers`](../whatwg-fetch.api/class/headers.md) |  |
+|`headers`     | `public` | [`Headers`](../../whatwg-fetch.api/class/headers.md) |  |
 |`ok`     | `public` | `boolean` |  |
 |`status`     | `public` | `number` |  |
 |`statusText`     | `public` | `string` |  |
@@ -40,9 +40,9 @@ None
 
 | Method	   | Access Modifier | Returns	| Description|
 |:-------------|:----|:-------|:-----------|
-|[`clone()`](clone-response.md)     | `` | [`Response`](../whatwg-fetch.api/class/response.md) |  |
-|[`error()`](error-response.md)     | `, static` | [`Response`](../whatwg-fetch.api/class/response.md) |  |
-|[`redirect()`](redirect-response.md)     | `, static` | [`Response`](../whatwg-fetch.api/class/response.md) |  |
+|[`clone()`](clone-response.md)     | `` | [`Response`](../../whatwg-fetch.api/class/response.md) |  |
+|[`error()`](error-response.md)     | `, static` | [`Response`](../../whatwg-fetch.api/class/response.md) |  |
+|[`redirect()`](redirect-response.md)     | `, static` | [`Response`](../../whatwg-fetch.api/class/response.md) |  |
 
 
 

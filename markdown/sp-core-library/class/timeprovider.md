@@ -1,6 +1,6 @@
 # TimeProvider class
 
-_Implements: [`ITimeProvider`](../sp-core-library/interface/itimeprovider.md)_
+_Implements: [`ITimeProvider`](../../sp-core-library/interface/itimeprovider.md)_
 
 
 
@@ -12,7 +12,7 @@ This is the default implementation of ITimeProvider that simply calls the real b
 ## Constructor
 
 
-**Signature:** _constructor(serviceScope: [ServiceScope](../sp-core-library/class/servicescope.md));_
+**Signature:** _constructor(serviceScope: [ServiceScope](../../sp-core-library/class/servicescope.md));_
 
 **Returns**: 
 

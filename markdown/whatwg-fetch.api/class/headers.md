@@ -12,7 +12,7 @@
 ## Constructor
 
 
-**Signature:** _constructor(headers?:[Headers](../whatwg-fetch.api/class/headers.md)|[HeadersMap](../whatwg-fetch.api/interface/headersmap.md))_
+**Signature:** _constructor(headers?:[Headers](../../whatwg-fetch.api/class/headers.md)|[HeadersMap](../../whatwg-fetch.api/interface/headersmap.md))_
 
 **Returns**: 
 

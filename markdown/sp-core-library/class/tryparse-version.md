@@ -5,9 +5,9 @@
 
 Tries to construct a new Version instance using the version string. Returns undefined if not successful.
 
-**Signature:** _public static tryParse(versionString: string): [Version](../sp-core-library/class/version.md);_
+**Signature:** _public static tryParse(versionString: string): [Version](../../sp-core-library/class/version.md);_
 
-**Returns**: [`Version`](../sp-core-library/class/version.md)
+**Returns**: [`Version`](../../sp-core-library/class/version.md)
 
 
 

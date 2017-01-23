@@ -12,7 +12,7 @@ SPHttpClient is used to perform REST calls against SharePoint. It adds default h
 ## Constructor
 
 
-**Signature:** _constructor(serviceScope: [ServiceScope](../sp-core-library/class/servicescope.md));_
+**Signature:** _constructor(serviceScope: [ServiceScope](../../sp-core-library/class/servicescope.md));_
 
 **Returns**: 
 
@@ -26,7 +26,7 @@ None
 
 | Property	   | Access Modifier | Type	| Description|
 |:-------------|:----|:-------|:-----------|
-|`serviceKey`     | `public` | [`ServiceKey`](../sp-core-library/class/servicekey.md)<[`SPHttpClient`](../sp-http/class/sphttpclient.md)> | The service key for SPHttpClient. |
+|`serviceKey`     | `public` | [`ServiceKey`](../../sp-core-library/class/servicekey.md)<[`SPHttpClient`](../../sp-http/class/sphttpclient.md)> | The service key for SPHttpClient. |
 
 
 

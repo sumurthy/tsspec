@@ -14,8 +14,8 @@ This class provides standard predefined HttpClientConfiguration objects for use 
 
 | Property	   | Access Modifier | Type	| Description|
 |:-------------|:----|:-------|:-----------|
-|`none`     | `public` | [`HttpClientConfiguration`](../sp-http/class/httpclientconfiguration.md) | This configuration turns off every feature switch for HttpClient. The fetch() behavior will be essentially identical to the WHATWG standard API that is documented here: https://fetch.spec.whatwg.org/ |
-|`v1`     | `public` | [`HttpClientConfiguration`](../sp-http/class/httpclientconfiguration.md) | Version 1 enables these switches: consoleLogging=true |
+|`none`     | `public` | [`HttpClientConfiguration`](../../sp-http/class/httpclientconfiguration.md) | This configuration turns off every feature switch for HttpClient. The fetch() behavior will be essentially identical to the WHATWG standard API that is documented here: https://fetch.spec.whatwg.org/ |
+|`v1`     | `public` | [`HttpClientConfiguration`](../../sp-http/class/httpclientconfiguration.md) | Version 1 enables these switches: consoleLogging=true |
 
 
 

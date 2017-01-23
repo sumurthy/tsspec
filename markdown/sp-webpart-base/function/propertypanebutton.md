@@ -7,7 +7,7 @@ Helper method to create a Button on the PropertyPane.
 
 **Signature:** __
 
-**Returns**: [`IPropertyPaneField`](../sp-webpart-base/interface/ipropertypanefield.md)<[`IPropertyPaneButtonProps`](../sp-webpart-base/interface/ipropertypanebuttonprops.md)>
+**Returns**: [`IPropertyPaneField`](../../sp-webpart-base/interface/ipropertypanefield.md)<[`IPropertyPaneButtonProps`](../../sp-webpart-base/interface/ipropertypanebuttonprops.md)>
 
 
 
@@ -19,6 +19,6 @@ Helper method to create a Button on the PropertyPane.
 | Parameter	   | Type    | Description |
 |:-------------|:---------------|:------------|
 | `targetProperty`    | `string` | Target property the Button is associated to. |
-| `properties`    | [`IPropertyPaneButtonProps`](../sp-webpart-base/interface/ipropertypanebuttonprops.md) | Strongly typed Button properties. |
+| `properties`    | [`IPropertyPaneButtonProps`](../../sp-webpart-base/interface/ipropertypanebuttonprops.md) | Strongly typed Button properties. |
 
 

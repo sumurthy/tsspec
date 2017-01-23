@@ -17,7 +17,7 @@ PropertyPane button props.
 |:-------------|:-------|:-----------|
 |`ariaDescription`      | `string` | Detailed description of the button for the benefit of screen readers. Besides the compound button, other button types will need more information provided to screen reader. |
 |`ariaLabel`      | `string` | The aria label of the button for the benefit of screen readers. |
-|`buttonType`      | [`PropertyPaneButtonType`](../sp-webpart-base/enum/propertypanebuttontype.md) | The type of button to render. Default value is ButtonType.normal. |
+|`buttonType`      | [`PropertyPaneButtonType`](../../sp-webpart-base/enum/propertypanebuttontype.md) | The type of button to render. Default value is ButtonType.normal. |
 |`description`      | `string` | Description of the action this button takes. Only used for compound buttons. |
 |`disabled`      | `boolean` | Whether the button is disabled. |
 |`icon`      | `string` | The button icon shown in command or hero type. |

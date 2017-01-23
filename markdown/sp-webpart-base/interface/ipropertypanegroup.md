@@ -15,7 +15,7 @@ PropertyPane group. Group is part of the PropertyPanePage.
 
 | Property	   | Type	| Description|
 |:-------------|:-------|:-----------|
-|`groupFields`      | [`IPropertyPaneField`](../sp-webpart-base/interface/ipropertypanefield.md)<any>[] | List of PropertyPane fields. |
+|`groupFields`      | [`IPropertyPaneField`](../../sp-webpart-base/interface/ipropertypanefield.md)<any>[] | List of PropertyPane fields. |
 |`groupName`      | `string` | Display name for the group. |
 
 

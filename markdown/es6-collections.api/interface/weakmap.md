@@ -22,7 +22,7 @@ _Type parameters: `<K, V>`_
 |[`delete()`](delete-weakmap.md)      | `boolean` |  |
 |[`get()`](get-weakmap.md)      | `V` |  |
 |[`has()`](has-weakmap.md)      | `boolean` |  |
-|[`set()`](set-weakmap.md)      | [`WeakMap`](../es6-promise.api/interface/weakmap.md)<K, V> |  |
+|[`set()`](set-weakmap.md)      | [`WeakMap`](../../es6-promise.api/interface/weakmap.md)<K, V> |  |
 
 
 

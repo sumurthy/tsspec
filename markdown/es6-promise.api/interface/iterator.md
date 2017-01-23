@@ -18,9 +18,9 @@ _Type parameters: `<T>`_
 
 | Method	   |  Returns	| Description|
 |:-------------|:-------|:-----------|
-|[`next()`](next-iterator.md)      | [`IteratorResult`](../es6-promise.api/interface/iteratorresult.md)<T> |  |
-|[`return()`](return-iterator.md)      | [`IteratorResult`](../es6-promise.api/interface/iteratorresult.md)<T> |  |
-|[`throw()`](throw-iterator.md)      | [`IteratorResult`](../es6-promise.api/interface/iteratorresult.md)<T> |  |
+|[`next()`](next-iterator.md)      | [`IteratorResult`](../../es6-promise.api/interface/iteratorresult.md)<T> |  |
+|[`return()`](return-iterator.md)      | [`IteratorResult`](../../es6-promise.api/interface/iteratorresult.md)<T> |  |
+|[`throw()`](throw-iterator.md)      | [`IteratorResult`](../../es6-promise.api/interface/iteratorresult.md)<T> |  |
 
 
 

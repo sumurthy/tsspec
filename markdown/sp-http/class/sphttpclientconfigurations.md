@@ -14,8 +14,8 @@ This class provides standard predefined SPHttpClientConfiguration objects for us
 
 | Property	   | Access Modifier | Type	| Description|
 |:-------------|:----|:-------|:-----------|
-|`none`     | `public` | [`SPHttpClientConfiguration`](../sp-http/class/sphttpclientconfiguration.md) | This configuration turns off every feature switch for HttpClient. The fetch() behavior will be essentially identical to the WHATWG standard API that is documented here: https://fetch.spec.whatwg.org/ |
-|`v1`     | `public` | [`SPHttpClientConfiguration`](../sp-http/class/sphttpclientconfiguration.md) | Version 1 enables these switches: consoleLogging = true; jsonRequest = true; jsonResponse = true; defaultSameOriginCredentials = true; defaultODataVersion = ODataVersion.v4; requestDigest = true |
+|`none`     | `public` | [`SPHttpClientConfiguration`](../../sp-http/class/sphttpclientconfiguration.md) | This configuration turns off every feature switch for HttpClient. The fetch() behavior will be essentially identical to the WHATWG standard API that is documented here: https://fetch.spec.whatwg.org/ |
+|`v1`     | `public` | [`SPHttpClientConfiguration`](../../sp-http/class/sphttpclientconfiguration.md) | Version 1 enables these switches: consoleLogging = true; jsonRequest = true; jsonResponse = true; defaultSameOriginCredentials = true; defaultODataVersion = ODataVersion.v4; requestDigest = true |
 
 
 

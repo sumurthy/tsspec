@@ -16,7 +16,7 @@ The base context interface for client-side components.
 | Property	   | Type	| Description|
 |:-------------|:-------|:-----------|
 |`manifest`      | `IClientSideComponentManifest` | Manifest for the client side component. |
-|`serviceScope`      | [`ServiceScope`](../sp-core-library/class/servicescope.md) | Service scope instance that is scoped to this particular web part. |
+|`serviceScope`      | [`ServiceScope`](../../sp-core-library/class/servicescope.md) | Service scope instance that is scoped to this particular web part. |
 
 
 

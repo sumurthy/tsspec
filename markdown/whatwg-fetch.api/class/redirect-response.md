@@ -5,9 +5,9 @@
 
 
 
-**Signature:** _static redirect(url: string, status: number): [Response](../whatwg-fetch.api/class/response.md);_
+**Signature:** _static redirect(url: string, status: number): [Response](../../whatwg-fetch.api/class/response.md);_
 
-**Returns**: [`Response`](../whatwg-fetch.api/class/response.md)
+**Returns**: [`Response`](../../whatwg-fetch.api/class/response.md)
 
 
 

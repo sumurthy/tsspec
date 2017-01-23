@@ -1,6 +1,6 @@
 # HttpClientConfiguration class
 
-_Implements: [`IHttpClientConfiguration`](../sp-http/interface/ihttpclientconfiguration.md)_
+_Implements: [`IHttpClientConfiguration`](../../sp-http/interface/ihttpclientconfiguration.md)_
 
 
 
@@ -12,7 +12,7 @@ The HttpClientConfiguration object provides a set of switches for enabling/disab
 ## Constructor
 Constructs a new instance of HttpClientConfiguration with the specified flags. The default values will be used for any flags that are missing or undefined. If overrideFlags is specified, it takes precedence over flags. *
 
-**Signature:** _constructor(flags: [IHttpClientConfiguration](../sp-http/interface/ihttpclientconfiguration.md), overrideFlags?: IHttpClientConfiguration);_
+**Signature:** _constructor(flags: [IHttpClientConfiguration](../../sp-http/interface/ihttpclientconfiguration.md), overrideFlags?: IHttpClientConfiguration);_
 
 **Returns**: 
 
@@ -27,7 +27,7 @@ None
 | Property	   | Access Modifier | Type	| Description|
 |:-------------|:----|:-------|:-----------|
 |`consoleLogging`     | `public` | `boolean` | _Read-only._ {@inheritdoc IHttpClientConfiguration.consoleLogging} |
-|`flags`     | `public` | [`IHttpClientConfiguration`](../sp-http/interface/ihttpclientconfiguration.md) |  |
+|`flags`     | `public` | [`IHttpClientConfiguration`](../../sp-http/interface/ihttpclientconfiguration.md) |  |
 
 
 
@@ -37,7 +37,7 @@ None
 | Method	   | Access Modifier | Returns	| Description|
 |:-------------|:----|:-------|:-----------|
 |[`initializeFlags()`](initializeflags-httpclientconfiguration.md)     | `protected` | `void` | Child classes should override this method to initialize the flags object. |
-|[`overrideWith()`](overridewith-httpclientconfiguration.md)     | `public` | [`HttpClientConfiguration`](../sp-http/class/httpclientconfiguration.md) | Child classes should override this method to construct the child class type, rather than the base class type. |
+|[`overrideWith()`](overridewith-httpclientconfiguration.md)     | `public` | [`HttpClientConfiguration`](../../sp-http/class/httpclientconfiguration.md) | Child classes should override this method to construct the child class type, rather than the base class type. |
 
 
 

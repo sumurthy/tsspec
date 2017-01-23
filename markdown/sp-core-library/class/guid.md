@@ -14,7 +14,7 @@ This class represents a globally unique identifier, as described by IETF RFC 412
 
 | Property	   | Access Modifier | Type	| Description|
 |:-------------|:----|:-------|:-----------|
-|`empty`     | `public` | [`Guid`](../sp-core-library/class/guid.md) | Returns a new empty Guid instance. |
+|`empty`     | `public` | [`Guid`](../../sp-core-library/class/guid.md) | Returns a new empty Guid instance. |
 
 
 
@@ -25,10 +25,10 @@ This class represents a globally unique identifier, as described by IETF RFC 412
 |:-------------|:----|:-------|:-----------|
 |[`equals()`](equals-guid.md)     | `public` | `boolean` | Compare this instance to another Guid instance |
 |[`isValid(guid)`](isvalid-guid.md)     | `public, static` | `boolean` | Indicates whether a guid is valid, i.e. whether it would be successfully parsed by Guid.tryParse(). This function is cheaper than Guid.tryParse() because it does not construct a Guid object. |
-|[`newGuid()`](newguid-guid.md)     | `public, static` | [`Guid`](../sp-core-library/class/guid.md) | Returns a new Guid instance with a pseudo-randomly generated Guid, according to the version 4 UUID algorithm from RFC 4122. |
-|[`parse(guid)`](parse-guid.md)     | `public, static` | [`Guid`](../sp-core-library/class/guid.md) | Parses the input string to construct a new Guid object. If the string cannot be parsed, then an error is thrown. |
+|[`newGuid()`](newguid-guid.md)     | `public, static` | [`Guid`](../../sp-core-library/class/guid.md) | Returns a new Guid instance with a pseudo-randomly generated Guid, according to the version 4 UUID algorithm from RFC 4122. |
+|[`parse(guid)`](parse-guid.md)     | `public, static` | [`Guid`](../../sp-core-library/class/guid.md) | Parses the input string to construct a new Guid object. If the string cannot be parsed, then an error is thrown. |
 |[`toString()`](tostring-guid.md)     | `public` | `string` | Object.prototype.toString override |
-|[`tryParse(guid)`](tryparse-guid.md)     | `public, static` | [`Guid`](../sp-core-library/class/guid.md) | Attempts to parse the input string to construct a new Guid object. If the string cannot be parsed, then undefined is returned. |
+|[`tryParse(guid)`](tryparse-guid.md)     | `public, static` | [`Guid`](../../sp-core-library/class/guid.md) | Attempts to parse the input string to construct a new Guid object. If the string cannot be parsed, then undefined is returned. |
 
 
 

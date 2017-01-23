@@ -5,9 +5,9 @@
 
 Returns the parent of the current ServiceScope, or undefined if this is a root scope.
 
-**Signature:** _public getParent(): [ServiceScope](../sp-core-library/class/servicescope.md);_
+**Signature:** _public getParent(): [ServiceScope](../../sp-core-library/class/servicescope.md);_
 
-**Returns**: [`ServiceScope`](../sp-core-library/class/servicescope.md)
+**Returns**: [`ServiceScope`](../../sp-core-library/class/servicescope.md)
 
 
 

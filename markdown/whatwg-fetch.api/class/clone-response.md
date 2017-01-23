@@ -5,9 +5,9 @@
 
 
 
-**Signature:** _clone(): [Response](../whatwg-fetch.api/class/response.md);_
+**Signature:** _clone(): [Response](../../whatwg-fetch.api/class/response.md);_
 
-**Returns**: [`Response`](../whatwg-fetch.api/class/response.md)
+**Returns**: [`Response`](../../whatwg-fetch.api/class/response.md)
 
 
 

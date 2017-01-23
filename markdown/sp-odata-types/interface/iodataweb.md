@@ -16,7 +16,7 @@ Represents an OData SP.Web object. For more information about this object see th
 | Property	   | Type	| Description|
 |:-------------|:-------|:-----------|
 |`Created`      | `string` | Gets a value that specifies when the site was created. Example: "/Date(2016,0,20,12,58,7,0)/" |
-|`CurrentChangeToken`      | [`IODataChangeToken`](../sp-odata-types/interface/iodatachangetoken.md) | Represents the unique sequential location of a change within the change log. |
+|`CurrentChangeToken`      | [`IODataChangeToken`](../../sp-odata-types/interface/iodatachangetoken.md) | Represents the unique sequential location of a change within the change log. |
 |`CustomMasterUrl`      | `string` | Gets or sets the URL for a custom master page file to apply to the website. Example: "/sites/PubSite/_catalogs/masterpage/seattle.master" |
 |`Description`      | `string` | Gets or sets the description for the site. |
 |`Id`      | `string` | Gets a value that specifies the site identifier for the site. Example: "/Guid(92ea328e-9f50-49a6-9da5-2f2dd5577041)/" |

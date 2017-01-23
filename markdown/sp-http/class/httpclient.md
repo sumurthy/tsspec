@@ -12,7 +12,7 @@ HttpClient implements a basic set of features for performing REST operations. Th
 ## Constructor
 
 
-**Signature:** _constructor(serviceScope: [ServiceScope](../sp-core-library/class/servicescope.md));_
+**Signature:** _constructor(serviceScope: [ServiceScope](../../sp-core-library/class/servicescope.md));_
 
 **Returns**: 
 
@@ -26,8 +26,8 @@ None
 
 | Property	   | Access Modifier | Type	| Description|
 |:-------------|:----|:-------|:-----------|
-|`serviceKey`     | `public` | [`ServiceKey`](../sp-core-library/class/servicekey.md)<[`HttpClient`](../sp-http/class/httpclient.md)> | The service key for HttpClient. Note: This is being made avaiable in **beta** mode. This is not recommended for use in Production. |
-|`serviceScope`     | `public` | [`ServiceScope`](../sp-core-library/class/servicescope.md) | _Read-only._ The ServiceScope that as passed to the constructor. |
+|`serviceKey`     | `public` | [`ServiceKey`](../../sp-core-library/class/servicekey.md)<[`HttpClient`](../../sp-http/class/httpclient.md)> | The service key for HttpClient. Note: This is being made avaiable in **beta** mode. This is not recommended for use in Production. |
+|`serviceScope`     | `public` | [`ServiceScope`](../../sp-core-library/class/servicescope.md) | _Read-only._ The ServiceScope that as passed to the constructor. |
 
 
 

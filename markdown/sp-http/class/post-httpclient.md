@@ -5,8 +5,8 @@
 
 Calls fetch(), but sets the method to 'POST'.
 
-**Signature:** _@virtual public post(url: string, configuration: [HttpClientConfiguration](../sp-http/class/httpclientconfiguration.md),
-    options: [IHttpClientOptions](../sp-http/interface/ihttpclientoptions.md)): Promise<[HttpClientResponse](../sp-http/class/httpclientresponse.md)>;_
+**Signature:** _@virtual public post(url: string, configuration: [HttpClientConfiguration](../../sp-http/class/httpclientconfiguration.md),
+    options: [IHttpClientOptions](../../sp-http/interface/ihttpclientoptions.md)): Promise<[HttpClientResponse](../../sp-http/class/httpclientresponse.md)>;_
 
 **Returns**: `Promise<HttpClientResponse>`
 
@@ -20,7 +20,7 @@ a promise that will return the result
 | Parameter	   | Type    | Description |
 |:-------------|:---------------|:------------|
 | `url`    | `string` | the URL to fetch |
-| `configuration`    | [`HttpClientConfiguration`](../sp-http/class/httpclientconfiguration.md) | determines the default behavior of HttpClient; normally this should be the latest version number from HttpClientConfigurations |
-| `options`    | [`IHttpClientOptions`](../sp-http/interface/ihttpclientoptions.md) | additional options that affect the request |
+| `configuration`    | [`HttpClientConfiguration`](../../sp-http/class/httpclientconfiguration.md) | determines the default behavior of HttpClient; normally this should be the latest version number from HttpClientConfigurations |
+| `options`    | [`IHttpClientOptions`](../../sp-http/interface/ihttpclientoptions.md) | additional options that affect the request |
 
 

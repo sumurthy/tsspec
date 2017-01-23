@@ -5,9 +5,9 @@
 
 
 
-**Signature:** _keys(): [Iterator](../es6-promise.api/interface/iterator.md)<K>;_
+**Signature:** _keys(): [Iterator](../../es6-promise.api/interface/iterator.md)<K>;_
 
-**Returns**: [`Iterator`](../es6-promise.api/interface/iterator.md)<K>
+**Returns**: [`Iterator`](../../es6-promise.api/interface/iterator.md)<K>
 
 
 

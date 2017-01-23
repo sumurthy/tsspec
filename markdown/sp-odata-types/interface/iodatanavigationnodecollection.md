@@ -15,8 +15,8 @@ Represents an OData Microsoft.SharePoint.Navigation.SPNavigation object. https:/
 
 | Property	   | Type	| Description|
 |:-------------|:-------|:-----------|
-|`quickLaunch`      | [`IODataNavigationNode`](../sp-odata-types/interface/iodatanavigationnode.md)[] | Gets an SPNavigationNode object that contains the nodes in the Quick Launch area of the site. |
-|`topNav`      | [`IODataNavigationNode`](../sp-odata-types/interface/iodatanavigationnode.md)[] | Gets an SPNavigationNode object that contains the nodes in the top link bar for the website. |
+|`quickLaunch`      | [`IODataNavigationNode`](../../sp-odata-types/interface/iodatanavigationnode.md)[] | Gets an SPNavigationNode object that contains the nodes in the Quick Launch area of the site. |
+|`topNav`      | [`IODataNavigationNode`](../../sp-odata-types/interface/iodatanavigationnode.md)[] | Gets an SPNavigationNode object that contains the nodes in the top link bar for the website. |
 
 
 

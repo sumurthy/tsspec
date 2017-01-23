@@ -5,7 +5,7 @@
 
 Compare this instance to another Guid instance
 
-**Signature:** _public equals(guid: [Guid](../sp-core-library/class/guid.md)): boolean;_
+**Signature:** _public equals(guid: [Guid](../../sp-core-library/class/guid.md)): boolean;_
 
 **Returns**: `boolean`
 

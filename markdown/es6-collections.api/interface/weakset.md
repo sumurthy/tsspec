@@ -18,7 +18,7 @@ _Type parameters: `<T>`_
 
 | Method	   |  Returns	| Description|
 |:-------------|:-------|:-----------|
-|[`add()`](add-weakset.md)      | [`WeakSet`](../es6-promise.api/interface/weakset.md)<T> |  |
+|[`add()`](add-weakset.md)      | [`WeakSet`](../../es6-promise.api/interface/weakset.md)<T> |  |
 |[`clear()`](clear-weakset.md)      | `void` |  |
 |[`delete()`](delete-weakset.md)      | `boolean` |  |
 |[`has()`](has-weakset.md)      | `boolean` |  |

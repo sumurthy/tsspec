@@ -5,9 +5,9 @@
 
 {@inheritdoc Response.redirect}
 
-**Signature:** _public static redirect(url: string, status: number): [Response](../whatwg-fetch.api/class/response.md);_
+**Signature:** _public static redirect(url: string, status: number): [Response](../../whatwg-fetch.api/class/response.md);_
 
-**Returns**: [`Response`](../whatwg-fetch.api/class/response.md)
+**Returns**: [`Response`](../../whatwg-fetch.api/class/response.md)
 
 
 
