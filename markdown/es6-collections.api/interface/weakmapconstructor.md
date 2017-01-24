@@ -15,7 +15,7 @@
 
 | Property	   | Type	| Description|
 |:-------------|:-------|:-----------|
-|`prototype`      | [`WeakMap`](../../es6-promise.api/interface/weakmap.md)<any, any> |  |
+|`prototype`      | [`WeakMap`](../../es6-collections.api/interface/weakmap.md)<any, any> |  |
 
 
 
@@ -24,7 +24,7 @@
 
 | Method	   |  Returns	| Description|
 |:-------------|:-------|:-----------|
-|[`new()`](__new-weakmapconstructor.md)      | [`WeakMap`](../../es6-promise.api/interface/weakmap.md)<K, V> |  |
+|[`new()`](__new-weakmapconstructor.md)      | [`WeakMap`](../../es6-collections.api/interface/weakmap.md)<K, V> |  |
 
 
 

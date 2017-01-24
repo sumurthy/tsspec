@@ -5,9 +5,9 @@
 
 {@inheritdoc Body.text}
 
-**Signature:** _public text(): Promise<string>;_
+**Signature:** _public text(): [Promise](../../es6-promise.api/class/promise.md)<string>;_
 
-**Returns**: `Promise<string>`
+**Returns**: [`Promise`](../../es6-promise.api/class/promise.md)<string>
 
 
 

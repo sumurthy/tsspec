@@ -15,7 +15,7 @@
 
 | Property	   | Type	| Description|
 |:-------------|:-------|:-----------|
-|`prototype`      | [`Map`](../../es6-promise.api/interface/map.md)<any, any> |  |
+|`prototype`      | [`Map`](../../es6-collections.api/interface/map.md)<any, any> |  |
 
 
 
@@ -24,7 +24,7 @@
 
 | Method	   |  Returns	| Description|
 |:-------------|:-------|:-----------|
-|[`new()`](__new-mapconstructor.md)      | [`Map`](../../es6-promise.api/interface/map.md)<K, V> |  |
+|[`new()`](__new-mapconstructor.md)      | [`Map`](../../es6-collections.api/interface/map.md)<K, V> |  |
 
 
 

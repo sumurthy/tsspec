@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Menu xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" SupportedProduct="|SharePoint" SupportedVersion="|V1.0|">
+<Item text="SharePoint Framework Reference" url="spdx" SEODescription="Reference documentation for the SharePoint Framework">
+
+<Item text="es6-collections" url="spdx/es6-collections-module" SEODescription="">
+<Item text="Interfaces" url="spdx/es6-collections" SEODescription="">
+<Item text="ForEachable" url="spdx/es6-collections.api/interface/foreachable" SEODescription=""/>
+<Item text="Iterator" url="spdx/es6-collections.api/interface/iterator" SEODescription=""/>
+<Item text="IteratorResult" url="spdx/es6-collections.api/interface/iteratorresult" SEODescription=""/>
+<Item text="Map" url="spdx/es6-collections.api/interface/map" SEODescription=""/>
+<Item text="MapConstructor" url="spdx/es6-collections.api/interface/mapconstructor" SEODescription=""/>
+<Item text="Set" url="spdx/es6-collections.api/interface/set" SEODescription=""/>
+<Item text="SetConstructor" url="spdx/es6-collections.api/interface/setconstructor" SEODescription=""/>
+<Item text="WeakMap" url="spdx/es6-collections.api/interface/weakmap" SEODescription=""/>
+<Item text="WeakMapConstructor" url="spdx/es6-collections.api/interface/weakmapconstructor" SEODescription=""/>
+<Item text="WeakSet" url="spdx/es6-collections.api/interface/weakset" SEODescription=""/>
+<Item text="WeakSetConstructor" url="spdx/es6-collections.api/interface/weaksetconstructor" SEODescription=""/>
+</Item>
+</Item>
+<Item text="es6-promise" url="spdx/es6-promise-module" SEODescription="">
+<Item text="Classes" url="spdx/es6-promise" SEODescription="">
+<Item text="Promise" url="spdx/es6-promise.api/class/promise" SEODescription=""/>
+</Item>
+<Item text="Interfaces" url="spdx/es6-promise" SEODescription="">
+<Item text="Thenable" url="spdx/es6-promise.api/interface/thenable" SEODescription=""/>
+</Item>
+</Item>
+<Item text="whatwg-fetch" url="spdx/whatwg-fetch-module" SEODescription="">
+<Item text="Classes" url="spdx/whatwg-fetch" SEODescription="">
+<Item text="Body" url="spdx/whatwg-fetch.api/class/body" SEODescription=""/>
+<Item text="Headers" url="spdx/whatwg-fetch.api/class/headers" SEODescription=""/>
+<Item text="Request" url="spdx/whatwg-fetch.api/class/request" SEODescription=""/>
+<Item text="Response" url="spdx/whatwg-fetch.api/class/response" SEODescription=""/>
+</Item>
+<Item text="Interfaces" url="spdx/whatwg-fetch" SEODescription="">
+<Item text="HeadersMap" url="spdx/whatwg-fetch.api/interface/headersmap" SEODescription=""/>
+<Item text="RequestInit" url="spdx/whatwg-fetch.api/interface/requestinit" SEODescription=""/>
+<Item text="ResponseInit" url="spdx/whatwg-fetch.api/interface/responseinit" SEODescription=""/>
+<Item text="Window" url="spdx/whatwg-fetch.api/interface/window" SEODescription=""/>
+</Item>
+</Item>
+</Item></Menu>

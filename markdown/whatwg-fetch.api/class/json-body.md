@@ -5,9 +5,9 @@
 
 
 
-**Signature:** _json(): Promise<any>;_
+**Signature:** _json(): [Promise](../../es6-promise.api/class/promise.md)<any>;_
 
-**Returns**: `Promise<any>`
+**Returns**: [`Promise`](../../es6-promise.api/class/promise.md)<any>
 
 
 

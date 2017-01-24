@@ -5,9 +5,9 @@
 
 {@inheritdoc ISPComponentLoader.loadComponent}
 
-**Signature:** _public static loadComponent < TComponent >(manifest: IClientSideComponentManifest): Promise<TComponent>;_
+**Signature:** _public static loadComponent < TComponent >(manifest: IClientSideComponentManifest): [Promise](../../es6-promise.api/class/promise.md)<TComponent>;_
 
-**Returns**: `Promise<TComponent>`
+**Returns**: [`Promise`](../../es6-promise.api/class/promise.md)<TComponent>
 
 
 

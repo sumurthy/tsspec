@@ -5,9 +5,9 @@
 
 
 
-**Signature:** _arrayBuffer(): Promise<ArrayBuffer>;_
+**Signature:** _arrayBuffer(): [Promise](../../es6-promise.api/class/promise.md)<ArrayBuffer>;_
 
-**Returns**: `Promise<ArrayBuffer>`
+**Returns**: [`Promise`](../../es6-promise.api/class/promise.md)<ArrayBuffer>
 
 
 

@@ -26,13 +26,13 @@ _Type parameters: `<K, V>`_
 |:-------------|:-------|:-----------|
 |[`clear()`](clear-map.md)      | `void` |  |
 |[`delete()`](delete-map.md)      | `boolean` |  |
-|[`entries()`](entries-map.md)      | [`Iterator`](../../es6-promise.api/interface/iterator.md)<[K, V]> |  |
+|[`entries()`](entries-map.md)      | [`Iterator`](../../es6-collections.api/interface/iterator.md)<[K, V]> |  |
 |[`forEach()`](foreach-map.md)      | `void` |  |
 |[`get()`](get-map.md)      | `V` |  |
 |[`has()`](has-map.md)      | `boolean` |  |
-|[`keys()`](keys-map.md)      | [`Iterator`](../../es6-promise.api/interface/iterator.md)<K> |  |
-|[`set()`](set-map.md)      | [`Map`](../../es6-promise.api/interface/map.md)<K, V> |  |
-|[`values()`](values-map.md)      | [`Iterator`](../../es6-promise.api/interface/iterator.md)<V> |  |
+|[`keys()`](keys-map.md)      | [`Iterator`](../../es6-collections.api/interface/iterator.md)<K> |  |
+|[`set()`](set-map.md)      | [`Map`](../../es6-collections.api/interface/map.md)<K, V> |  |
+|[`values()`](values-map.md)      | [`Iterator`](../../es6-collections.api/interface/iterator.md)<V> |  |
 
 
 

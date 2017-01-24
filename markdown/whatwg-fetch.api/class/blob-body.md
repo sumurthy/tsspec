@@ -5,9 +5,9 @@
 
 
 
-**Signature:** _blob(): Promise<Blob>;_
+**Signature:** _blob(): [Promise](../../es6-promise.api/class/promise.md)<Blob>;_
 
-**Returns**: `Promise<Blob>`
+**Returns**: [`Promise`](../../es6-promise.api/class/promise.md)<Blob>
 
 
 

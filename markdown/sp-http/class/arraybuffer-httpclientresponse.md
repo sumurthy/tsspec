@@ -5,9 +5,9 @@
 
 {@inheritdoc Body.arrayBuffer}
 
-**Signature:** _public arrayBuffer(): Promise<ArrayBuffer>;_
+**Signature:** _public arrayBuffer(): [Promise](../../es6-promise.api/class/promise.md)<ArrayBuffer>;_
 
-**Returns**: `Promise<ArrayBuffer>`
+**Returns**: [`Promise`](../../es6-promise.api/class/promise.md)<ArrayBuffer>
 
 
 

@@ -5,9 +5,9 @@
 
 
 
-**Signature:** _add(value: T): [Set](../../es6-promise.api/interface/set.md)<T>;_
+**Signature:** _add(value: T): [Set](../../es6-collections.api/interface/set.md)<T>;_
 
-**Returns**: [`Set`](../../es6-promise.api/interface/set.md)<T>
+**Returns**: [`Set`](../../es6-collections.api/interface/set.md)<T>
 
 
 

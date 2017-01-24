@@ -6,9 +6,9 @@
 Calls fetch(), but sets the method to 'GET'.
 
 **Signature:** _@virtual public get(url: string, configuration: [HttpClientConfiguration](../../sp-http/class/httpclientconfiguration.md),
-    options?: [IHttpClientOptions](../../sp-http/interface/ihttpclientoptions.md)): Promise<[HttpClientResponse](../../sp-http/class/httpclientresponse.md)>;_
+    options?: [IHttpClientOptions](../../sp-http/interface/ihttpclientoptions.md)): [Promise](../../es6-promise.api/class/promise.md)<[HttpClientResponse](../../sp-http/class/httpclientresponse.md)>;_
 
-**Returns**: `Promise<HttpClientResponse>`
+**Returns**: [`Promise`](../../es6-promise.api/class/promise.md)<[`HttpClientResponse`](../../sp-http/class/httpclientresponse.md)>
 
 
 

@@ -36,10 +36,10 @@ None
 
 | Method	   | Access Modifier | Returns	| Description|
 |:-------------|:----|:-------|:-----------|
-|[`fetch(url,configuration,options)`](fetch-httpclient.md)     | `public` | `Promise<HttpClientResponse>` | Performs a REST service call. Although the SPHttpClient subclass adds additional enhancements, the parameters and semantics for HttpClient.fetch() are essentially the same as the WHATWG API standard that is documented here: https://fetch.spec.whatwg.org/ |
-|[`fetchCore()`](fetchcore-httpclient.md)     | `protected` | `Promise<Response>` | All network requests are routed through this method, which calls the underlying IFetchProvider.fetch(). |
-|[`get(url,configuration,options)`](get-httpclient.md)     | `public` | `Promise<HttpClientResponse>` | Calls fetch(), but sets the method to 'GET'. |
-|[`post(url,configuration,options)`](post-httpclient.md)     | `public` | `Promise<HttpClientResponse>` | Calls fetch(), but sets the method to 'POST'. |
+|[`fetch(url,configuration,options)`](fetch-httpclient.md)     | `public` | [`Promise`](../../es6-promise.api/class/promise.md)<[`HttpClientResponse`](../../sp-http/class/httpclientresponse.md)> | Performs a REST service call. Although the SPHttpClient subclass adds additional enhancements, the parameters and semantics for HttpClient.fetch() are essentially the same as the WHATWG API standard that is documented here: https://fetch.spec.whatwg.org/ |
+|[`fetchCore()`](fetchcore-httpclient.md)     | `protected` | [`Promise`](../../es6-promise.api/class/promise.md)<[`Response`](../../whatwg-fetch.api/class/response.md)> | All network requests are routed through this method, which calls the underlying IFetchProvider.fetch(). |
+|[`get(url,configuration,options)`](get-httpclient.md)     | `public` | [`Promise`](../../es6-promise.api/class/promise.md)<[`HttpClientResponse`](../../sp-http/class/httpclientresponse.md)> | Calls fetch(), but sets the method to 'GET'. |
+|[`post(url,configuration,options)`](post-httpclient.md)     | `public` | [`Promise`](../../es6-promise.api/class/promise.md)<[`HttpClientResponse`](../../sp-http/class/httpclientresponse.md)> | Calls fetch(), but sets the method to 'POST'. |
 
 
 

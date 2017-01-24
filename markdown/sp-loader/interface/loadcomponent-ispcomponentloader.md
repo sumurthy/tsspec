@@ -5,9 +5,9 @@
 
 Loads a component from a manifest.
 
-**Signature:** _loadComponent < TComponent >(manifest: IClientSideComponentManifest): Promise<TComponent>;_
+**Signature:** _loadComponent < TComponent >(manifest: IClientSideComponentManifest): [Promise](../../es6-promise.api/class/promise.md)<TComponent>;_
 
-**Returns**: `Promise<TComponent>`
+**Returns**: [`Promise`](../../es6-promise.api/class/promise.md)<TComponent>
 
 
 

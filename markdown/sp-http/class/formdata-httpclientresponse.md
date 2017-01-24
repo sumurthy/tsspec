@@ -5,9 +5,9 @@
 
 {@inheritdoc Body.formData}
 
-**Signature:** _public formData(): Promise<FormData>;_
+**Signature:** _public formData(): [Promise](../../es6-promise.api/class/promise.md)<FormData>;_
 
-**Returns**: `Promise<FormData>`
+**Returns**: [`Promise`](../../es6-promise.api/class/promise.md)<FormData>
 
 
 

@@ -6,9 +6,9 @@
 Performs a REST service call. Although the SPHttpClient subclass adds additional enhancements, the parameters and semantics for HttpClient.fetch() are essentially the same as the WHATWG API standard that is documented here: https://fetch.spec.whatwg.org/
 
 **Signature:** _@virtual public fetch(url: string, configuration: [HttpClientConfiguration](../../sp-http/class/httpclientconfiguration.md),
-    options: [IHttpClientOptions](../../sp-http/interface/ihttpclientoptions.md)): Promise<[HttpClientResponse](../../sp-http/class/httpclientresponse.md)>;_
+    options: [IHttpClientOptions](../../sp-http/interface/ihttpclientoptions.md)): [Promise](../../es6-promise.api/class/promise.md)<[HttpClientResponse](../../sp-http/class/httpclientresponse.md)>;_
 
-**Returns**: `Promise<HttpClientResponse>`
+**Returns**: [`Promise`](../../es6-promise.api/class/promise.md)<[`HttpClientResponse`](../../sp-http/class/httpclientresponse.md)>
 
 
 

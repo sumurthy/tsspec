@@ -1,7 +1,206 @@
 {
   "kind": "package",
   "exports": {
-    "ForEachable": {
+    "Promise": {
+      "kind": "class",
+      "extends": "",
+      "implements": "Thenable",
+      "typeParameters": [
+        "T"
+      ],
+      "deprecatedMessage": [],
+      "summary": [],
+      "remarks": [],
+      "isBeta": false,
+      "members": {
+        "__constructor": {
+          "kind": "method",
+          "signature": "constructor(callback: (resolve: (value?: T | Thenable<T>) => void, reject: (error?: any) => void) => void);",
+          "accessModifier": "",
+          "isOptional": false,
+          "isStatic": false,
+          "returnValue": {
+            "type": "",
+            "description": []
+          },
+          "parameters": {},
+          "deprecatedMessage": [],
+          "summary": [
+            {
+              "kind": "textDocElement",
+              "value": "If you call resolve in the body of the callback passed to the constructor, your promise is fulfilled with result object passed to resolve. If you call reject your promise is rejected with the object passed to reject. For consistency and debugging (eg stack traces), obj should be an instanceof Error. Any errors thrown in the constructor callback will be implicitly passed to reject()."
+            }
+          ],
+          "remarks": [],
+          "isBeta": false
+        },
+        "all": {
+          "kind": "method",
+          "signature": "public static all < T1, T2, T3, T4, T5, T6, T7, T8, T9, T10 >(values: [T1 | Thenable<T1>, T2 | Thenable<T2>, T3 | Thenable<T3>, T4 | Thenable <T4>, T5 | Thenable<T5>, T6 | Thenable<T6>, T7 | Thenable<T7>, T8 | Thenable<T8>, T9 | Thenable<T9>, T10 | Thenable<T10>]): Promise<[T1, T2, T3, T4, T5, T6, T7, T8, T9, T10]>;",
+          "accessModifier": "public",
+          "isOptional": false,
+          "isStatic": true,
+          "returnValue": {
+            "type": "Promise<[T1, T2, T3, T4, T5, T6, T7, T8, T9, T10]>",
+            "description": []
+          },
+          "parameters": {},
+          "deprecatedMessage": [],
+          "summary": [
+            {
+              "kind": "textDocElement",
+              "value": "Make a promise that fulfills when every item in the array fulfills, and rejects if (and when) any item rejects. the array passed to all can be a mixture of promise-like objects and other objects. The fulfillment value is an array (in order) of fulfillment values. The rejection value is the first rejection value."
+            }
+          ],
+          "remarks": [],
+          "isBeta": false
+        },
+        "catch": {
+          "kind": "method",
+          "signature": "catch < U >(onRejected?: (error: any) => U | Thenable<U>): Promise<U>;",
+          "accessModifier": "",
+          "isOptional": false,
+          "isStatic": false,
+          "returnValue": {
+            "type": "Promise<U>",
+            "description": []
+          },
+          "parameters": {
+            "onRejected": {
+              "name": "onRejected",
+              "description": [
+                {
+                  "kind": "textDocElement",
+                  "value": "called when/if \"promise\" rejects"
+                }
+              ],
+              "isOptional": true,
+              "isSpread": false,
+              "type": "(error: any) => U | Thenable<U>"
+            }
+          },
+          "deprecatedMessage": [],
+          "summary": [
+            {
+              "kind": "textDocElement",
+              "value": "Sugar for promise.then(undefined, onRejected)"
+            }
+          ],
+          "remarks": [],
+          "isBeta": false
+        },
+        "race": {
+          "kind": "method",
+          "signature": "public static race < T >(promises: (T | Thenable<T>)[]): Promise<T>;",
+          "accessModifier": "public",
+          "isOptional": false,
+          "isStatic": true,
+          "returnValue": {
+            "type": "Promise<T>",
+            "description": []
+          },
+          "parameters": {},
+          "deprecatedMessage": [],
+          "summary": [
+            {
+              "kind": "textDocElement",
+              "value": "Make a Promise that fulfills when any item fulfills, and rejects if any item rejects."
+            }
+          ],
+          "remarks": [],
+          "isBeta": false
+        },
+        "reject": {
+          "kind": "method",
+          "signature": "public static reject(error: any): Promise<any>;",
+          "accessModifier": "public",
+          "isOptional": false,
+          "isStatic": true,
+          "returnValue": {
+            "type": "Promise<any>",
+            "description": []
+          },
+          "parameters": {},
+          "deprecatedMessage": [],
+          "summary": [
+            {
+              "kind": "textDocElement",
+              "value": "Make a promise that rejects to obj. For consistency and debugging (eg stack traces), obj should be an instanceof Error"
+            }
+          ],
+          "remarks": [],
+          "isBeta": false
+        },
+        "resolve": {
+          "kind": "method",
+          "signature": "public static resolve < T >(value?: T | Thenable<T>): Promise<T>;",
+          "accessModifier": "public",
+          "isOptional": false,
+          "isStatic": true,
+          "returnValue": {
+            "type": "Promise<T>",
+            "description": []
+          },
+          "parameters": {},
+          "deprecatedMessage": [],
+          "summary": [
+            {
+              "kind": "textDocElement",
+              "value": "Make a new promise from the thenable. A thenable is promise-like in as far as it has a \"then\" method."
+            }
+          ],
+          "remarks": [],
+          "isBeta": false
+        },
+        "then": {
+          "kind": "method",
+          "signature": "then < U >(onFulfilled?: (value: T) => U | Thenable<U>, onRejected?: (error: any) => U | Thenable<U>): Promise<U>;",
+          "accessModifier": "",
+          "isOptional": false,
+          "isStatic": false,
+          "returnValue": {
+            "type": "Promise<U>",
+            "description": []
+          },
+          "parameters": {
+            "onFulfilled": {
+              "name": "onFulfilled",
+              "description": [
+                {
+                  "kind": "textDocElement",
+                  "value": "called when/if \"promise\" resolves"
+                }
+              ],
+              "isOptional": true,
+              "isSpread": false,
+              "type": "(value: T) => U | Thenable<U>"
+            },
+            "onRejected": {
+              "name": "onRejected",
+              "description": [
+                {
+                  "kind": "textDocElement",
+                  "value": "called when/if \"promise\" rejects"
+                }
+              ],
+              "isOptional": true,
+              "isSpread": false,
+              "type": "(error: any) => U | Thenable<U>"
+            }
+          },
+          "deprecatedMessage": [],
+          "summary": [
+            {
+              "kind": "textDocElement",
+              "value": "onFulfilled is called when/if \"promise\" resolves. onRejected is called when/if \"promise\" rejects. Both are optional, if either/both are omitted the next onFulfilled/onRejected in the chain is called. Both callbacks have a single parameter , the fulfillment value or rejection reason. \"then\" returns a new promise equivalent to the value you return from onFulfilled/onRejected after being passed through Promise.resolve. If an error is thrown in the callback, the returned promise rejects with that error."
+            }
+          ],
+          "remarks": [],
+          "isBeta": false
+        }
+      }
+    },
+    "Thenable": {
       "kind": "interface",
       "extends": "",
       "implements": "",
@@ -13,767 +212,17 @@
       "remarks": [],
       "isBeta": false,
       "members": {
-        "forEach": {
+        "then": {
           "kind": "method",
-          "signature": "forEach(callbackfn: (value: T) => void): void;",
+          "signature": "then < U >(onFulfilled?: (value: T) => U | Thenable<U>, onRejected?: (error: any) => U | Thenable<U>): Thenable<U>;",
           "accessModifier": "",
           "isOptional": false,
           "isStatic": false,
           "returnValue": {
-            "type": "void",
+            "type": "Thenable<U>",
             "description": []
           },
           "parameters": {},
-          "deprecatedMessage": [],
-          "summary": [],
-          "remarks": [],
-          "isBeta": false
-        }
-      }
-    },
-    "Iterator": {
-      "kind": "interface",
-      "extends": "",
-      "implements": "",
-      "typeParameters": [
-        "T"
-      ],
-      "deprecatedMessage": [],
-      "summary": [],
-      "remarks": [],
-      "isBeta": false,
-      "members": {
-        "next": {
-          "kind": "method",
-          "signature": "next(value?: any): IteratorResult<T>;",
-          "accessModifier": "",
-          "isOptional": false,
-          "isStatic": false,
-          "returnValue": {
-            "type": "IteratorResult<T>",
-            "description": []
-          },
-          "parameters": {},
-          "deprecatedMessage": [],
-          "summary": [],
-          "remarks": [],
-          "isBeta": false
-        },
-        "return": {
-          "kind": "method",
-          "signature": "return ?(value?: any): IteratorResult<T>;",
-          "accessModifier": "",
-          "isOptional": true,
-          "isStatic": false,
-          "returnValue": {
-            "type": "IteratorResult<T>",
-            "description": []
-          },
-          "parameters": {},
-          "deprecatedMessage": [],
-          "summary": [],
-          "remarks": [],
-          "isBeta": false
-        },
-        "throw": {
-          "kind": "method",
-          "signature": "throw ?(e?: any): IteratorResult<T>;",
-          "accessModifier": "",
-          "isOptional": true,
-          "isStatic": false,
-          "returnValue": {
-            "type": "IteratorResult<T>",
-            "description": []
-          },
-          "parameters": {},
-          "deprecatedMessage": [],
-          "summary": [],
-          "remarks": [],
-          "isBeta": false
-        }
-      }
-    },
-    "IteratorResult": {
-      "kind": "interface",
-      "extends": "",
-      "implements": "",
-      "typeParameters": [
-        "T"
-      ],
-      "deprecatedMessage": [],
-      "summary": [],
-      "remarks": [],
-      "isBeta": false,
-      "members": {
-        "done": {
-          "kind": "property",
-          "isOptional": false,
-          "isReadOnly": false,
-          "isStatic": false,
-          "type": "boolean",
-          "deprecatedMessage": [],
-          "summary": [],
-          "remarks": [],
-          "isBeta": false
-        },
-        "value": {
-          "kind": "property",
-          "isOptional": true,
-          "isReadOnly": false,
-          "isStatic": false,
-          "type": "T",
-          "deprecatedMessage": [],
-          "summary": [],
-          "remarks": [],
-          "isBeta": false
-        }
-      }
-    },
-    "Map": {
-      "kind": "interface",
-      "extends": "",
-      "implements": "",
-      "typeParameters": [
-        "K",
-        "V"
-      ],
-      "deprecatedMessage": [],
-      "summary": [],
-      "remarks": [],
-      "isBeta": false,
-      "members": {
-        "clear": {
-          "kind": "method",
-          "signature": "clear(): void;",
-          "accessModifier": "",
-          "isOptional": false,
-          "isStatic": false,
-          "returnValue": {
-            "type": "void",
-            "description": []
-          },
-          "parameters": {},
-          "deprecatedMessage": [],
-          "summary": [],
-          "remarks": [],
-          "isBeta": false
-        },
-        "delete": {
-          "kind": "method",
-          "signature": "delete(key: K): boolean;",
-          "accessModifier": "",
-          "isOptional": false,
-          "isStatic": false,
-          "returnValue": {
-            "type": "boolean",
-            "description": []
-          },
-          "parameters": {},
-          "deprecatedMessage": [],
-          "summary": [],
-          "remarks": [],
-          "isBeta": false
-        },
-        "entries": {
-          "kind": "method",
-          "signature": "entries(): Iterator<[K, V]>;",
-          "accessModifier": "",
-          "isOptional": false,
-          "isStatic": false,
-          "returnValue": {
-            "type": "Iterator<[K, V]>",
-            "description": []
-          },
-          "parameters": {},
-          "deprecatedMessage": [],
-          "summary": [],
-          "remarks": [],
-          "isBeta": false
-        },
-        "forEach": {
-          "kind": "method",
-          "signature": "forEach(callbackfn: (value: V, index: K, map: Map<K, V>) => void, thisArg?: any): void;",
-          "accessModifier": "",
-          "isOptional": false,
-          "isStatic": false,
-          "returnValue": {
-            "type": "void",
-            "description": []
-          },
-          "parameters": {},
-          "deprecatedMessage": [],
-          "summary": [],
-          "remarks": [],
-          "isBeta": false
-        },
-        "get": {
-          "kind": "method",
-          "signature": "get(key: K): V;",
-          "accessModifier": "",
-          "isOptional": false,
-          "isStatic": false,
-          "returnValue": {
-            "type": "V",
-            "description": []
-          },
-          "parameters": {},
-          "deprecatedMessage": [],
-          "summary": [],
-          "remarks": [],
-          "isBeta": false
-        },
-        "has": {
-          "kind": "method",
-          "signature": "has(key: K): boolean;",
-          "accessModifier": "",
-          "isOptional": false,
-          "isStatic": false,
-          "returnValue": {
-            "type": "boolean",
-            "description": []
-          },
-          "parameters": {},
-          "deprecatedMessage": [],
-          "summary": [],
-          "remarks": [],
-          "isBeta": false
-        },
-        "keys": {
-          "kind": "method",
-          "signature": "keys(): Iterator<K>;",
-          "accessModifier": "",
-          "isOptional": false,
-          "isStatic": false,
-          "returnValue": {
-            "type": "Iterator<K>",
-            "description": []
-          },
-          "parameters": {},
-          "deprecatedMessage": [],
-          "summary": [],
-          "remarks": [],
-          "isBeta": false
-        },
-        "set": {
-          "kind": "method",
-          "signature": "set(key: K, value?: V): Map<K, V>;",
-          "accessModifier": "",
-          "isOptional": false,
-          "isStatic": false,
-          "returnValue": {
-            "type": "Map<K, V>",
-            "description": []
-          },
-          "parameters": {},
-          "deprecatedMessage": [],
-          "summary": [],
-          "remarks": [],
-          "isBeta": false
-        },
-        "size": {
-          "kind": "property",
-          "isOptional": false,
-          "isReadOnly": false,
-          "isStatic": false,
-          "type": "number",
-          "deprecatedMessage": [],
-          "summary": [],
-          "remarks": [],
-          "isBeta": false
-        },
-        "values": {
-          "kind": "method",
-          "signature": "values(): Iterator<V>;",
-          "accessModifier": "",
-          "isOptional": false,
-          "isStatic": false,
-          "returnValue": {
-            "type": "Iterator<V>",
-            "description": []
-          },
-          "parameters": {},
-          "deprecatedMessage": [],
-          "summary": [],
-          "remarks": [],
-          "isBeta": false
-        }
-      }
-    },
-    "MapConstructor": {
-      "kind": "interface",
-      "extends": "",
-      "implements": "",
-      "typeParameters": [],
-      "deprecatedMessage": [],
-      "summary": [],
-      "remarks": [],
-      "isBeta": false,
-      "members": {
-        "__new": {
-          "kind": "method",
-          "signature": "new < K, V >(): Map<K, V>;",
-          "accessModifier": "",
-          "isOptional": false,
-          "isStatic": false,
-          "returnValue": {
-            "type": "Map<K, V>",
-            "description": []
-          },
-          "parameters": {},
-          "deprecatedMessage": [],
-          "summary": [],
-          "remarks": [],
-          "isBeta": false
-        },
-        "prototype": {
-          "kind": "property",
-          "isOptional": false,
-          "isReadOnly": false,
-          "isStatic": false,
-          "type": "Map<any, any>",
-          "deprecatedMessage": [],
-          "summary": [],
-          "remarks": [],
-          "isBeta": false
-        }
-      }
-    },
-    "Set": {
-      "kind": "interface",
-      "extends": "",
-      "implements": "",
-      "typeParameters": [
-        "T"
-      ],
-      "deprecatedMessage": [],
-      "summary": [],
-      "remarks": [],
-      "isBeta": false,
-      "members": {
-        "add": {
-          "kind": "method",
-          "signature": "add(value: T): Set<T>;",
-          "accessModifier": "",
-          "isOptional": false,
-          "isStatic": false,
-          "returnValue": {
-            "type": "Set<T>",
-            "description": []
-          },
-          "parameters": {},
-          "deprecatedMessage": [],
-          "summary": [],
-          "remarks": [],
-          "isBeta": false
-        },
-        "clear": {
-          "kind": "method",
-          "signature": "clear(): void;",
-          "accessModifier": "",
-          "isOptional": false,
-          "isStatic": false,
-          "returnValue": {
-            "type": "void",
-            "description": []
-          },
-          "parameters": {},
-          "deprecatedMessage": [],
-          "summary": [],
-          "remarks": [],
-          "isBeta": false
-        },
-        "delete": {
-          "kind": "method",
-          "signature": "delete(value: T): boolean;",
-          "accessModifier": "",
-          "isOptional": false,
-          "isStatic": false,
-          "returnValue": {
-            "type": "boolean",
-            "description": []
-          },
-          "parameters": {},
-          "deprecatedMessage": [],
-          "summary": [],
-          "remarks": [],
-          "isBeta": false
-        },
-        "entries": {
-          "kind": "method",
-          "signature": "entries(): Iterator<[T, T]>;",
-          "accessModifier": "",
-          "isOptional": false,
-          "isStatic": false,
-          "returnValue": {
-            "type": "Iterator<[T, T]>",
-            "description": []
-          },
-          "parameters": {},
-          "deprecatedMessage": [],
-          "summary": [],
-          "remarks": [],
-          "isBeta": false
-        },
-        "forEach": {
-          "kind": "method",
-          "signature": "forEach(callbackfn: (value: T, index: T, set: Set<T>) => void, thisArg?: any): void;",
-          "accessModifier": "",
-          "isOptional": false,
-          "isStatic": false,
-          "returnValue": {
-            "type": "void",
-            "description": []
-          },
-          "parameters": {},
-          "deprecatedMessage": [],
-          "summary": [],
-          "remarks": [],
-          "isBeta": false
-        },
-        "has": {
-          "kind": "method",
-          "signature": "has(value: T): boolean;",
-          "accessModifier": "",
-          "isOptional": false,
-          "isStatic": false,
-          "returnValue": {
-            "type": "boolean",
-            "description": []
-          },
-          "parameters": {},
-          "deprecatedMessage": [],
-          "summary": [],
-          "remarks": [],
-          "isBeta": false
-        },
-        "keys": {
-          "kind": "method",
-          "signature": "keys(): Iterator<T>;",
-          "accessModifier": "",
-          "isOptional": false,
-          "isStatic": false,
-          "returnValue": {
-            "type": "Iterator<T>",
-            "description": []
-          },
-          "parameters": {},
-          "deprecatedMessage": [],
-          "summary": [],
-          "remarks": [],
-          "isBeta": false
-        },
-        "size": {
-          "kind": "property",
-          "isOptional": false,
-          "isReadOnly": false,
-          "isStatic": false,
-          "type": "number",
-          "deprecatedMessage": [],
-          "summary": [],
-          "remarks": [],
-          "isBeta": false
-        },
-        "values": {
-          "kind": "method",
-          "signature": "values(): Iterator<T>;",
-          "accessModifier": "",
-          "isOptional": false,
-          "isStatic": false,
-          "returnValue": {
-            "type": "Iterator<T>",
-            "description": []
-          },
-          "parameters": {},
-          "deprecatedMessage": [],
-          "summary": [],
-          "remarks": [],
-          "isBeta": false
-        }
-      }
-    },
-    "SetConstructor": {
-      "kind": "interface",
-      "extends": "",
-      "implements": "",
-      "typeParameters": [],
-      "deprecatedMessage": [],
-      "summary": [],
-      "remarks": [],
-      "isBeta": false,
-      "members": {
-        "__new": {
-          "kind": "method",
-          "signature": "new < T >(): Set<T>;",
-          "accessModifier": "",
-          "isOptional": false,
-          "isStatic": false,
-          "returnValue": {
-            "type": "Set<T>",
-            "description": []
-          },
-          "parameters": {},
-          "deprecatedMessage": [],
-          "summary": [],
-          "remarks": [],
-          "isBeta": false
-        },
-        "prototype": {
-          "kind": "property",
-          "isOptional": false,
-          "isReadOnly": false,
-          "isStatic": false,
-          "type": "Set<any>",
-          "deprecatedMessage": [],
-          "summary": [],
-          "remarks": [],
-          "isBeta": false
-        }
-      }
-    },
-    "WeakMap": {
-      "kind": "interface",
-      "extends": "",
-      "implements": "",
-      "typeParameters": [
-        "K",
-        "V"
-      ],
-      "deprecatedMessage": [],
-      "summary": [],
-      "remarks": [],
-      "isBeta": false,
-      "members": {
-        "clear": {
-          "kind": "method",
-          "signature": "clear(): void;",
-          "accessModifier": "",
-          "isOptional": false,
-          "isStatic": false,
-          "returnValue": {
-            "type": "void",
-            "description": []
-          },
-          "parameters": {},
-          "deprecatedMessage": [],
-          "summary": [],
-          "remarks": [],
-          "isBeta": false
-        },
-        "delete": {
-          "kind": "method",
-          "signature": "delete(key: K): boolean;",
-          "accessModifier": "",
-          "isOptional": false,
-          "isStatic": false,
-          "returnValue": {
-            "type": "boolean",
-            "description": []
-          },
-          "parameters": {},
-          "deprecatedMessage": [],
-          "summary": [],
-          "remarks": [],
-          "isBeta": false
-        },
-        "get": {
-          "kind": "method",
-          "signature": "get(key: K): V;",
-          "accessModifier": "",
-          "isOptional": false,
-          "isStatic": false,
-          "returnValue": {
-            "type": "V",
-            "description": []
-          },
-          "parameters": {},
-          "deprecatedMessage": [],
-          "summary": [],
-          "remarks": [],
-          "isBeta": false
-        },
-        "has": {
-          "kind": "method",
-          "signature": "has(key: K): boolean;",
-          "accessModifier": "",
-          "isOptional": false,
-          "isStatic": false,
-          "returnValue": {
-            "type": "boolean",
-            "description": []
-          },
-          "parameters": {},
-          "deprecatedMessage": [],
-          "summary": [],
-          "remarks": [],
-          "isBeta": false
-        },
-        "set": {
-          "kind": "method",
-          "signature": "set(key: K, value?: V): WeakMap<K, V>;",
-          "accessModifier": "",
-          "isOptional": false,
-          "isStatic": false,
-          "returnValue": {
-            "type": "WeakMap<K, V>",
-            "description": []
-          },
-          "parameters": {},
-          "deprecatedMessage": [],
-          "summary": [],
-          "remarks": [],
-          "isBeta": false
-        }
-      }
-    },
-    "WeakMapConstructor": {
-      "kind": "interface",
-      "extends": "",
-      "implements": "",
-      "typeParameters": [],
-      "deprecatedMessage": [],
-      "summary": [],
-      "remarks": [],
-      "isBeta": false,
-      "members": {
-        "__new": {
-          "kind": "method",
-          "signature": "new < K, V >(): WeakMap<K, V>;",
-          "accessModifier": "",
-          "isOptional": false,
-          "isStatic": false,
-          "returnValue": {
-            "type": "WeakMap<K, V>",
-            "description": []
-          },
-          "parameters": {},
-          "deprecatedMessage": [],
-          "summary": [],
-          "remarks": [],
-          "isBeta": false
-        },
-        "prototype": {
-          "kind": "property",
-          "isOptional": false,
-          "isReadOnly": false,
-          "isStatic": false,
-          "type": "WeakMap<any, any>",
-          "deprecatedMessage": [],
-          "summary": [],
-          "remarks": [],
-          "isBeta": false
-        }
-      }
-    },
-    "WeakSet": {
-      "kind": "interface",
-      "extends": "",
-      "implements": "",
-      "typeParameters": [
-        "T"
-      ],
-      "deprecatedMessage": [],
-      "summary": [],
-      "remarks": [],
-      "isBeta": false,
-      "members": {
-        "add": {
-          "kind": "method",
-          "signature": "add(value: T): WeakSet<T>;",
-          "accessModifier": "",
-          "isOptional": false,
-          "isStatic": false,
-          "returnValue": {
-            "type": "WeakSet<T>",
-            "description": []
-          },
-          "parameters": {},
-          "deprecatedMessage": [],
-          "summary": [],
-          "remarks": [],
-          "isBeta": false
-        },
-        "clear": {
-          "kind": "method",
-          "signature": "clear(): void;",
-          "accessModifier": "",
-          "isOptional": false,
-          "isStatic": false,
-          "returnValue": {
-            "type": "void",
-            "description": []
-          },
-          "parameters": {},
-          "deprecatedMessage": [],
-          "summary": [],
-          "remarks": [],
-          "isBeta": false
-        },
-        "delete": {
-          "kind": "method",
-          "signature": "delete(value: T): boolean;",
-          "accessModifier": "",
-          "isOptional": false,
-          "isStatic": false,
-          "returnValue": {
-            "type": "boolean",
-            "description": []
-          },
-          "parameters": {},
-          "deprecatedMessage": [],
-          "summary": [],
-          "remarks": [],
-          "isBeta": false
-        },
-        "has": {
-          "kind": "method",
-          "signature": "has(value: T): boolean;",
-          "accessModifier": "",
-          "isOptional": false,
-          "isStatic": false,
-          "returnValue": {
-            "type": "boolean",
-            "description": []
-          },
-          "parameters": {},
-          "deprecatedMessage": [],
-          "summary": [],
-          "remarks": [],
-          "isBeta": false
-        }
-      }
-    },
-    "WeakSetConstructor": {
-      "kind": "interface",
-      "extends": "",
-      "implements": "",
-      "typeParameters": [],
-      "deprecatedMessage": [],
-      "summary": [],
-      "remarks": [],
-      "isBeta": false,
-      "members": {
-        "__new": {
-          "kind": "method",
-          "signature": "new < T >(): WeakSet<T>;",
-          "accessModifier": "",
-          "isOptional": false,
-          "isStatic": false,
-          "returnValue": {
-            "type": "WeakSet<T>",
-            "description": []
-          },
-          "parameters": {},
-          "deprecatedMessage": [],
-          "summary": [],
-          "remarks": [],
-          "isBeta": false
-        },
-        "prototype": {
-          "kind": "property",
-          "isOptional": false,
-          "isReadOnly": false,
-          "isStatic": false,
-          "type": "WeakSet<any>",
           "deprecatedMessage": [],
           "summary": [],
           "remarks": [],

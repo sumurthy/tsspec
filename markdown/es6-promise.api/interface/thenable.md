@@ -1,4 +1,4 @@
-# ForEachable <T> interface
+# Thenable <T> interface
 
 
 
@@ -18,7 +18,7 @@ _Type parameters: `<T>`_
 
 | Method	   |  Returns	| Description|
 |:-------------|:-------|:-----------|
-|[`forEach()`](foreach-foreachable.md)      | `void` |  |
+|[`then()`](then-thenable.md)      | [`Thenable`](../../es6-promise.api/interface/thenable.md)<U> |  |
 
 
 

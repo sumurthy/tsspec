@@ -18,9 +18,9 @@ Interface for the module loader. It allows to load modules and scripts (through 
 
 | Method	   |  Returns	| Description|
 |:-------------|:-------|:-----------|
-|[`loadComponent(manifest)`](loadcomponent-ispcomponentloader.md)      | `Promise<TComponent>` | Loads a component from a manifest. |
+|[`loadComponent(manifest)`](loadcomponent-ispcomponentloader.md)      | [`Promise`](../../es6-promise.api/class/promise.md)<TComponent> | Loads a component from a manifest. |
 |[`loadCss(url)`](loadcss-ispcomponentloader.md)      | `void` | Inserts a <link ... /> tag for a stylesheet. |
-|[`loadScript(url,options)`](loadscript-ispcomponentloader.md)      | `Promise<TModule>` | Given a URL, load a script. |
+|[`loadScript(url,options)`](loadscript-ispcomponentloader.md)      | [`Promise`](../../es6-promise.api/class/promise.md)<TModule> | Given a URL, load a script. |
 
 
 

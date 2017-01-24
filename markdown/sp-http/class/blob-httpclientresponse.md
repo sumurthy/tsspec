@@ -5,9 +5,9 @@
 
 {@inheritdoc Body.blob}
 
-**Signature:** _public blob(): Promise<Blob>;_
+**Signature:** _public blob(): [Promise](../../es6-promise.api/class/promise.md)<Blob>;_
 
-**Returns**: `Promise<Blob>`
+**Returns**: [`Promise`](../../es6-promise.api/class/promise.md)<Blob>
 
 
 

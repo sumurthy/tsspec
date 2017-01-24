@@ -22,7 +22,7 @@ PropertyPaneTextField component props.
 |`errorMessage`      | `string` | Default value of the textfield, if any. |
 |`label`      | `string` | Label for the textfield. |
 |`multiline`      | `boolean` | Whether or not the textfield is a multiline textfield. Default value is false. |
-|`onGetErrorMessage`      | `(value: string) => string `,` Promise<string>` | The method is used to get the validation error message and determine whether the input value is valid or not. When it returns string: - If valid, it returns empty string. - If invalid, it returns the error message string and the text field will show a red border and show an error message below the text field. When it returns Promise<string>: - The resolved value is display as error message. - The rejected, the value is thrown away. |
+|`onGetErrorMessage`      | `(value: string) => string `, [`Promise`](../../es6-promise.api/class/promise.md)<string> | The method is used to get the validation error message and determine whether the input value is valid or not. When it returns string: - If valid, it returns empty string. - If invalid, it returns the error message string and the text field will show a red border and show an error message below the text field. When it returns Promise<string>: - The resolved value is display as error message. - The rejected, the value is thrown away. |
 |`placeholder`      | `string` | placeholder text to be displayed in the Textfield. |
 |`resizable`      | `boolean` | Whether or not the multiline textfield is resizable. Default value is true. |
 |`underlined`      | `boolean` | Whether or not the textfield is underlined. Default value is false. |

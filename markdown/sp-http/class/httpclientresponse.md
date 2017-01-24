@@ -30,14 +30,14 @@ The Response subclass returned by methods such as HttpClient.fetch().
 
 | Method	   | Access Modifier | Returns	| Description|
 |:-------------|:----|:-------|:-----------|
-|[`arrayBuffer()`](arraybuffer-httpclientresponse.md)     | `public` | `Promise<ArrayBuffer>` | {@inheritdoc Body.arrayBuffer} |
-|[`blob()`](blob-httpclientresponse.md)     | `public` | `Promise<Blob>` | {@inheritdoc Body.blob} |
+|[`arrayBuffer()`](arraybuffer-httpclientresponse.md)     | `public` | [`Promise`](../../es6-promise.api/class/promise.md)<ArrayBuffer> | {@inheritdoc Body.arrayBuffer} |
+|[`blob()`](blob-httpclientresponse.md)     | `public` | [`Promise`](../../es6-promise.api/class/promise.md)<Blob> | {@inheritdoc Body.blob} |
 |[`clone()`](clone-httpclientresponse.md)     | `public` | [`HttpClientResponse`](../../sp-http/class/httpclientresponse.md) |  |
 |[`error()`](error-httpclientresponse.md)     | `public, static` | [`Response`](../../whatwg-fetch.api/class/response.md) | {@inheritdoc Response.error} |
-|[`formData()`](formdata-httpclientresponse.md)     | `public` | `Promise<FormData>` | {@inheritdoc Body.formData} |
-|[`json()`](json-httpclientresponse.md)     | `public` | `Promise<any>` | {@inheritdoc Body.json} |
+|[`formData()`](formdata-httpclientresponse.md)     | `public` | [`Promise`](../../es6-promise.api/class/promise.md)<FormData> | {@inheritdoc Body.formData} |
+|[`json()`](json-httpclientresponse.md)     | `public` | [`Promise`](../../es6-promise.api/class/promise.md)<any> | {@inheritdoc Body.json} |
 |[`redirect()`](redirect-httpclientresponse.md)     | `public, static` | [`Response`](../../whatwg-fetch.api/class/response.md) | {@inheritdoc Response.redirect} |
-|[`text()`](text-httpclientresponse.md)     | `public` | `Promise<string>` | {@inheritdoc Body.text} |
+|[`text()`](text-httpclientresponse.md)     | `public` | [`Promise`](../../es6-promise.api/class/promise.md)<string> | {@inheritdoc Body.text} |
 
 
 
