@@ -1,4 +1,4 @@
-# whatwg-fetch module
+# whatwg-fetch package
 
 
 

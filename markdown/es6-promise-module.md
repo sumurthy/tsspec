@@ -1,4 +1,4 @@
-# es6-promise module
+# es6-promise package
 
 
 

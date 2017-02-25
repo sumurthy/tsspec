@@ -1,4 +1,4 @@
-# sp-odata-types module
+# sp-odata-types package
 
 
 

@@ -1,4 +1,4 @@
-# sp-http module
+# sp-http package
 
 
 

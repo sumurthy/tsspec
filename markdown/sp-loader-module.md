@@ -1,4 +1,4 @@
-# sp-loader module
+# sp-loader package
 
 
 

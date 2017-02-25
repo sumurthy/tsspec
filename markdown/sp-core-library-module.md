@@ -1,4 +1,4 @@
-# sp-core-library module
+# sp-core-library package
 
 
 

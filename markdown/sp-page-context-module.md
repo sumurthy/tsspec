@@ -1,4 +1,4 @@
-# sp-page-context module
+# sp-page-context package
 
 
 

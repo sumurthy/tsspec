@@ -1,5 +1,5 @@
 <moduleh>
-# %module% module
+# %module% package
 </moduleh>
 
 <module>

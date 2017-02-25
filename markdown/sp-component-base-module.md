@@ -1,4 +1,4 @@
-# sp-component-base module
+# sp-component-base package
 
 
 

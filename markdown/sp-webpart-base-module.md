@@ -1,4 +1,4 @@
-# sp-webpart-base module
+# sp-webpart-base package
 
 
 

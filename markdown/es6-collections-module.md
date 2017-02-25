@@ -1,4 +1,4 @@
-# es6-collections module
+# es6-collections package
 
 
 
