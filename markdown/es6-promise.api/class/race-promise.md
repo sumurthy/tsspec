@@ -3,7 +3,7 @@
 
 
 
-Make a Promise that fulfills when any item fulfills, and rejects if any item rejects.
+
 
 **Signature:** _public static race < T >(promises: (T | [Thenable](../../es6-promise.api/interface/thenable.md)<T>)[]): [Promise](../../es6-promise.api/class/promise.md)<T>;_
 

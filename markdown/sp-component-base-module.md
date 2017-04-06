@@ -7,7 +7,7 @@
 
 | Interface	   |  Description |
 |:-------------|:---------------|
-| [`IClientSideComponentContext`](./sp-component-base/interface/iclientsidecomponentcontext.md)   | The base context interface for client-side components.  |
+| [`IClientSideComponentContext`](./sp-component-base.api/interface/iclientsidecomponentcontext.md)   | The base context interface for client-side components.  |
 
 
 

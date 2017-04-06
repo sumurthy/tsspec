@@ -93,7 +93,7 @@
             }
           ],
           "remarks": [],
-          "isBeta": false
+          "isBeta": true
         },
         "fetchCore": {
           "kind": "method",
@@ -114,7 +114,7 @@
             }
           ],
           "remarks": [],
-          "isBeta": false
+          "isBeta": true
         },
         "get": {
           "kind": "method",
@@ -256,7 +256,7 @@
             }
           ],
           "remarks": [],
-          "isBeta": false
+          "isBeta": true
         },
         "serviceScope": {
           "kind": "property",
@@ -289,7 +289,7 @@
         }
       ],
       "remarks": [],
-      "isBeta": false,
+      "isBeta": true,
       "members": {
         "__constructor": {
           "kind": "method",
@@ -326,7 +326,7 @@
             }
           ],
           "remarks": [],
-          "isBeta": false
+          "isBeta": true
         },
         "flags": {
           "kind": "property",
@@ -358,7 +358,7 @@
             }
           ],
           "remarks": [],
-          "isBeta": false
+          "isBeta": true
         },
         "overrideWith": {
           "kind": "method",

@@ -172,9 +172,14 @@ var self = module.exports = {
         m['isStatic'] = method['isStatic']
         m['isOptional'] = method['isOptional']
         m['genericType'] = null
-        m['returnType'] = method['returnValue']['type']
+        if (method['returnValue']) {
+            m['returnType'] = method['returnValue']['type']
+        }
+        else {
+            m['returnType'] = ''
+        }
         m['returnDescr'] = ""
-        if (method['returnValue']['description'].length > 0) {
+        if (method['returnValue'] && method['returnValue']['description'].length > 0) {
             m['returnDescr'] = method['returnValue']['description'][0]['value']
         }
 

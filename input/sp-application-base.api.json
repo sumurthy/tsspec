@@ -1,0 +1,337 @@
+{
+  "kind": "package",
+  "summary": [],
+  "remarks": [],
+  "exports": {
+    "ApplicationCustomizerContext": {
+      "kind": "class",
+      "extends": "ExtensionContext",
+      "implements": "",
+      "typeParameters": [],
+      "deprecatedMessage": [],
+      "summary": [
+        {
+          "kind": "textDocElement",
+          "value": "This object provides contextual information for BaseApplicationCustomizer."
+        }
+      ],
+      "remarks": [],
+      "isBeta": false,
+      "members": {
+        "pageContext": {
+          "kind": "property",
+          "isOptional": false,
+          "isReadOnly": true,
+          "isStatic": false,
+          "type": "PageContext",
+          "deprecatedMessage": [],
+          "summary": [
+            {
+              "kind": "textDocElement",
+              "value": "The page context provides standard definitions for common SharePoint objects that need to be shared between the client-side application, web parts, and other components."
+            }
+          ],
+          "remarks": [],
+          "isBeta": false
+        },
+        "placeholders": {
+          "kind": "property",
+          "isOptional": false,
+          "isReadOnly": true,
+          "isStatic": false,
+          "type": "PlaceholderCollection",
+          "deprecatedMessage": [],
+          "summary": [
+            {
+              "kind": "textDocElement",
+              "value": "Exposes a collection of content placeholders for use by third parties."
+            }
+          ],
+          "remarks": [],
+          "isBeta": false
+        }
+      }
+    },
+    "BaseApplicationCustomizer": {
+      "kind": "class",
+      "extends": "BaseExtension",
+      "implements": "",
+      "typeParameters": [],
+      "deprecatedMessage": [],
+      "summary": [
+        {
+          "kind": "textDocElement",
+          "value": "This is the base class that third parties should extend when implementing a client-side extension that runs when an application is first starting. In the component manifest, the \"extensionType\" should be set to \"ApplicationCustomizer\"."
+        }
+      ],
+      "remarks": [],
+      "isBeta": false,
+      "members": {
+        "context": {
+          "kind": "property",
+          "isOptional": false,
+          "isReadOnly": true,
+          "isStatic": false,
+          "type": "ApplicationCustomizerContext",
+          "deprecatedMessage": [],
+          "summary": [],
+          "remarks": [],
+          "isBeta": false
+        },
+        "onRender": {
+          "kind": "method",
+          "signature": "@virtual public onRender(): void;",
+          "accessModifier": "public",
+          "isOptional": false,
+          "isStatic": false,
+          "returnValue": {
+            "type": "void",
+            "description": []
+          },
+          "parameters": {},
+          "deprecatedMessage": [],
+          "summary": [
+            {
+              "kind": "textDocElement",
+              "value": "This lifecycle event occurs after the shell has constructed the initial page DOM, after the application's onRender() event has occurred."
+            }
+          ],
+          "remarks": [],
+          "isBeta": false
+        },
+        "properties": {
+          "kind": "property",
+          "isOptional": false,
+          "isReadOnly": true,
+          "isStatic": false,
+          "type": "IBaseApplicationCustomizerProperties | undefined",
+          "deprecatedMessage": [],
+          "summary": [],
+          "remarks": [],
+          "isBeta": false
+        }
+      }
+    },
+    "IBaseApplicationCustomizerProperties": {
+      "kind": "interface",
+      "extends": "IBaseExtensionProperties",
+      "implements": "",
+      "typeParameters": [],
+      "deprecatedMessage": [],
+      "summary": [
+        {
+          "kind": "textDocElement",
+          "value": "Extend this interface if you are overriding BaseExtension.properties."
+        }
+      ],
+      "remarks": [],
+      "isBeta": false
+    },
+    "IPlaceholderAttachOptions": {
+      "kind": "interface",
+      "extends": "",
+      "implements": "",
+      "typeParameters": [],
+      "deprecatedMessage": [],
+      "summary": [
+        {
+          "kind": "textDocElement",
+          "value": "Options for the Placeholder.attach() method."
+        }
+      ],
+      "remarks": [],
+      "isBeta": false,
+      "members": {
+        "onDispose": {
+          "kind": "property",
+          "isOptional": true,
+          "isReadOnly": false,
+          "isStatic": false,
+          "type": "(placeholder: Placeholder) => void",
+          "deprecatedMessage": [],
+          "summary": [
+            {
+              "kind": "textDocElement",
+              "value": "An event handler that will be invoked when the Placeholder.attachedDiv is disposed."
+            }
+          ],
+          "remarks": [],
+          "isBeta": false
+        }
+      }
+    },
+    "Placeholder": {
+      "kind": "class",
+      "extends": "",
+      "implements": "",
+      "typeParameters": [],
+      "deprecatedMessage": [],
+      "summary": [
+        {
+          "kind": "textDocElement",
+          "value": "A content placeholder is a designated region on the page (i.e. empty HTML \"div\" element) where third party extensions can inject arbitrary HTML content."
+        }
+      ],
+      "remarks": [],
+      "isBeta": false,
+      "members": {
+        "attach": {
+          "kind": "method",
+          "signature": "public attach(options: IPlaceholderAttachOptions): void;",
+          "accessModifier": "public",
+          "isOptional": false,
+          "isStatic": false,
+          "returnValue": {
+            "type": "void",
+            "description": []
+          },
+          "parameters": {},
+          "deprecatedMessage": [],
+          "summary": [
+            {
+              "kind": "textDocElement",
+              "value": "Creates a new HTML \"div\" under this placeholder."
+            }
+          ],
+          "remarks": [
+            {
+              "kind": "textDocElement",
+              "value": "This \"div\" element belongs to the third party and may be used until it is disposed. Once the attach() function has been called, it may not be called again unless dispose() is called first."
+            }
+          ],
+          "isBeta": false
+        },
+        "attachedDiv": {
+          "kind": "property",
+          "isOptional": false,
+          "isReadOnly": true,
+          "isStatic": false,
+          "type": "HTMLDivElement|undefined",
+          "deprecatedMessage": [],
+          "summary": [
+            {
+              "kind": "textDocElement",
+              "value": "The HTML \"div\" element that was when attach() was called. This property is undefined if attach() was not been called, or if dispose() was called after the last call to attach()."
+            }
+          ],
+          "remarks": [],
+          "isBeta": false
+        },
+        "dispose": {
+          "kind": "method",
+          "signature": "public dispose(): void;",
+          "accessModifier": "public",
+          "isOptional": false,
+          "isStatic": false,
+          "returnValue": {
+            "type": "void",
+            "description": []
+          },
+          "parameters": {},
+          "deprecatedMessage": [],
+          "summary": [
+            {
+              "kind": "textDocElement",
+              "value": "Diposes the attachedDiv."
+            }
+          ],
+          "remarks": [
+            {
+              "kind": "textDocElement",
+              "value": "This method can be called to immediately dispose the attachedDiv; otherwise, it will be disposed by the application when the placeholder is disposed. Calling dispose() invokes the IPlaceholderAttachOptions.onDispose() callback, removes the attachedDiv from the DOM, and assigns attachedDiv to undefined."
+            }
+          ],
+          "isBeta": false
+        },
+        "name": {
+          "kind": "property",
+          "isOptional": false,
+          "isReadOnly": true,
+          "isStatic": false,
+          "type": "string",
+          "deprecatedMessage": [],
+          "summary": [
+            {
+              "kind": "textDocElement",
+              "value": "A symbolic name used to identify the placeholder. Example: \"PageHeader\""
+            }
+          ],
+          "remarks": [
+            {
+              "kind": "textDocElement",
+              "value": "NOTE: This is not an HTML \"div\" ID; third party code must NOT make assumptions about the DOM structure of a client-side application."
+            }
+          ],
+          "isBeta": false
+        }
+      }
+    },
+    "PlaceholderCollection": {
+      "kind": "class",
+      "extends": "",
+      "implements": "",
+      "typeParameters": [],
+      "deprecatedMessage": [],
+      "summary": [
+        {
+          "kind": "textDocElement",
+          "value": "Exposes a collection of content placeholders for use by third parties."
+        }
+      ],
+      "remarks": [],
+      "isBeta": false,
+      "members": {
+        "__constructor": {
+          "kind": "constructor",
+          "signature": "constructor(serviceScope: ServiceScope);",
+          "parameters": {},
+          "deprecatedMessage": [],
+          "summary": [],
+          "remarks": []
+        },
+        "placeholderNames": {
+          "kind": "property",
+          "isOptional": false,
+          "isReadOnly": true,
+          "isStatic": false,
+          "type": "ReadonlyArray<string>",
+          "deprecatedMessage": [],
+          "summary": [
+            {
+              "kind": "textDocElement",
+              "value": "Returns the names of the currently available placeholders."
+            }
+          ],
+          "remarks": [],
+          "isBeta": false
+        },
+        "tryGetByName": {
+          "kind": "method",
+          "signature": "public tryGetByName(name: string): Placeholder | undefined;",
+          "accessModifier": "public",
+          "isOptional": false,
+          "isStatic": false,
+          "returnValue": {
+            "type": "Placeholder | undefined",
+            "description": []
+          },
+          "parameters": {},
+          "deprecatedMessage": [],
+          "summary": [
+            {
+              "kind": "textDocElement",
+              "value": "Searches for a content placeholder with the specified name; if none is found, then the function returns undefined."
+            }
+          ],
+          "remarks": [
+            {
+              "kind": "textDocElement",
+              "value": "The host application makes no guarantees about the availability of a given placeholder. In situations where an expected placeholder is not available, the third party extension must handle this, e.g. by not rendering anything, or by choosing an alternative placeholder."
+            }
+          ],
+          "isBeta": false
+        }
+      }
+    }
+  }
+}

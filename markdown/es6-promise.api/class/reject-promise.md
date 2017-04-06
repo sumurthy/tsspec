@@ -3,7 +3,7 @@
 
 
 
-Make a promise that rejects to obj. For consistency and debugging (eg stack traces), obj should be an instanceof Error
+
 
 **Signature:** _public static reject(error: any): [Promise](../../es6-promise.api/class/promise.md)<any>;_
 

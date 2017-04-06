@@ -1,0 +1,45 @@
+{
+  "IBaseApplicationCustomizerProperties": {
+    "isBeta": false,
+    "implementsExtendsName": "",
+    "genericType": "",
+    "descr": "Extend this interface if you are overriding BaseExtension.properties.",
+    "remarks": null,
+    "properties": {},
+    "functions": {},
+    "methods": {},
+    "constructor": {},
+    "types": {},
+    "variables": {},
+    "modules": {},
+    "objects": {}
+  },
+  "IPlaceholderAttachOptions": {
+    "isBeta": false,
+    "implementsExtendsName": "",
+    "genericType": "",
+    "descr": "Options for the Placeholder.attach() method.",
+    "remarks": null,
+    "properties": {
+      "onDispose": {
+        "descr": "An event handler that will be invoked when the Placeholder.attachedDiv is disposed.",
+        "remarks": null,
+        "dataType": "(placeholder: Placeholder) => void",
+        "isOptional": true,
+        "readonly": false,
+        "accessModifier": "public",
+        "isCollection": false,
+        "function": null,
+        "returnType": null,
+        "assignValue": null
+      }
+    },
+    "functions": {},
+    "methods": {},
+    "constructor": {},
+    "types": {},
+    "variables": {},
+    "modules": {},
+    "objects": {}
+  }
+}

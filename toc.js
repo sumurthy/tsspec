@@ -62,13 +62,25 @@ try {
 
 // let inputFiles = FileOps.walkFiles('./input', '.json')
 
-let inputFiles = ['sp-webpart-base.json',
-                'sp-core-library.json',
-                'sp-component-base.json',
-                'sp-http.json'
-                ,'sp-loader.json',
-                ,'sp-odata-types.json',
-                ,'sp-page-context.json'
+// let inputFiles = ['sp-webpart-base.json',
+//                 'sp-core-library.json',
+//                 'sp-component-base.json',
+//                 'sp-http.json'
+//                 ,'sp-loader.json',
+//                 ,'sp-odata-types.json',
+//                 ,'sp-page-context.json'
+//                 ]
+
+let inputFiles = ['sp-application-base.api.json',
+                'sp-loader.api.json',
+                'sp-odata-types.api.json',
+                'sp-page-context.api.json',
+                'sp-core-library.api.json',
+                'sp-component-base.api.json',
+                'sp-listview-extensibility.api.json',
+                'sp-http.api.json',
+                'sp-webpart-base.api.json',
+                'sp-extension-base.api.json'
                 ]
 
 let inputFilesExternal = ['es6-collections.api.json',
@@ -77,8 +89,8 @@ let inputFilesExternal = ['es6-collections.api.json',
                 ]
 
 
-//inputFiles.forEach((e) => {
 inputFilesExternal.forEach((e) => {
+// inputFiles.forEach((e) => {
     console.log('** Processing: ' + e);
     let files = FileOps.walkFiles('./json', e.replace('.json',''))
     moduleName = e.split('.')[0]

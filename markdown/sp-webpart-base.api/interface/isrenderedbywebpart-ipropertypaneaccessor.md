@@ -1,0 +1,19 @@
+# isRenderedByWebPart()
+**Note:** The SharePoint Framework is currently in preview and is subject to change. SharePoint Framework client-side web parts are not currently supported for use in production environments.
+
+
+
+Indicates whether the PropertyPane was initially opened by the web part. For example, if the web part calls this.context.propertyPane.open() then the property would be true, whereas if the property pane was opened by the host, then the value will be false.
+
+**Signature:** _isRenderedByWebPart(): boolean;_
+
+**Returns**: `boolean`
+
+
+
+
+
+#### Parameters
+None
+
+

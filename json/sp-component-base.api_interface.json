@@ -1,0 +1,42 @@
+{
+  "IClientSideComponentContext": {
+    "isBeta": false,
+    "implementsExtendsName": "",
+    "genericType": "",
+    "descr": "The base context interface for client-side components.",
+    "remarks": "A \"context\" object is a collection of well-known services and other objects that are likely to be needed by any business logic working with a component. Each component type has its own specialized extension of this interface, e.g. IWebPartContext for web parts, IExtensionContext for client-side extensions, etc.",
+    "properties": {
+      "manifest": {
+        "descr": "Manifest for the client side component.",
+        "remarks": null,
+        "dataType": "IClientSideComponentManifest",
+        "isOptional": false,
+        "readonly": false,
+        "accessModifier": "public",
+        "isCollection": false,
+        "function": null,
+        "returnType": null,
+        "assignValue": null
+      },
+      "serviceScope": {
+        "descr": "Service scope instance that is scoped to this particular web part.",
+        "remarks": null,
+        "dataType": "ServiceScope",
+        "isOptional": false,
+        "readonly": false,
+        "accessModifier": "public",
+        "isCollection": false,
+        "function": null,
+        "returnType": null,
+        "assignValue": null
+      }
+    },
+    "functions": {},
+    "methods": {},
+    "constructor": {},
+    "types": {},
+    "variables": {},
+    "modules": {},
+    "objects": {}
+  }
+}

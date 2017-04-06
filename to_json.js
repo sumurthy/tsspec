@@ -117,6 +117,8 @@ function processClassInterface(obj={}, objName= '', fileName='', objectType='') 
                 o['properties'][e] = p
                 break;
             case 'method':
+            case 'constructor':
+
                 // Write to all members
                 allMembers[`${objName}.${e.toLowerCase().replace(/_/g,'')}`] = '../../' + fileName + '/' + objectType +'/'+ objName + '#' + e.toLowerCase().replace(/_/g,'')
                 var m = Utils.processMethod(obj['members'][e], e, obj['isBeta'])

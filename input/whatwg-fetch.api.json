@@ -1,5 +1,7 @@
 {
   "kind": "package",
+  "summary": [],
+  "remarks": [],
   "exports": {
     "Body": {
       "kind": "class",
@@ -115,20 +117,12 @@
       "isBeta": false,
       "members": {
         "__constructor": {
-          "kind": "method",
+          "kind": "constructor",
           "signature": "constructor(headers?:Headers|HeadersMap)",
-          "accessModifier": "",
-          "isOptional": false,
-          "isStatic": false,
-          "returnValue": {
-            "type": "",
-            "description": []
-          },
           "parameters": {},
           "deprecatedMessage": [],
           "summary": [],
-          "remarks": [],
-          "isBeta": false
+          "remarks": []
         },
         "append": {
           "kind": "method",
@@ -283,20 +277,12 @@
       "isBeta": false,
       "members": {
         "__constructor": {
-          "kind": "method",
+          "kind": "constructor",
           "signature": "constructor(input: string|Request, init?:RequestInit);",
-          "accessModifier": "",
-          "isOptional": false,
-          "isStatic": false,
-          "returnValue": {
-            "type": "",
-            "description": []
-          },
           "parameters": {},
           "deprecatedMessage": [],
           "summary": [],
-          "remarks": [],
-          "isBeta": false
+          "remarks": []
         },
         "cache": {
           "kind": "property",
@@ -499,20 +485,12 @@
       "isBeta": false,
       "members": {
         "__constructor": {
-          "kind": "method",
+          "kind": "constructor",
           "signature": "constructor(body?: BodyInit, init?: ResponseInit);",
-          "accessModifier": "",
-          "isOptional": false,
-          "isStatic": false,
-          "returnValue": {
-            "type": "",
-            "description": []
-          },
           "parameters": {},
           "deprecatedMessage": [],
           "summary": [],
-          "remarks": [],
-          "isBeta": false
+          "remarks": []
         },
         "clone": {
           "kind": "method",

@@ -1,0 +1,412 @@
+{
+  "BaseFieldCustomizer": {
+    "isBeta": false,
+    "implementsExtendsName": "",
+    "genericType": "",
+    "descr": "This is the base class that third parties should extend when implementing a client-side extension that customizes the appearance of fields in a SharePoint ListView. In the component manifest, the \"extensionType\" should be set to \"FieldCustomizer\".",
+    "remarks": null,
+    "properties": {
+      "context": {
+        "descr": "",
+        "remarks": null,
+        "dataType": "FieldCustomizerContext",
+        "isOptional": false,
+        "readonly": true,
+        "accessModifier": "public",
+        "isCollection": false,
+        "function": null,
+        "returnType": null,
+        "assignValue": null
+      },
+      "properties": {
+        "descr": "",
+        "remarks": null,
+        "dataType": "IBaseFieldCustomizerProperties | undefined",
+        "isOptional": false,
+        "readonly": true,
+        "accessModifier": "public",
+        "isCollection": false,
+        "function": null,
+        "returnType": null,
+        "assignValue": null
+      }
+    },
+    "functions": {},
+    "methods": {
+      "onDisposeCell-basefieldcustomizer": {
+        "isBeta": false,
+        "showBetaMessage": false,
+        "descr": "",
+        "remarks": null,
+        "accessModifier": "public",
+        "signature": "@virtual public onDisposeCell(event: IFieldCustomizerCellEventParameters): void;",
+        "isStatic": false,
+        "isOptional": false,
+        "genericType": null,
+        "returnType": "void",
+        "returnDescr": "",
+        "params": [],
+        "docName": "onDisposeCell()",
+        "mdLink": "ondisposecell"
+      },
+      "onRenderCell-basefieldcustomizer": {
+        "isBeta": false,
+        "showBetaMessage": false,
+        "descr": "",
+        "remarks": null,
+        "accessModifier": "public",
+        "signature": "@virtual public onRenderCell(event: IFieldCustomizerCellEventParameters): void;",
+        "isStatic": false,
+        "isOptional": false,
+        "genericType": null,
+        "returnType": "void",
+        "returnDescr": "",
+        "params": [],
+        "docName": "onRenderCell()",
+        "mdLink": "onrendercell"
+      }
+    },
+    "constructor": {},
+    "types": {},
+    "variables": {},
+    "modules": {},
+    "objects": {}
+  },
+  "BaseListViewCommandSet": {
+    "isBeta": false,
+    "implementsExtendsName": "",
+    "genericType": "",
+    "descr": "This is the base class that third parties should extend when implementing a client-side extension that provides a CommandSet for a SharePoint ListView. In the component manifest, the \"extensionType\" should be set to \"CommandSet\".",
+    "remarks": null,
+    "properties": {
+      "context": {
+        "descr": "",
+        "remarks": null,
+        "dataType": "ListViewCommandSetContext",
+        "isOptional": false,
+        "readonly": true,
+        "accessModifier": "public",
+        "isCollection": false,
+        "function": null,
+        "returnType": null,
+        "assignValue": null
+      },
+      "properties": {
+        "descr": "",
+        "remarks": null,
+        "dataType": "IBaseListViewCommandSetProperties | undefined",
+        "isOptional": false,
+        "readonly": true,
+        "accessModifier": "public",
+        "isCollection": false,
+        "function": null,
+        "returnType": null,
+        "assignValue": null
+      }
+    },
+    "functions": {},
+    "methods": {
+      "onExecute-baselistviewcommandset": {
+        "isBeta": false,
+        "showBetaMessage": false,
+        "descr": "This event occurs when the command is invoked, e.g. because the user clicked on the toolbar button or menu item.",
+        "remarks": null,
+        "accessModifier": "public",
+        "signature": "@virtual public onExecute(event: IListViewCommandSetExecuteEventParameters): void;",
+        "isStatic": false,
+        "isOptional": false,
+        "genericType": null,
+        "returnType": "void",
+        "returnDescr": "",
+        "params": [],
+        "docName": "onExecute()",
+        "mdLink": "onexecute"
+      },
+      "onRender-baselistviewcommandset": {
+        "isBeta": false,
+        "showBetaMessage": false,
+        "descr": "This event occurs whenever the ListView state changes. It allows the implementor to tailor the appearance of the command. For example, to hide the command, assign event.visible = false. To customize the title, assign event.tile.",
+        "remarks": null,
+        "accessModifier": "public",
+        "signature": "@virtual public onRender(event: IListViewCommandSetRenderEventParameters): void;",
+        "isStatic": false,
+        "isOptional": false,
+        "genericType": null,
+        "returnType": "void",
+        "returnDescr": "",
+        "params": [],
+        "docName": "onRender()",
+        "mdLink": "onrender"
+      }
+    },
+    "constructor": {},
+    "types": {},
+    "variables": {},
+    "modules": {},
+    "objects": {}
+  },
+  "CellFormatter": {
+    "isBeta": false,
+    "implementsExtendsName": "",
+    "genericType": "",
+    "descr": "This class provides some functions that facilitate formatting cell values.",
+    "remarks": null,
+    "properties": {},
+    "functions": {},
+    "methods": {
+      "renderAsText-cellformatter": {
+        "isBeta": false,
+        "showBetaMessage": false,
+        "descr": "Renders the specified cell value as a text string without any markup.",
+        "remarks": null,
+        "accessModifier": "public",
+        "signature": "public static renderAsText(column: ColumnAccessor, cellValue: any): string;",
+        "isStatic": true,
+        "isOptional": false,
+        "genericType": null,
+        "returnType": "string",
+        "returnDescr": "",
+        "params": [],
+        "docName": "renderAsText()",
+        "mdLink": "renderastext"
+      }
+    },
+    "constructor": {},
+    "types": {},
+    "variables": {},
+    "modules": {},
+    "objects": {}
+  },
+  "ColumnAccessor": {
+    "isBeta": false,
+    "implementsExtendsName": "",
+    "genericType": "",
+    "descr": "Provides access to a ListView column, which is the visual presentation of a field.",
+    "remarks": "A SharePoint \"field\" (SPField) defines the data storage for a property of a list item. (If the list item represents a document, then the field is sometimes called a \"property\".) A \"column\" is the visual presentation of a field, when displayed by the ListView.",
+    "properties": {
+      "field": {
+        "descr": "The server-side definition of the field. This property is read-only.",
+        "remarks": null,
+        "dataType": "SPField",
+        "isOptional": false,
+        "readonly": true,
+        "accessModifier": "public",
+        "isCollection": false,
+        "function": null,
+        "returnType": null,
+        "assignValue": null
+      },
+      "visible": {
+        "descr": "Whether to show this column in the list view. This property is read-only.",
+        "remarks": null,
+        "dataType": "boolean",
+        "isOptional": false,
+        "readonly": true,
+        "accessModifier": "public",
+        "isCollection": false,
+        "function": null,
+        "returnType": null,
+        "assignValue": null
+      }
+    },
+    "functions": {},
+    "methods": {},
+    "constructor": {},
+    "types": {},
+    "variables": {},
+    "modules": {},
+    "objects": {}
+  },
+  "FieldCustomizerContext": {
+    "isBeta": false,
+    "implementsExtendsName": "",
+    "genericType": "",
+    "descr": "This object provides contextual information for BaseFieldCustomizer.",
+    "remarks": null,
+    "properties": {
+      "column": {
+        "descr": "Provides access to the column that the customizer will operate on.",
+        "remarks": null,
+        "dataType": "ColumnAccessor",
+        "isOptional": false,
+        "readonly": true,
+        "accessModifier": "public",
+        "isCollection": false,
+        "function": null,
+        "returnType": null,
+        "assignValue": null
+      },
+      "field": {
+        "descr": "Provides access to the SharePoint field that the customizer will operate on.",
+        "remarks": null,
+        "dataType": "SPField",
+        "isOptional": false,
+        "readonly": true,
+        "accessModifier": "public",
+        "isCollection": false,
+        "function": null,
+        "returnType": null,
+        "assignValue": null
+      },
+      "listView": {
+        "descr": "Provides access to the ListView control that the customizer will operate on.",
+        "remarks": null,
+        "dataType": "ListViewAccessor",
+        "isOptional": false,
+        "readonly": true,
+        "accessModifier": "public",
+        "isCollection": false,
+        "function": null,
+        "returnType": null,
+        "assignValue": null
+      },
+      "pageContext": {
+        "descr": "The page context provides standard definitions for common SharePoint objects that need to be shared between the client-side application, web parts, and other components.",
+        "remarks": null,
+        "dataType": "PageContext",
+        "isOptional": false,
+        "readonly": true,
+        "accessModifier": "public",
+        "isCollection": false,
+        "function": null,
+        "returnType": null,
+        "assignValue": null
+      }
+    },
+    "functions": {},
+    "methods": {},
+    "constructor": {},
+    "types": {},
+    "variables": {},
+    "modules": {},
+    "objects": {}
+  },
+  "ListViewAccessor": {
+    "isBeta": false,
+    "implementsExtendsName": "",
+    "genericType": "",
+    "descr": "Provides access to a SharePoint ListView control.",
+    "remarks": null,
+    "properties": {
+      "columns": {
+        "descr": "The columns in associated with this view, including hidden columns.",
+        "remarks": null,
+        "dataType": "ReadonlyArray<ColumnAccessor>",
+        "isOptional": false,
+        "readonly": true,
+        "accessModifier": "public",
+        "isCollection": false,
+        "function": null,
+        "returnType": null,
+        "assignValue": null
+      }
+    },
+    "functions": {},
+    "methods": {},
+    "constructor": {},
+    "types": {},
+    "variables": {},
+    "modules": {},
+    "objects": {}
+  },
+  "ListViewCommandSetContext": {
+    "isBeta": false,
+    "implementsExtendsName": "",
+    "genericType": "",
+    "descr": "This object provides contextual information for BaseListViewCommandSet.",
+    "remarks": null,
+    "properties": {
+      "listView": {
+        "descr": "Provides access to the ListView control that the customizer will operate on.",
+        "remarks": null,
+        "dataType": "ListViewAccessor",
+        "isOptional": false,
+        "readonly": true,
+        "accessModifier": "public",
+        "isCollection": false,
+        "function": null,
+        "returnType": null,
+        "assignValue": null
+      },
+      "manifest": {
+        "descr": "",
+        "remarks": null,
+        "dataType": "ICommandSetExtensionManifest",
+        "isOptional": false,
+        "readonly": true,
+        "accessModifier": "public",
+        "isCollection": false,
+        "function": null,
+        "returnType": null,
+        "assignValue": null
+      },
+      "pageContext": {
+        "descr": "The page context provides standard definitions for common SharePoint objects that need to be shared between the client-side application, web parts, and other components.",
+        "remarks": null,
+        "dataType": "PageContext",
+        "isOptional": false,
+        "readonly": true,
+        "accessModifier": "public",
+        "isCollection": false,
+        "function": null,
+        "returnType": null,
+        "assignValue": null
+      }
+    },
+    "functions": {},
+    "methods": {},
+    "constructor": {},
+    "types": {},
+    "variables": {},
+    "modules": {},
+    "objects": {}
+  },
+  "RowAccessor": {
+    "isBeta": false,
+    "implementsExtendsName": "",
+    "genericType": "",
+    "descr": "Provides access to a ListView row, which is the visual presentation of a SharePoint list item.",
+    "remarks": "A SharePoint \"list item\" (SPListItem) is a data storage record in the content management system; it stores an array of values for the associated fields. A \"row\" is the visual presentation of a list item, when displayed by the ListView; it stores an array of cell values for the associated columns.",
+    "properties": {},
+    "functions": {},
+    "methods": {
+      "getValue-rowaccessor": {
+        "isBeta": false,
+        "showBetaMessage": false,
+        "descr": "Retrieves the cell value for the specified column. The value will be a primitive JavaScript object such as a string, number, etc.",
+        "remarks": null,
+        "accessModifier": "public",
+        "signature": "public abstract getValue(column: ColumnAccessor): any;",
+        "isStatic": false,
+        "isOptional": false,
+        "genericType": null,
+        "returnType": "any",
+        "returnDescr": "",
+        "params": [],
+        "docName": "getValue()",
+        "mdLink": "getvalue"
+      },
+      "getValueByName-rowaccessor": {
+        "isBeta": false,
+        "showBetaMessage": false,
+        "descr": "Retrieves the cell value for the column/field with the specified internal name. The value will be a primitive JavaScript object such as a string, number, etc.",
+        "remarks": null,
+        "accessModifier": "public",
+        "signature": "public abstract getValueByName(internalName: string): any;",
+        "isStatic": false,
+        "isOptional": false,
+        "genericType": null,
+        "returnType": "any",
+        "returnDescr": "",
+        "params": [],
+        "docName": "getValueByName()",
+        "mdLink": "getvaluebyname"
+      }
+    },
+    "constructor": {},
+    "types": {},
+    "variables": {},
+    "modules": {},
+    "objects": {}
+  }
+}

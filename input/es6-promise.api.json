@@ -1,5 +1,7 @@
 {
   "kind": "package",
+  "summary": [],
+  "remarks": [],
   "exports": {
     "Promise": {
       "kind": "class",
@@ -14,25 +16,12 @@
       "isBeta": false,
       "members": {
         "__constructor": {
-          "kind": "method",
+          "kind": "constructor",
           "signature": "constructor(callback: (resolve: (value?: T | Thenable<T>) => void, reject: (error?: any) => void) => void);",
-          "accessModifier": "",
-          "isOptional": false,
-          "isStatic": false,
-          "returnValue": {
-            "type": "",
-            "description": []
-          },
           "parameters": {},
           "deprecatedMessage": [],
-          "summary": [
-            {
-              "kind": "textDocElement",
-              "value": "If you call resolve in the body of the callback passed to the constructor, your promise is fulfilled with result object passed to resolve. If you call reject your promise is rejected with the object passed to reject. For consistency and debugging (eg stack traces), obj should be an instanceof Error. Any errors thrown in the constructor callback will be implicitly passed to reject()."
-            }
-          ],
-          "remarks": [],
-          "isBeta": false
+          "summary": [],
+          "remarks": []
         },
         "all": {
           "kind": "method",
@@ -46,12 +35,7 @@
           },
           "parameters": {},
           "deprecatedMessage": [],
-          "summary": [
-            {
-              "kind": "textDocElement",
-              "value": "Make a promise that fulfills when every item in the array fulfills, and rejects if (and when) any item rejects. the array passed to all can be a mixture of promise-like objects and other objects. The fulfillment value is an array (in order) of fulfillment values. The rejection value is the first rejection value."
-            }
-          ],
+          "summary": [],
           "remarks": [],
           "isBeta": false
         },
@@ -65,27 +49,9 @@
             "type": "Promise<U>",
             "description": []
           },
-          "parameters": {
-            "onRejected": {
-              "name": "onRejected",
-              "description": [
-                {
-                  "kind": "textDocElement",
-                  "value": "called when/if \"promise\" rejects"
-                }
-              ],
-              "isOptional": true,
-              "isSpread": false,
-              "type": "(error: any) => U | Thenable<U>"
-            }
-          },
+          "parameters": {},
           "deprecatedMessage": [],
-          "summary": [
-            {
-              "kind": "textDocElement",
-              "value": "Sugar for promise.then(undefined, onRejected)"
-            }
-          ],
+          "summary": [],
           "remarks": [],
           "isBeta": false
         },
@@ -101,12 +67,7 @@
           },
           "parameters": {},
           "deprecatedMessage": [],
-          "summary": [
-            {
-              "kind": "textDocElement",
-              "value": "Make a Promise that fulfills when any item fulfills, and rejects if any item rejects."
-            }
-          ],
+          "summary": [],
           "remarks": [],
           "isBeta": false
         },
@@ -122,12 +83,7 @@
           },
           "parameters": {},
           "deprecatedMessage": [],
-          "summary": [
-            {
-              "kind": "textDocElement",
-              "value": "Make a promise that rejects to obj. For consistency and debugging (eg stack traces), obj should be an instanceof Error"
-            }
-          ],
+          "summary": [],
           "remarks": [],
           "isBeta": false
         },
@@ -143,12 +99,7 @@
           },
           "parameters": {},
           "deprecatedMessage": [],
-          "summary": [
-            {
-              "kind": "textDocElement",
-              "value": "Make a new promise from the thenable. A thenable is promise-like in as far as it has a \"then\" method."
-            }
-          ],
+          "summary": [],
           "remarks": [],
           "isBeta": false
         },
@@ -162,39 +113,9 @@
             "type": "Promise<U>",
             "description": []
           },
-          "parameters": {
-            "onFulfilled": {
-              "name": "onFulfilled",
-              "description": [
-                {
-                  "kind": "textDocElement",
-                  "value": "called when/if \"promise\" resolves"
-                }
-              ],
-              "isOptional": true,
-              "isSpread": false,
-              "type": "(value: T) => U | Thenable<U>"
-            },
-            "onRejected": {
-              "name": "onRejected",
-              "description": [
-                {
-                  "kind": "textDocElement",
-                  "value": "called when/if \"promise\" rejects"
-                }
-              ],
-              "isOptional": true,
-              "isSpread": false,
-              "type": "(error: any) => U | Thenable<U>"
-            }
-          },
+          "parameters": {},
           "deprecatedMessage": [],
-          "summary": [
-            {
-              "kind": "textDocElement",
-              "value": "onFulfilled is called when/if \"promise\" resolves. onRejected is called when/if \"promise\" rejects. Both are optional, if either/both are omitted the next onFulfilled/onRejected in the chain is called. Both callbacks have a single parameter , the fulfillment value or rejection reason. \"then\" returns a new promise equivalent to the value you return from onFulfilled/onRejected after being passed through Promise.resolve. If an error is thrown in the callback, the returned promise rejects with that error."
-            }
-          ],
+          "summary": [],
           "remarks": [],
           "isBeta": false
         }

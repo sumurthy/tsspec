@@ -1,0 +1,229 @@
+{
+  "ApplicationCustomizerContext": {
+    "isBeta": false,
+    "implementsExtendsName": "",
+    "genericType": "",
+    "descr": "This object provides contextual information for BaseApplicationCustomizer.",
+    "remarks": null,
+    "properties": {
+      "pageContext": {
+        "descr": "The page context provides standard definitions for common SharePoint objects that need to be shared between the client-side application, web parts, and other components.",
+        "remarks": null,
+        "dataType": "PageContext",
+        "isOptional": false,
+        "readonly": true,
+        "accessModifier": "public",
+        "isCollection": false,
+        "function": null,
+        "returnType": null,
+        "assignValue": null
+      },
+      "placeholders": {
+        "descr": "Exposes a collection of content placeholders for use by third parties.",
+        "remarks": null,
+        "dataType": "PlaceholderCollection",
+        "isOptional": false,
+        "readonly": true,
+        "accessModifier": "public",
+        "isCollection": false,
+        "function": null,
+        "returnType": null,
+        "assignValue": null
+      }
+    },
+    "functions": {},
+    "methods": {},
+    "constructor": {},
+    "types": {},
+    "variables": {},
+    "modules": {},
+    "objects": {}
+  },
+  "BaseApplicationCustomizer": {
+    "isBeta": false,
+    "implementsExtendsName": "",
+    "genericType": "",
+    "descr": "This is the base class that third parties should extend when implementing a client-side extension that runs when an application is first starting. In the component manifest, the \"extensionType\" should be set to \"ApplicationCustomizer\".",
+    "remarks": null,
+    "properties": {
+      "context": {
+        "descr": "",
+        "remarks": null,
+        "dataType": "ApplicationCustomizerContext",
+        "isOptional": false,
+        "readonly": true,
+        "accessModifier": "public",
+        "isCollection": false,
+        "function": null,
+        "returnType": null,
+        "assignValue": null
+      },
+      "properties": {
+        "descr": "",
+        "remarks": null,
+        "dataType": "IBaseApplicationCustomizerProperties | undefined",
+        "isOptional": false,
+        "readonly": true,
+        "accessModifier": "public",
+        "isCollection": false,
+        "function": null,
+        "returnType": null,
+        "assignValue": null
+      }
+    },
+    "functions": {},
+    "methods": {
+      "onRender-baseapplicationcustomizer": {
+        "isBeta": false,
+        "showBetaMessage": false,
+        "descr": "This lifecycle event occurs after the shell has constructed the initial page DOM, after the application's onRender() event has occurred.",
+        "remarks": null,
+        "accessModifier": "public",
+        "signature": "@virtual public onRender(): void;",
+        "isStatic": false,
+        "isOptional": false,
+        "genericType": null,
+        "returnType": "void",
+        "returnDescr": "",
+        "params": [],
+        "docName": "onRender()",
+        "mdLink": "onrender"
+      }
+    },
+    "constructor": {},
+    "types": {},
+    "variables": {},
+    "modules": {},
+    "objects": {}
+  },
+  "Placeholder": {
+    "isBeta": false,
+    "implementsExtendsName": "",
+    "genericType": "",
+    "descr": "A content placeholder is a designated region on the page (i.e. empty HTML \"div\" element) where third party extensions can inject arbitrary HTML content.",
+    "remarks": null,
+    "properties": {
+      "attachedDiv": {
+        "descr": "The HTML \"div\" element that was when attach() was called. This property is undefined if attach() was not been called, or if dispose() was called after the last call to attach().",
+        "remarks": null,
+        "dataType": "HTMLDivElement|undefined",
+        "isOptional": false,
+        "readonly": true,
+        "accessModifier": "public",
+        "isCollection": false,
+        "function": null,
+        "returnType": null,
+        "assignValue": null
+      },
+      "name": {
+        "descr": "A symbolic name used to identify the placeholder. Example: \"PageHeader\"",
+        "remarks": "NOTE: This is not an HTML \"div\" ID; third party code must NOT make assumptions about the DOM structure of a client-side application.",
+        "dataType": "string",
+        "isOptional": false,
+        "readonly": true,
+        "accessModifier": "public",
+        "isCollection": false,
+        "function": null,
+        "returnType": null,
+        "assignValue": null
+      }
+    },
+    "functions": {},
+    "methods": {
+      "attach-placeholder": {
+        "isBeta": false,
+        "showBetaMessage": false,
+        "descr": "Creates a new HTML \"div\" under this placeholder.",
+        "remarks": "This \"div\" element belongs to the third party and may be used until it is disposed. Once the attach() function has been called, it may not be called again unless dispose() is called first.",
+        "accessModifier": "public",
+        "signature": "public attach(options: IPlaceholderAttachOptions): void;",
+        "isStatic": false,
+        "isOptional": false,
+        "genericType": null,
+        "returnType": "void",
+        "returnDescr": "",
+        "params": [],
+        "docName": "attach()",
+        "mdLink": "attach"
+      },
+      "dispose-placeholder": {
+        "isBeta": false,
+        "showBetaMessage": false,
+        "descr": "Diposes the attachedDiv.",
+        "remarks": "This method can be called to immediately dispose the attachedDiv; otherwise, it will be disposed by the application when the placeholder is disposed. Calling dispose() invokes the IPlaceholderAttachOptions.onDispose() callback, removes the attachedDiv from the DOM, and assigns attachedDiv to undefined.",
+        "accessModifier": "public",
+        "signature": "public dispose(): void;",
+        "isStatic": false,
+        "isOptional": false,
+        "genericType": null,
+        "returnType": "void",
+        "returnDescr": "",
+        "params": [],
+        "docName": "dispose()",
+        "mdLink": "dispose"
+      }
+    },
+    "constructor": {},
+    "types": {},
+    "variables": {},
+    "modules": {},
+    "objects": {}
+  },
+  "PlaceholderCollection": {
+    "isBeta": false,
+    "implementsExtendsName": "",
+    "genericType": "",
+    "descr": "Exposes a collection of content placeholders for use by third parties.",
+    "remarks": null,
+    "properties": {
+      "placeholderNames": {
+        "descr": "Returns the names of the currently available placeholders.",
+        "remarks": null,
+        "dataType": "ReadonlyArray<string>",
+        "isOptional": false,
+        "readonly": true,
+        "accessModifier": "public",
+        "isCollection": false,
+        "function": null,
+        "returnType": null,
+        "assignValue": null
+      }
+    },
+    "functions": {},
+    "methods": {
+      "tryGetByName-placeholdercollection": {
+        "isBeta": false,
+        "showBetaMessage": false,
+        "descr": "Searches for a content placeholder with the specified name; if none is found, then the function returns undefined.",
+        "remarks": "The host application makes no guarantees about the availability of a given placeholder. In situations where an expected placeholder is not available, the third party extension must handle this, e.g. by not rendering anything, or by choosing an alternative placeholder.",
+        "accessModifier": "public",
+        "signature": "public tryGetByName(name: string): Placeholder | undefined;",
+        "isStatic": false,
+        "isOptional": false,
+        "genericType": null,
+        "returnType": "Placeholder | undefined",
+        "returnDescr": "",
+        "params": [],
+        "docName": "tryGetByName()",
+        "mdLink": "trygetbyname"
+      }
+    },
+    "constructor": {
+      "isBeta": false,
+      "showBetaMessage": false,
+      "descr": "",
+      "remarks": null,
+      "signature": "constructor(serviceScope: ServiceScope);",
+      "genericType": null,
+      "returnType": "",
+      "returnDescr": "",
+      "params": [],
+      "docName": "constructor()",
+      "mdLink": "constructor"
+    },
+    "types": {},
+    "variables": {},
+    "modules": {},
+    "objects": {}
+  }
+}

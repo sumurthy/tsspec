@@ -1,5 +1,7 @@
 {
   "kind": "package",
+  "summary": [],
+  "remarks": [],
   "exports": {
     "ForEachable": {
       "kind": "interface",
