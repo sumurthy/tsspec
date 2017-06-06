@@ -1,7 +1,6 @@
 let fs = require ('fs')
 let nl = require('os').EOL;
 
-
 var self = module.exports  = {
   walkFiles: (path='', pattern=null) => {
     try {
@@ -11,8 +10,7 @@ var self = module.exports  = {
 			return fo
 		}
 		else {
-			return fl
-		}
+			return fl		}
     }
     catch(e)
     {
