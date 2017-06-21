@@ -72,15 +72,16 @@ try {
 //                 ]
 
 let inputFiles = ['sp-application-base.api.json',
-                'sp-loader.api.json',
-                'sp-odata-types.api.json',
-                'sp-page-context.api.json',
-                'sp-core-library.api.json',
-                'sp-component-base.api.json',
-                'sp-listview-extensibility.api.json',
-                'sp-http.api.json',
-                'sp-webpart-base.api.json',
-                'sp-extension-base.api.json'
+            'sp-component-base.api.json',
+            'sp-core-library.api.json',
+            'sp-dialog.api',
+            'sp-extension-base.api.json',
+            'sp-http.api.json',
+            'sp-listview-extensibility.api.json',
+            'sp-odata-types.api.json',
+            'sp-page-context.api.json',
+            'sp-webpart-base.api.json',
+            'web-apis.api.json'
                 ]
 
 let inputFilesExternal = ['es6-collections.api.json',
@@ -89,8 +90,8 @@ let inputFilesExternal = ['es6-collections.api.json',
                 ]
 
 
-inputFilesExternal.forEach((e) => {
-// inputFiles.forEach((e) => {
+// inputFilesExternal.forEach((e) => {
+inputFiles.forEach((e) => {
     console.log('** Processing: ' + e);
     let files = FileOps.walkFiles('./json', e.replace('.json',''))
     moduleName = e.split('.')[0]
@@ -120,6 +121,8 @@ function loadModule(files = [], moduleName = "") {
                 endSegment()
 
             }
+        else if (e.includes('_package.json')) {
+        }
         } else if (e.includes('_class.json')) {
             classObj = JSON.parse(FileOps.loadJson(`./json/${e}`))
             if (Object.keys(classObj).length > 0) {
@@ -186,9 +189,10 @@ function loadModule(files = [], moduleName = "") {
                 endSegment()
 
             }
-        }
-        else {
-            throw "Unrecognized file in inut JSON folder. Should be *_{module|class|enum|type|variable|function|interface).json"
+        } else if (e.includes('_package.json')) {
+            console.log('Skipping package files')
+        } else {
+            throw "Unrecognized file in inut JSON folder. Should be *_{module|class|enum|type|variable|function|interface).json: " + e
         }
         })
         //

@@ -18,25 +18,7 @@
 </Item>
 </Item>
 <Item text="es6-promise" url="spdx/es6-promise-module" SEODescription="">
-<Item text="Classes" url="spdx/es6-promise" SEODescription="">
-<Item text="Promise" url="spdx/es6-promise.api/class/promise" SEODescription=""/>
-</Item>
-<Item text="Interfaces" url="spdx/es6-promise" SEODescription="">
-<Item text="Thenable" url="spdx/es6-promise.api/interface/thenable" SEODescription=""/>
-</Item>
 </Item>
 <Item text="whatwg-fetch" url="spdx/whatwg-fetch-module" SEODescription="">
-<Item text="Classes" url="spdx/whatwg-fetch" SEODescription="">
-<Item text="Body" url="spdx/whatwg-fetch.api/class/body" SEODescription=""/>
-<Item text="Headers" url="spdx/whatwg-fetch.api/class/headers" SEODescription=""/>
-<Item text="Request" url="spdx/whatwg-fetch.api/class/request" SEODescription=""/>
-<Item text="Response" url="spdx/whatwg-fetch.api/class/response" SEODescription=""/>
-</Item>
-<Item text="Interfaces" url="spdx/whatwg-fetch" SEODescription="">
-<Item text="HeadersMap" url="spdx/whatwg-fetch.api/interface/headersmap" SEODescription=""/>
-<Item text="RequestInit" url="spdx/whatwg-fetch.api/interface/requestinit" SEODescription=""/>
-<Item text="ResponseInit" url="spdx/whatwg-fetch.api/interface/responseinit" SEODescription=""/>
-<Item text="Window" url="spdx/whatwg-fetch.api/interface/window" SEODescription=""/>
-</Item>
 </Item>
 </Item></Menu>
