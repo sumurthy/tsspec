@@ -1,7 +1,17 @@
 {
   "kind": "package",
-  "summary": [],
-  "remarks": [],
+  "summary": [
+    {
+      "kind": "textDocElement",
+      "value": "Base communication layer for the SharePoint Framework"
+    }
+  ],
+  "remarks": [
+    {
+      "kind": "textDocElement",
+      "value": "This package defines the base communication layer for the SharePoint Framework. For REST calls, it handles authentication, logging, diagnostics, and batching. It also simplifies requests by adding default headers that follow the recommended best practices."
+    }
+  ],
   "exports": {
     "GraphClientResponse": {
       "kind": "class",
@@ -21,7 +31,7 @@
           "value": "This is a placeholder. In the future, additional GraphHttpClient-specific functionality may be added to this class."
         }
       ],
-      "isBeta": false,
+      "isBeta": true,
       "members": {
         "__constructor": {
           "kind": "constructor",
@@ -62,7 +72,7 @@
         }
       ],
       "remarks": [],
-      "isBeta": false,
+      "isBeta": true,
       "members": {
         "__constructor": {
           "kind": "constructor",
@@ -308,7 +318,7 @@
         }
       ],
       "remarks": [],
-      "isBeta": false,
+      "isBeta": true,
       "members": {
         "__constructor": {
           "kind": "constructor",
@@ -697,7 +707,12 @@
           },
           "parameters": {},
           "deprecatedMessage": [],
-          "summary": [],
+          "summary": [
+            {
+              "kind": "textDocElement",
+              "value": "See documentation for whatwg-fetch:Body.arrayBuffer"
+            }
+          ],
           "remarks": [],
           "isBeta": false
         },
@@ -713,7 +728,12 @@
           },
           "parameters": {},
           "deprecatedMessage": [],
-          "summary": [],
+          "summary": [
+            {
+              "kind": "textDocElement",
+              "value": "See documentation for whatwg-fetch:Body.blob"
+            }
+          ],
           "remarks": [],
           "isBeta": false
         },
@@ -724,7 +744,12 @@
           "isStatic": false,
           "type": "boolean",
           "deprecatedMessage": [],
-          "summary": [],
+          "summary": [
+            {
+              "kind": "textDocElement",
+              "value": "See documentation for whatwg-fetch:Body.bodyUsed"
+            }
+          ],
           "remarks": [],
           "isBeta": false
         },
@@ -756,7 +781,12 @@
           },
           "parameters": {},
           "deprecatedMessage": [],
-          "summary": [],
+          "summary": [
+            {
+              "kind": "textDocElement",
+              "value": "See documentation for whatwg-fetch:Body.formData"
+            }
+          ],
           "remarks": [],
           "isBeta": false
         },
@@ -767,7 +797,12 @@
           "isStatic": false,
           "type": "Headers",
           "deprecatedMessage": [],
-          "summary": [],
+          "summary": [
+            {
+              "kind": "textDocElement",
+              "value": "See documentation for whatwg-fetch:Response.headers"
+            }
+          ],
           "remarks": [],
           "isBeta": false
         },
@@ -783,7 +818,12 @@
           },
           "parameters": {},
           "deprecatedMessage": [],
-          "summary": [],
+          "summary": [
+            {
+              "kind": "textDocElement",
+              "value": "See documentation for whatwg-fetch:Body.json"
+            }
+          ],
           "remarks": [],
           "isBeta": false
         },
@@ -805,7 +845,12 @@
           "isStatic": false,
           "type": "boolean",
           "deprecatedMessage": [],
-          "summary": [],
+          "summary": [
+            {
+              "kind": "textDocElement",
+              "value": "See documentation for whatwg-fetch:Response.ok"
+            }
+          ],
           "remarks": [],
           "isBeta": false
         },
@@ -816,7 +861,12 @@
           "isStatic": false,
           "type": "number",
           "deprecatedMessage": [],
-          "summary": [],
+          "summary": [
+            {
+              "kind": "textDocElement",
+              "value": "See documentation for whatwg-fetch:Response.status"
+            }
+          ],
           "remarks": [],
           "isBeta": false
         },
@@ -827,7 +877,12 @@
           "isStatic": false,
           "type": "string",
           "deprecatedMessage": [],
-          "summary": [],
+          "summary": [
+            {
+              "kind": "textDocElement",
+              "value": "See documentation for whatwg-fetch:Response.statusText"
+            }
+          ],
           "remarks": [],
           "isBeta": false
         },
@@ -843,7 +898,12 @@
           },
           "parameters": {},
           "deprecatedMessage": [],
-          "summary": [],
+          "summary": [
+            {
+              "kind": "textDocElement",
+              "value": "See documentation for whatwg-fetch:Body.text"
+            }
+          ],
           "remarks": [],
           "isBeta": false
         },
@@ -852,9 +912,14 @@
           "isOptional": false,
           "isReadOnly": true,
           "isStatic": false,
-          "type": "ResponseType",
+          "type": "string",
           "deprecatedMessage": [],
-          "summary": [],
+          "summary": [
+            {
+              "kind": "textDocElement",
+              "value": "See documentation for whatwg-fetch:Response.type"
+            }
+          ],
           "remarks": [],
           "isBeta": false
         },
@@ -865,7 +930,12 @@
           "isStatic": false,
           "type": "string",
           "deprecatedMessage": [],
-          "summary": [],
+          "summary": [
+            {
+              "kind": "textDocElement",
+              "value": "See documentation for whatwg-fetch:Response.url"
+            }
+          ],
           "remarks": [],
           "isBeta": false
         }
@@ -884,7 +954,7 @@
         }
       ],
       "remarks": [],
-      "isBeta": false
+      "isBeta": true
     },
     "IGraphHttpClientConfigurations": {
       "kind": "interface",
@@ -899,7 +969,7 @@
         }
       ],
       "remarks": [],
-      "isBeta": false,
+      "isBeta": true,
       "members": {
         "v1": {
           "kind": "property",
@@ -932,7 +1002,7 @@
         }
       ],
       "remarks": [],
-      "isBeta": false
+      "isBeta": true
     },
     "IHttpClientConfiguration": {
       "kind": "interface",

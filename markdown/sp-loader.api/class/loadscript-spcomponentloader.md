@@ -1,13 +1,12 @@
 # loadScript(url,options)
-**Note:** The SharePoint Framework is currently in preview and is subject to change. SharePoint Framework client-side web parts are not currently supported for use in production environments.
 
 
 
 Given a URL, load a script.
 
-**Signature:** _public static loadScript < TModule >(url: string, options?: [ILoadScriptOptions](../../sp-loader.api/interface/iloadscriptoptions.md)): [Promise](../../es6-promise.api/class/promise.md)<TModule>;_
+**Signature:** _public static loadScript < TModule >(url: string, options?: [ILoadScriptOptions](../../sp-loader.api/interface/iloadscriptoptions.md)): [Promise](../../web-apis.api/class/promise.md)<TModule>;_
 
-**Returns**: [`Promise`](../../es6-promise.api/class/promise.md)<TModule>
+**Returns**: [`Promise`](../../web-apis.api/class/promise.md)<TModule>
 
 
 

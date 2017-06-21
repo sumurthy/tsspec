@@ -1,5 +1,8 @@
 # sp-webpart-base package
 
+SharePoint Framework support for building web parts
+
+A web part is a reusable visual object that a page author can add to their content, and customize using a property pane. Examples of web parts include an embedded video player, a map, a group calendar, a chart, etc. The sp-webpart-base package defines the APIs used by developers to create a custom web part.
 
 
 ## Classes
@@ -15,12 +18,12 @@
 | Interface	   |  Description |
 |:-------------|:---------------|
 | [`IClientSideWebPartStatusRenderer`](./sp-webpart-base.api/interface/iclientsidewebpartstatusrenderer.md)   | Interface to be implemented by a component that should display the loading indicator and error messages for a webpart.  |
-| [`IPlaceholderProps`](./sp-webpart-base.api/interface/iplaceholderprops.md)   | Used to display a placeholder in case of no or temporary content. Button is optional.  |
 | [`IPlaceholderSpinnerProps`](./sp-webpart-base.api/interface/iplaceholderspinnerprops.md)   | Interface for properties used to display the loading spinner in the web part display area.  |
 | [`IPropertyPaneAccessor`](./sp-webpart-base.api/interface/ipropertypaneaccessor.md)   | Web part context property pane accessor interface. Provides some most commonly used utilities to access the property pane.  |
 | [`IPropertyPaneButtonProps`](./sp-webpart-base.api/interface/ipropertypanebuttonprops.md)   | PropertyPane button props.  |
 | [`IPropertyPaneCheckboxProps`](./sp-webpart-base.api/interface/ipropertypanecheckboxprops.md)   | PropertyPane CheckBox component props.  |
 | [`IPropertyPaneChoiceGroupOption`](./sp-webpart-base.api/interface/ipropertypanechoicegroupoption.md)   | PropertyPane ChoiceGroup option props.  |
+| [`IPropertyPaneChoiceGroupOptionIconProps`](./sp-webpart-base.api/interface/ipropertypanechoicegroupoptioniconprops.md)   | PropertyPane ChoiceGroup icon props.  |
 | [`IPropertyPaneChoiceGroupProps`](./sp-webpart-base.api/interface/ipropertypanechoicegroupprops.md)   | PropertyPane ChoiceGroup props.  |
 | [`IPropertyPaneConfiguration`](./sp-webpart-base.api/interface/ipropertypaneconfiguration.md)   | Web part configuration settings  |
 | [`IPropertyPaneCustomFieldProps`](./sp-webpart-base.api/interface/ipropertypanecustomfieldprops.md)   | PropertyPane CustomPropertyField props.  |
@@ -50,6 +53,7 @@
 | [`PropertyPaneButton(targetProperty,properties)`](./sp-webpart-base.api/function/propertypanebutton.md) |[`IPropertyPaneField`](./../sp-webpart-base.api/interface/ipropertypanefield.md)<[`IPropertyPaneButtonProps`](./../sp-webpart-base.api/interface/ipropertypanebuttonprops.md)>  | Helper method to create a Button on the PropertyPane.  |
 | [`PropertyPaneCheckbox(targetProperty,properties)`](./sp-webpart-base.api/function/propertypanecheckbox.md) |[`IPropertyPaneField`](./../sp-webpart-base.api/interface/ipropertypanefield.md)<[`IPropertyPaneCheckboxProps`](./../sp-webpart-base.api/interface/ipropertypanecheckboxprops.md)>  | Helper method to create a Checkbox on the PropertyPane.  |
 | [`PropertyPaneChoiceGroup(targetProperty,properties)`](./sp-webpart-base.api/function/propertypanechoicegroup.md) |[`IPropertyPaneField`](./../sp-webpart-base.api/interface/ipropertypanefield.md)<[`IPropertyPaneChoiceGroupProps`](./../sp-webpart-base.api/interface/ipropertypanechoicegroupprops.md)>  | Helper method to create a Choice Group on the PropertyPane.  |
+| [`PropertyPaneCustomField(targetProperty,properties)`](./sp-webpart-base.api/function/propertypanecustomfield.md) |[`IPropertyPaneField`](./../sp-webpart-base.api/interface/ipropertypanefield.md)<[`IPropertyPaneCustomFieldProps`](./../sp-webpart-base.api/interface/ipropertypanecustomfieldprops.md)>  | Helper method to create a custom field on the PropertyPane. The purpose of the custom field is to help the web part developer to add a custom control to the PropertyPane. The PropertyPane supports a host of inbuilt field types. While this list meets the demands of most web parts, but there are exceptional cases when web parts have special needs and need a special control. The custom field helps fill that gap.  |
 | [`PropertyPaneDropdown(targetProperty,properties)`](./sp-webpart-base.api/function/propertypanedropdown.md) |[`IPropertyPaneField`](./../sp-webpart-base.api/interface/ipropertypanefield.md)<[`IPropertyPaneDropdownProps`](./../sp-webpart-base.api/interface/ipropertypanedropdownprops.md)>  | Helper method to create a Dropdown on the PropertyPane.  |
 | [`PropertyPaneHorizontalRule(properties)`](./sp-webpart-base.api/function/propertypanehorizontalrule.md) |[`IPropertyPaneField`](./../sp-webpart-base.api/interface/ipropertypanefield.md)<void>  | Helper method to create a Horizontal Rule on the PropertyPane.  |
 | [`PropertyPaneLabel(targetProperty,properties)`](./sp-webpart-base.api/function/propertypanelabel.md) |[`IPropertyPaneField`](./../sp-webpart-base.api/interface/ipropertypanefield.md)<[`IPropertyPaneLabelProps`](./../sp-webpart-base.api/interface/ipropertypanelabelprops.md)>  | Helper method to create a Label on the PropertyPane.  |

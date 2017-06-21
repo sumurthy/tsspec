@@ -1,7 +1,17 @@
 {
   "kind": "package",
-  "summary": [],
-  "remarks": [],
+  "summary": [
+    {
+      "kind": "textDocElement",
+      "value": "Page context services for the SharePoint Framework"
+    }
+  ],
+  "remarks": [
+    {
+      "kind": "textDocElement",
+      "value": "The page context allows an application and its web parts to share common data about the current page, such as its contents, URL, list, user, permissions, navigation menu, etc."
+    }
+  ],
   "exports": {
     "CultureInfo": {
       "kind": "class",
@@ -235,6 +245,135 @@
             {
               "kind": "textDocElement",
               "value": "Contextual information for the SharePoint site (\"web\") that is hosting the page."
+            }
+          ],
+          "remarks": [],
+          "isBeta": false
+        }
+      }
+    },
+    "SPField": {
+      "kind": "class",
+      "extends": "",
+      "implements": "",
+      "typeParameters": [],
+      "deprecatedMessage": [],
+      "summary": [
+        {
+          "kind": "textDocElement",
+          "value": "The client-side equivalent for SharePoint SPField class. Used in Fields property of SPList and SPListItem classes. A field represents the data model for a column in SharePoint list view."
+        }
+      ],
+      "remarks": [],
+      "isBeta": true,
+      "members": {
+        "clientSideComponentId": {
+          "kind": "property",
+          "isOptional": false,
+          "isReadOnly": true,
+          "isStatic": false,
+          "type": "Guid | undefined",
+          "deprecatedMessage": [],
+          "summary": [
+            {
+              "kind": "textDocElement",
+              "value": "The unique identifier of the client-side component associated with the field."
+            }
+          ],
+          "remarks": [],
+          "isBeta": false
+        },
+        "clientSideComponentProperties": {
+          "kind": "property",
+          "isOptional": false,
+          "isReadOnly": true,
+          "isStatic": false,
+          "type": "string",
+          "deprecatedMessage": [],
+          "summary": [
+            {
+              "kind": "textDocElement",
+              "value": "This property is only used when a ClientSideComponentId is specified. It is optional. If non-empty, the string must contain a JSON object with custom initialization properties whose format and meaning are defined by the client-side component."
+            }
+          ],
+          "remarks": [],
+          "isBeta": false
+        },
+        "displayName": {
+          "kind": "property",
+          "isOptional": false,
+          "isReadOnly": true,
+          "isStatic": false,
+          "type": "string",
+          "deprecatedMessage": [],
+          "summary": [
+            {
+              "kind": "textDocElement",
+              "value": "The display name of the field. This name is shown as column name in UI."
+            }
+          ],
+          "remarks": [],
+          "isBeta": false
+        },
+        "fieldType": {
+          "kind": "property",
+          "isOptional": false,
+          "isReadOnly": true,
+          "isStatic": false,
+          "type": "string",
+          "deprecatedMessage": [],
+          "summary": [
+            {
+              "kind": "textDocElement",
+              "value": "The type of the field represented as a string"
+            }
+          ],
+          "remarks": [],
+          "isBeta": false
+        },
+        "id": {
+          "kind": "property",
+          "isOptional": false,
+          "isReadOnly": true,
+          "isStatic": false,
+          "type": "Guid",
+          "deprecatedMessage": [],
+          "summary": [
+            {
+              "kind": "textDocElement",
+              "value": "The GUID identifier for this field."
+            }
+          ],
+          "remarks": [],
+          "isBeta": false
+        },
+        "internalName": {
+          "kind": "property",
+          "isOptional": false,
+          "isReadOnly": true,
+          "isStatic": false,
+          "type": "string",
+          "deprecatedMessage": [],
+          "summary": [
+            {
+              "kind": "textDocElement",
+              "value": "The internal name of the field. This name is usually used to find the field."
+            }
+          ],
+          "remarks": [],
+          "isBeta": false
+        },
+        "isRequired": {
+          "kind": "property",
+          "isOptional": false,
+          "isReadOnly": true,
+          "isStatic": false,
+          "type": "boolean",
+          "deprecatedMessage": [],
+          "summary": [
+            {
+              "kind": "textDocElement",
+              "value": "Whether the field is required for each list item in the list"
             }
           ],
           "remarks": [],
@@ -1346,6 +1485,22 @@
           ],
           "remarks": [],
           "isBeta": false
+        },
+        "preferUserTimeZone": {
+          "kind": "property",
+          "isOptional": false,
+          "isReadOnly": true,
+          "isStatic": false,
+          "type": "boolean",
+          "deprecatedMessage": [],
+          "summary": [
+            {
+              "kind": "textDocElement",
+              "value": "This boolean represents if a the user or web's time zone settings should be used to display the current time."
+            }
+          ],
+          "remarks": [],
+          "isBeta": false
         }
       }
     },
@@ -1486,7 +1641,7 @@
           "summary": [
             {
               "kind": "textDocElement",
-              "value": "Returns the name of the site definition or site template that was used to create the site. Example: \"BLOG\" represents the Blog template when creating a new site on SharePoint."
+              "value": "Returns the string representing the numeric identifier for the site definition or site template that was used to create the site. Example: \"1\" represents the team site template when creating a new site on SharePoint."
             }
           ],
           "remarks": [],

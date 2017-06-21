@@ -1,14 +1,13 @@
 # post(url,configuration,options)
-**Note:** The SharePoint Framework is currently in preview and is subject to change. SharePoint Framework client-side web parts are not currently supported for use in production environments.
 
 
 
 Calls fetch(), but sets the method to 'POST'.
 
 **Signature:** _public post(url: string, configuration: [HttpClientConfiguration](../../sp-http.api/class/httpclientconfiguration.md),
-    options: [IHttpClientOptions](../../sp-http.api/interface/ihttpclientoptions.md)): [Promise](../../es6-promise.api/class/promise.md)<[HttpClientResponse](../../sp-http.api/class/httpclientresponse.md)>;_
+    options: [IHttpClientOptions](../../sp-http.api/interface/ihttpclientoptions.md)): [Promise](../../web-apis.api/class/promise.md)<[HttpClientResponse](../../sp-http.api/class/httpclientresponse.md)>;_
 
-**Returns**: [`Promise`](../../es6-promise.api/class/promise.md)<[`HttpClientResponse`](../../sp-http.api/class/httpclientresponse.md)>
+**Returns**: [`Promise`](../../web-apis.api/class/promise.md)<[`HttpClientResponse`](../../sp-http.api/class/httpclientresponse.md)>
 
 
 

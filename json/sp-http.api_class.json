@@ -1,6 +1,6 @@
 {
   "GraphClientResponse": {
-    "isBeta": false,
+    "isBeta": true,
     "implementsExtendsName": "",
     "genericType": "",
     "descr": "The Response subclass returned by methods such as GraphHttpClient.fetch().",
@@ -10,7 +10,7 @@
     "methods": {
       "clone-graphclientresponse": {
         "isBeta": false,
-        "showBetaMessage": false,
+        "showBetaMessage": true,
         "descr": "",
         "remarks": null,
         "accessModifier": "public",
@@ -27,7 +27,7 @@
     },
     "constructor": {
       "isBeta": false,
-      "showBetaMessage": false,
+      "showBetaMessage": true,
       "descr": "",
       "remarks": null,
       "signature": "public constructor(response: Response);",
@@ -44,7 +44,7 @@
     "objects": {}
   },
   "GraphHttpClient": {
-    "isBeta": false,
+    "isBeta": true,
     "implementsExtendsName": "",
     "genericType": "",
     "descr": "GraphHttpClient is used to perform REST calls against Microsoft Graph. It adds default headers and collects telemetry that helps the service to monitor the performance of an application. https://developer.microsoft.com/en-us/graph/ For communicating with non-Graph services, use the HttpClient or SPHttpClient class instead.",
@@ -79,7 +79,7 @@
     "methods": {
       "fetch-graphhttpclient": {
         "isBeta": false,
-        "showBetaMessage": false,
+        "showBetaMessage": true,
         "descr": "Generally, the parameters and semantics for HttpClient.fetch() are essentially the same as the WHATWG API standard that is documented here: https://fetch.spec.whatwg.org/ The GraphHttpClient subclass adds some additional behaviors that are convenient when working with SharePoint ODATA API's (which can be avoided by using HttpClient instead): - Default \"Accept\" and \"Content-Type\" headers are added if not explicitly specified.",
         "remarks": null,
         "accessModifier": "public",
@@ -114,7 +114,7 @@
       },
       "get-graphhttpclient": {
         "isBeta": false,
-        "showBetaMessage": false,
+        "showBetaMessage": true,
         "descr": "Calls fetch(), but sets the method to 'GET'.",
         "remarks": null,
         "accessModifier": "public",
@@ -149,7 +149,7 @@
       },
       "post-graphhttpclient": {
         "isBeta": false,
-        "showBetaMessage": false,
+        "showBetaMessage": true,
         "descr": "Calls fetch(), but sets the method to 'POST'.",
         "remarks": null,
         "accessModifier": "public",
@@ -185,7 +185,7 @@
     },
     "constructor": {
       "isBeta": false,
-      "showBetaMessage": false,
+      "showBetaMessage": true,
       "descr": "",
       "remarks": null,
       "signature": "constructor(serviceScope: ServiceScope);",
@@ -202,7 +202,7 @@
     "objects": {}
   },
   "GraphHttpClientConfiguration": {
-    "isBeta": false,
+    "isBeta": true,
     "implementsExtendsName": "IGraphHttpClientConfiguration",
     "genericType": "",
     "descr": "The GraphHttpClientConfiguration object provides a set of switches for enabling/disabling various features of the GraphHttpClient class. Normally these switches are set (e.g. when calling GraphHttpClient.fetch()) by providing one of the predefined defaults from GraphHttpClientConfigurations, however switches can also be changed via the GraphHttpClientConfiguration.overrideWith() method.",
@@ -225,7 +225,7 @@
     "methods": {},
     "constructor": {
       "isBeta": false,
-      "showBetaMessage": false,
+      "showBetaMessage": true,
       "descr": "Constructs a new instance of GraphHttpClientCommonConfiguration with the specified flags. The default values will be used for any flags that are missing or undefined. If overrideFlags is specified, it takes precedence over flags.",
       "remarks": null,
       "signature": "constructor(flags: IGraphHttpClientConfiguration, overrideFlags?: IGraphHttpClientConfiguration);",
@@ -480,7 +480,7 @@
     "remarks": "This is a placeholder. In the future, additional HttpClient-specific functionality may be added to this class.",
     "properties": {
       "bodyUsed": {
-        "descr": "",
+        "descr": "See documentation for whatwg-fetch:Body.bodyUsed",
         "remarks": null,
         "dataType": "boolean",
         "isOptional": false,
@@ -492,7 +492,7 @@
         "assignValue": null
       },
       "headers": {
-        "descr": "",
+        "descr": "See documentation for whatwg-fetch:Response.headers",
         "remarks": null,
         "dataType": "Headers",
         "isOptional": false,
@@ -516,7 +516,7 @@
         "assignValue": null
       },
       "ok": {
-        "descr": "",
+        "descr": "See documentation for whatwg-fetch:Response.ok",
         "remarks": null,
         "dataType": "boolean",
         "isOptional": false,
@@ -528,7 +528,7 @@
         "assignValue": null
       },
       "status": {
-        "descr": "",
+        "descr": "See documentation for whatwg-fetch:Response.status",
         "remarks": null,
         "dataType": "number",
         "isOptional": false,
@@ -540,7 +540,7 @@
         "assignValue": null
       },
       "statusText": {
-        "descr": "",
+        "descr": "See documentation for whatwg-fetch:Response.statusText",
         "remarks": null,
         "dataType": "string",
         "isOptional": false,
@@ -552,9 +552,9 @@
         "assignValue": null
       },
       "type": {
-        "descr": "",
+        "descr": "See documentation for whatwg-fetch:Response.type",
         "remarks": null,
-        "dataType": "ResponseType",
+        "dataType": "string",
         "isOptional": false,
         "readonly": true,
         "accessModifier": "public",
@@ -564,7 +564,7 @@
         "assignValue": null
       },
       "url": {
-        "descr": "",
+        "descr": "See documentation for whatwg-fetch:Response.url",
         "remarks": null,
         "dataType": "string",
         "isOptional": false,
@@ -581,7 +581,7 @@
       "arrayBuffer-httpclientresponse": {
         "isBeta": false,
         "showBetaMessage": false,
-        "descr": "",
+        "descr": "See documentation for whatwg-fetch:Body.arrayBuffer",
         "remarks": null,
         "accessModifier": "public",
         "signature": "public arrayBuffer(): Promise<ArrayBuffer>;",
@@ -597,7 +597,7 @@
       "blob-httpclientresponse": {
         "isBeta": false,
         "showBetaMessage": false,
-        "descr": "",
+        "descr": "See documentation for whatwg-fetch:Body.blob",
         "remarks": null,
         "accessModifier": "public",
         "signature": "public blob(): Promise<Blob>;",
@@ -629,7 +629,7 @@
       "formData-httpclientresponse": {
         "isBeta": false,
         "showBetaMessage": false,
-        "descr": "",
+        "descr": "See documentation for whatwg-fetch:Body.formData",
         "remarks": null,
         "accessModifier": "public",
         "signature": "public formData(): Promise<FormData>;",
@@ -645,7 +645,7 @@
       "json-httpclientresponse": {
         "isBeta": false,
         "showBetaMessage": false,
-        "descr": "",
+        "descr": "See documentation for whatwg-fetch:Body.json",
         "remarks": null,
         "accessModifier": "public",
         "signature": "public json(): Promise<any>;",
@@ -661,7 +661,7 @@
       "text-httpclientresponse": {
         "isBeta": false,
         "showBetaMessage": false,
-        "descr": "",
+        "descr": "See documentation for whatwg-fetch:Body.text",
         "remarks": null,
         "accessModifier": "public",
         "signature": "public text(): Promise<string>;",

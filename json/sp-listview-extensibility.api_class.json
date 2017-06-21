@@ -1,29 +1,17 @@
 {
   "BaseFieldCustomizer": {
-    "isBeta": false,
+    "isBeta": true,
     "implementsExtendsName": "",
-    "genericType": "",
+    "genericType": "TProperties",
     "descr": "This is the base class that third parties should extend when implementing a client-side extension that customizes the appearance of fields in a SharePoint ListView. In the component manifest, the \"extensionType\" should be set to \"FieldCustomizer\".",
     "remarks": null,
     "properties": {
       "context": {
-        "descr": "",
-        "remarks": null,
+        "descr": "Use context object to access common services and state associated with the component.",
+        "remarks": "Child classes are expected to override this field by redeclaring it with a specialized type. It is meant to be a read-only property; the type cannot be declared as read-only in the base class (because it is initialized outside the constructor), but child classes should redeclare it as readonly.",
         "dataType": "FieldCustomizerContext",
         "isOptional": false,
-        "readonly": true,
-        "accessModifier": "public",
-        "isCollection": false,
-        "function": null,
-        "returnType": null,
-        "assignValue": null
-      },
-      "properties": {
-        "descr": "",
-        "remarks": null,
-        "dataType": "IBaseFieldCustomizerProperties | undefined",
-        "isOptional": false,
-        "readonly": true,
+        "readonly": false,
         "accessModifier": "public",
         "isCollection": false,
         "function": null,
@@ -35,7 +23,7 @@
     "methods": {
       "onDisposeCell-basefieldcustomizer": {
         "isBeta": false,
-        "showBetaMessage": false,
+        "showBetaMessage": true,
         "descr": "",
         "remarks": null,
         "accessModifier": "public",
@@ -51,7 +39,7 @@
       },
       "onRenderCell-basefieldcustomizer": {
         "isBeta": false,
-        "showBetaMessage": false,
+        "showBetaMessage": true,
         "descr": "",
         "remarks": null,
         "accessModifier": "public",
@@ -73,30 +61,18 @@
     "objects": {}
   },
   "BaseListViewCommandSet": {
-    "isBeta": false,
+    "isBeta": true,
     "implementsExtendsName": "",
-    "genericType": "",
-    "descr": "This is the base class that third parties should extend when implementing a client-side extension that provides a CommandSet for a SharePoint ListView. In the component manifest, the \"extensionType\" should be set to \"CommandSet\".",
+    "genericType": "TProperties",
+    "descr": "This is the base class that third parties should extend when implementing a client-side extension that provides a command set for a SharePoint list view. In the component manifest, the \"extensionType\" should be set to \"ListViewCommandSet\".",
     "remarks": null,
     "properties": {
       "context": {
-        "descr": "",
-        "remarks": null,
+        "descr": "Use context object to access common services and state associated with the component.",
+        "remarks": "Child classes are expected to override this field by redeclaring it with a specialized type. It is meant to be a read-only property; the type cannot be declared as read-only in the base class (because it is initialized outside the constructor), but child classes should redeclare it as readonly.",
         "dataType": "ListViewCommandSetContext",
         "isOptional": false,
-        "readonly": true,
-        "accessModifier": "public",
-        "isCollection": false,
-        "function": null,
-        "returnType": null,
-        "assignValue": null
-      },
-      "properties": {
-        "descr": "",
-        "remarks": null,
-        "dataType": "IBaseListViewCommandSetProperties | undefined",
-        "isOptional": false,
-        "readonly": true,
+        "readonly": false,
         "accessModifier": "public",
         "isCollection": false,
         "function": null,
@@ -108,7 +84,7 @@
     "methods": {
       "onExecute-baselistviewcommandset": {
         "isBeta": false,
-        "showBetaMessage": false,
+        "showBetaMessage": true,
         "descr": "This event occurs when the command is invoked, e.g. because the user clicked on the toolbar button or menu item.",
         "remarks": null,
         "accessModifier": "public",
@@ -122,21 +98,21 @@
         "docName": "onExecute()",
         "mdLink": "onexecute"
       },
-      "onRender-baselistviewcommandset": {
+      "onRefreshCommand-baselistviewcommandset": {
         "isBeta": false,
-        "showBetaMessage": false,
+        "showBetaMessage": true,
         "descr": "This event occurs whenever the ListView state changes. It allows the implementor to tailor the appearance of the command. For example, to hide the command, assign event.visible = false. To customize the title, assign event.tile.",
         "remarks": null,
         "accessModifier": "public",
-        "signature": "@virtual public onRender(event: IListViewCommandSetRenderEventParameters): void;",
+        "signature": "@virtual public onRefreshCommand(event: IListViewCommandSetRefreshEventParameters): void;",
         "isStatic": false,
         "isOptional": false,
         "genericType": null,
         "returnType": "void",
         "returnDescr": "",
         "params": [],
-        "docName": "onRender()",
-        "mdLink": "onrender"
+        "docName": "onRefreshCommand()",
+        "mdLink": "onrefreshcommand"
       }
     },
     "constructor": {},
@@ -146,7 +122,7 @@
     "objects": {}
   },
   "CellFormatter": {
-    "isBeta": false,
+    "isBeta": true,
     "implementsExtendsName": "",
     "genericType": "",
     "descr": "This class provides some functions that facilitate formatting cell values.",
@@ -156,7 +132,7 @@
     "methods": {
       "renderAsText-cellformatter": {
         "isBeta": false,
-        "showBetaMessage": false,
+        "showBetaMessage": true,
         "descr": "Renders the specified cell value as a text string without any markup.",
         "remarks": null,
         "accessModifier": "public",
@@ -178,7 +154,7 @@
     "objects": {}
   },
   "ColumnAccessor": {
-    "isBeta": false,
+    "isBeta": true,
     "implementsExtendsName": "",
     "genericType": "",
     "descr": "Provides access to a ListView column, which is the visual presentation of a field.",
@@ -218,7 +194,7 @@
     "objects": {}
   },
   "FieldCustomizerContext": {
-    "isBeta": false,
+    "isBeta": true,
     "implementsExtendsName": "",
     "genericType": "",
     "descr": "This object provides contextual information for BaseFieldCustomizer.",
@@ -282,7 +258,7 @@
     "objects": {}
   },
   "ListViewAccessor": {
-    "isBeta": false,
+    "isBeta": true,
     "implementsExtendsName": "",
     "genericType": "",
     "descr": "Provides access to a SharePoint ListView control.",
@@ -310,7 +286,7 @@
     "objects": {}
   },
   "ListViewCommandSetContext": {
-    "isBeta": false,
+    "isBeta": true,
     "implementsExtendsName": "",
     "genericType": "",
     "descr": "This object provides contextual information for BaseListViewCommandSet.",
@@ -362,7 +338,7 @@
     "objects": {}
   },
   "RowAccessor": {
-    "isBeta": false,
+    "isBeta": true,
     "implementsExtendsName": "",
     "genericType": "",
     "descr": "Provides access to a ListView row, which is the visual presentation of a SharePoint list item.",
@@ -372,7 +348,7 @@
     "methods": {
       "getValue-rowaccessor": {
         "isBeta": false,
-        "showBetaMessage": false,
+        "showBetaMessage": true,
         "descr": "Retrieves the cell value for the specified column. The value will be a primitive JavaScript object such as a string, number, etc.",
         "remarks": null,
         "accessModifier": "public",
@@ -388,7 +364,7 @@
       },
       "getValueByName-rowaccessor": {
         "isBeta": false,
-        "showBetaMessage": false,
+        "showBetaMessage": true,
         "descr": "Retrieves the cell value for the column/field with the specified internal name. The value will be a primitive JavaScript object such as a string, number, etc.",
         "remarks": null,
         "accessModifier": "public",

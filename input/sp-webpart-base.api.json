@@ -1,7 +1,17 @@
 {
   "kind": "package",
-  "summary": [],
-  "remarks": [],
+  "summary": [
+    {
+      "kind": "textDocElement",
+      "value": "SharePoint Framework support for building web parts"
+    }
+  ],
+  "remarks": [
+    {
+      "kind": "textDocElement",
+      "value": "A web part is a reusable visual object that a page author can add to their content, and customize using a property pane. Examples of web parts include an embedded video player, a map, a group calendar, a chart, etc. The sp-webpart-base package defines the APIs used by developers to create a custom web part."
+    }
+  ],
   "exports": {
     "BaseClientSideWebPart": {
       "kind": "class",
@@ -469,7 +479,7 @@
               "description": [
                 {
                   "kind": "textDocElement",
-                  "value": "JSON path of the property in the property bag."
+                  "value": "JSON path of the property in the property bag. In the case of custom field, if no target property is provided then a custom value is assigned, which will be in the form of '__CustomField_<key provided when the custom field is created>'."
                 }
               ],
               "isOptional": false,
@@ -481,7 +491,7 @@
               "description": [
                 {
                   "kind": "textDocElement",
-                  "value": "Old value of the property."
+                  "value": "Old value of the property. This value could be undefined/empty in the case of custom field."
                 }
               ],
               "isOptional": false,
@@ -493,7 +503,7 @@
               "description": [
                 {
                   "kind": "textDocElement",
-                  "value": "New value of the property."
+                  "value": "New value of the property. This value could be undefined/empty in the case of custom field."
                 }
               ],
               "isOptional": false,
@@ -505,7 +515,7 @@
           "summary": [
             {
               "kind": "textDocElement",
-              "value": "This API is invoked after updating the new value of the property in the property bag when the PropertyPane is being used in Reactive mode. The base implementation of this API re-renders the web part."
+              "value": "This API is invoked after updating the new value of the property in the property bag when the PropertyPane is being used in Reactive mode."
             }
           ],
           "remarks": [],
@@ -904,119 +914,6 @@
         }
       }
     },
-    "IPlaceholderProps": {
-      "kind": "interface",
-      "extends": "",
-      "implements": "",
-      "typeParameters": [],
-      "deprecatedMessage": [],
-      "summary": [
-        {
-          "kind": "textDocElement",
-          "value": "Used to display a placeholder in case of no or temporary content. Button is optional."
-        }
-      ],
-      "remarks": [],
-      "isBeta": false,
-      "members": {
-        "buttonLabel": {
-          "kind": "property",
-          "isOptional": true,
-          "isReadOnly": false,
-          "isStatic": false,
-          "type": "string",
-          "deprecatedMessage": [],
-          "summary": [
-            {
-              "kind": "textDocElement",
-              "value": "Text label to be displayed on button below the description. Optional: As the button is optional."
-            }
-          ],
-          "remarks": [],
-          "isBeta": false
-        },
-        "contentClassName": {
-          "kind": "property",
-          "isOptional": true,
-          "isReadOnly": false,
-          "isStatic": false,
-          "type": "string",
-          "deprecatedMessage": [],
-          "summary": [
-            {
-              "kind": "textDocElement",
-              "value": "This className is applied to the root element of content. Use this to apply custom styles to the placeholder."
-            }
-          ],
-          "remarks": [],
-          "isBeta": false
-        },
-        "description": {
-          "kind": "property",
-          "isOptional": false,
-          "isReadOnly": false,
-          "isStatic": false,
-          "type": "string",
-          "deprecatedMessage": [],
-          "summary": [
-            {
-              "kind": "textDocElement",
-              "value": "Text description for the placeholder. Appears bellow the Icon and IconText."
-            }
-          ],
-          "remarks": [],
-          "isBeta": false
-        },
-        "icon": {
-          "kind": "property",
-          "isOptional": false,
-          "isReadOnly": false,
-          "isStatic": false,
-          "type": "string",
-          "deprecatedMessage": [],
-          "summary": [
-            {
-              "kind": "textDocElement",
-              "value": "Icon className from the MDL2 set. Example: 'ms-Icon--Add'."
-            }
-          ],
-          "remarks": [],
-          "isBeta": false
-        },
-        "iconText": {
-          "kind": "property",
-          "isOptional": false,
-          "isReadOnly": false,
-          "isStatic": false,
-          "type": "string",
-          "deprecatedMessage": [],
-          "summary": [
-            {
-              "kind": "textDocElement",
-              "value": "Heading displayed against the Icon."
-            }
-          ],
-          "remarks": [],
-          "isBeta": false
-        },
-        "onAdd": {
-          "kind": "property",
-          "isOptional": true,
-          "isReadOnly": false,
-          "isStatic": false,
-          "type": "() => void",
-          "deprecatedMessage": [],
-          "summary": [
-            {
-              "kind": "textDocElement",
-              "value": "onClick handler for the button. Optional: As the button is optional."
-            }
-          ],
-          "remarks": [],
-          "isBeta": false
-        }
-      }
-    },
     "IPlaceholderSpinnerProps": {
       "kind": "interface",
       "extends": "",
@@ -1081,6 +978,27 @@
       "remarks": [],
       "isBeta": false,
       "members": {
+        "isPropertyPaneOpen": {
+          "kind": "method",
+          "signature": "isPropertyPaneOpen(): boolean;",
+          "accessModifier": "",
+          "isOptional": false,
+          "isStatic": false,
+          "returnValue": {
+            "type": "boolean",
+            "description": []
+          },
+          "parameters": {},
+          "deprecatedMessage": [],
+          "summary": [
+            {
+              "kind": "textDocElement",
+              "value": "Returns true if the PropertyPane is open."
+            }
+          ],
+          "remarks": [],
+          "isBeta": false
+        },
         "isRenderedByWebPart": {
           "kind": "method",
           "signature": "isRenderedByWebPart(): boolean;",
@@ -1403,6 +1321,22 @@
           "remarks": [],
           "isBeta": false
         },
+        "iconProps": {
+          "kind": "property",
+          "isOptional": true,
+          "isReadOnly": false,
+          "isStatic": false,
+          "type": "IPropertyPaneChoiceGroupOptionIconProps",
+          "deprecatedMessage": [],
+          "summary": [
+            {
+              "kind": "textDocElement",
+              "value": "The Icon component props for choice field."
+            }
+          ],
+          "remarks": [],
+          "isBeta": false
+        },
         "imageSize": {
           "kind": "property",
           "isOptional": true,
@@ -1478,6 +1412,39 @@
             {
               "kind": "textDocElement",
               "value": "The text string for the option."
+            }
+          ],
+          "remarks": [],
+          "isBeta": false
+        }
+      }
+    },
+    "IPropertyPaneChoiceGroupOptionIconProps": {
+      "kind": "interface",
+      "extends": "",
+      "implements": "",
+      "typeParameters": [],
+      "deprecatedMessage": [],
+      "summary": [
+        {
+          "kind": "textDocElement",
+          "value": "PropertyPane ChoiceGroup icon props."
+        }
+      ],
+      "remarks": [],
+      "isBeta": false,
+      "members": {
+        "officeFabricIconFontName": {
+          "kind": "property",
+          "isOptional": true,
+          "isReadOnly": false,
+          "isStatic": false,
+          "type": "string | null",
+          "deprecatedMessage": [],
+          "summary": [
+            {
+              "kind": "textDocElement",
+              "value": "The name of the icon to use from th office fabric icon set."
             }
           ],
           "remarks": [],
@@ -1692,7 +1659,7 @@
           "isOptional": false,
           "isReadOnly": false,
           "isStatic": false,
-          "type": "(domElement: HTMLElement, context?: any) => void",
+          "type": "(\r\n    domElement: HTMLElement,\r\n    context?: any,\r\n    changeCallback?: (targetProperty?: string, newValue?: any) => void) => void",
           "deprecatedMessage": [],
           "summary": [
             {
@@ -2493,7 +2460,7 @@
           "summary": [
             {
               "kind": "textDocElement",
-              "value": "Default value of the textfield, if any."
+              "value": "If set, this will be displayed as an error message. When onGetErrorMessage returns empty string, if this property has a value set then this will be displayed as the error message. So, make sure to set this only if you want to see an error message dispalyed for the text field."
             }
           ],
           "remarks": [],
@@ -2510,6 +2477,22 @@
             {
               "kind": "textDocElement",
               "value": "Label for the textfield."
+            }
+          ],
+          "remarks": [],
+          "isBeta": false
+        },
+        "maxLength": {
+          "kind": "property",
+          "isOptional": true,
+          "isReadOnly": false,
+          "isStatic": false,
+          "type": "number",
+          "deprecatedMessage": [],
+          "summary": [
+            {
+              "kind": "textDocElement",
+              "value": "Maximum number of characters that the PropertyPaneTextField can have. (If the value is set to a negative number, an exception will be thrown.)"
             }
           ],
           "remarks": [],
@@ -2541,7 +2524,7 @@
           "summary": [
             {
               "kind": "textDocElement",
-              "value": "The method is used to get the validation error message and determine whether the input value is valid or not. When it returns string: - If valid, it returns empty string. - If invalid, it returns the error message string and the text field will show a red border and show an error message below the text field. When it returns Promise<string>: - The resolved value is display as error message. - The rejected, the value is thrown away."
+              "value": "The method is used to get the validation error message and determine whether the input value is valid or not. When it returns string: - If valid, it returns empty string. - If invalid, it returns the error message string and an error message is displayed below the text field. When it returns Promise<string>: - The resolved value is display as error message. - The rejected, the value is thrown away."
             }
           ],
           "remarks": [],
@@ -2611,6 +2594,38 @@
           "remarks": [],
           "isBeta": false
         },
+        "validateOnFocusIn": {
+          "kind": "property",
+          "isOptional": true,
+          "isReadOnly": false,
+          "isStatic": false,
+          "type": "boolean",
+          "deprecatedMessage": [],
+          "summary": [
+            {
+              "kind": "textDocElement",
+              "value": "Run validation when the PropertyPaneTextField is focused. default value is false"
+            }
+          ],
+          "remarks": [],
+          "isBeta": false
+        },
+        "validateOnFocusOut": {
+          "kind": "property",
+          "isOptional": true,
+          "isReadOnly": false,
+          "isStatic": false,
+          "type": "boolean",
+          "deprecatedMessage": [],
+          "summary": [
+            {
+              "kind": "textDocElement",
+              "value": "Run validation when the PropertyPaneTextField is out of focus or on blur. default value is false"
+            }
+          ],
+          "remarks": [],
+          "isBeta": false
+        },
         "value": {
           "kind": "property",
           "isOptional": true,
@@ -2621,7 +2636,7 @@
           "summary": [
             {
               "kind": "textDocElement",
-              "value": "Current value of the textfield. Only provide this if the textfield is a controlled component where you are maintaining its current state."
+              "value": "Value to be displayed in the textfield when the value of the targetProperty in the manifest's property bag is empty or contains null value."
             }
           ],
           "remarks": [],
@@ -2767,7 +2782,7 @@
           "summary": [
             {
               "kind": "textDocElement",
-              "value": "A key-value map where keys are string identifiers and values are rich text with HTML format. SharePoint servers treat the values as HTML content and run services like safety checks, search index and link fixup on them Example: { 'myRichDescription': '<div>Some standard <b>HTML content</b><a href='http://somelink'>A Link</a></div>' 'anotherRichText': <div class='aClass'><span style='color:red'>Some red text</div> }"
+              "value": "A key-value map where keys are string identifiers and values are rich text with HTML format. SharePoint servers treat the values as HTML content and run services like safety checks, search index and link fixup on them. Example: { 'myRichDescription': '<div>Some standard <b>HTML content</b><a href='http://somelink'>A Link</a></div>' 'anotherRichText': <div class='aClass'><span style='color:red'>Some red text</div> }"
             }
           ],
           "remarks": [],
@@ -2783,7 +2798,7 @@
           "summary": [
             {
               "kind": "textDocElement",
-              "value": "A key-value map where keys are string identifiers and values are image sources. SharePoint servers treat the values as image sources and run services like search index and link fixup on them Example: { 'myImage1': 'http://res.contoso.com/path/to/file' 'myImage2': 'https://res.contoso.com/someName.jpg' }"
+              "value": "A key-value map where keys are string identifiers and values are image sources. SharePoint servers treat the values as image sources and run services like search index and link fixup on them. Example: { 'myImage1': 'http://res.contoso.com/path/to/file' 'myImage2': 'https://res.contoso.com/someName.jpg' }"
             }
           ],
           "remarks": [],
@@ -2799,7 +2814,23 @@
           "summary": [
             {
               "kind": "textDocElement",
-              "value": "A key-value map where keys are string identifiers and values are links. SharePoint servers treat the values as links and run services like link fixup on them Example: { 'myWebURL': 'http://contoso.com' 'myFileLink': 'https://res.contoso.com/file.docx' }"
+              "value": "A key-value map where keys are string identifiers and values are links. SharePoint servers treat the values as links and run services like link fixup on them. Example: { 'myWebURL': 'http://contoso.com' 'myFileLink': 'https://res.contoso.com/file.docx' }"
+            }
+          ],
+          "remarks": [],
+          "isBeta": false
+        },
+        "searchablePlainTexts": {
+          "kind": "property",
+          "isOptional": true,
+          "isReadOnly": false,
+          "isStatic": false,
+          "type": "{ [key: string]: string }",
+          "deprecatedMessage": [],
+          "summary": [
+            {
+              "kind": "textDocElement",
+              "value": "A key-value map where keys are string identifiers and values are strings that should be search indexed. The values are html-encoded before being sent to the server. The encoded values are visible to the search indexer, but are not treated as valid html. So, other services such as link fixup will not run on them. Example: { 'justSomeText': 'This is some plain text', 'anotherText': 'Can have <any> characters here: \"<>&\\'' }"
             }
           ],
           "remarks": [],
@@ -2907,6 +2938,22 @@
           ],
           "remarks": [],
           "isBeta": false
+        },
+        "graphHttpClient": {
+          "kind": "property",
+          "isOptional": false,
+          "isReadOnly": false,
+          "isStatic": false,
+          "type": "GraphHttpClient",
+          "deprecatedMessage": [],
+          "summary": [
+            {
+              "kind": "textDocElement",
+              "value": "GraphHttpClient instance scoped to this web part."
+            }
+          ],
+          "remarks": [],
+          "isBeta": true
         },
         "httpClient": {
           "kind": "property",
@@ -3247,7 +3294,7 @@
       "values": {
         "Command": {
           "kind": "enum value",
-          "value": "Command",
+          "value": "",
           "deprecatedMessage": [],
           "summary": [
             {
@@ -3260,7 +3307,7 @@
         },
         "Compound": {
           "kind": "enum value",
-          "value": "Compound",
+          "value": "",
           "deprecatedMessage": [],
           "summary": [
             {
@@ -3273,7 +3320,7 @@
         },
         "Hero": {
           "kind": "enum value",
-          "value": "Hero",
+          "value": "",
           "deprecatedMessage": [],
           "summary": [
             {
@@ -3286,7 +3333,7 @@
         },
         "Icon": {
           "kind": "enum value",
-          "value": "Icon",
+          "value": "",
           "deprecatedMessage": [],
           "summary": [
             {
@@ -3299,7 +3346,7 @@
         },
         "Normal": {
           "kind": "enum value",
-          "value": "Normal",
+          "value": "",
           "deprecatedMessage": [],
           "summary": [
             {
@@ -3312,7 +3359,7 @@
         },
         "Primary": {
           "kind": "enum value",
-          "value": "Primary",
+          "value": "",
           "deprecatedMessage": [],
           "summary": [
             {
@@ -3417,6 +3464,45 @@
       ],
       "remarks": [],
       "isBeta": false
+    },
+    "PropertyPaneCustomField": {
+      "kind": "function",
+      "returnValue": {
+        "type": "IPropertyPaneField<IPropertyPaneCustomFieldProps>",
+        "description": []
+      },
+      "parameters": {
+        "targetProperty": {
+          "name": "targetProperty",
+          "description": [
+            {
+              "kind": "textDocElement",
+              "value": "target property for this field. This parameter is being deprecated in future releases."
+            }
+          ]
+        },
+        "properties": {
+          "name": "properties",
+          "description": [
+            {
+              "kind": "textDocElement",
+              "value": "Strongly typed Custom field properties."
+            }
+          ],
+          "isOptional": false,
+          "isSpread": false,
+          "type": "IPropertyPaneCustomFieldProps"
+        }
+      },
+      "deprecatedMessage": [],
+      "summary": [
+        {
+          "kind": "textDocElement",
+          "value": "Helper method to create a custom field on the PropertyPane. The purpose of the custom field is to help the web part developer to add a custom control to the PropertyPane. The PropertyPane supports a host of inbuilt field types. While this list meets the demands of most web parts, but there are exceptional cases when web parts have special needs and need a special control. The custom field helps fill that gap."
+        }
+      ],
+      "remarks": [],
+      "isBeta": true
     },
     "PropertyPaneDropdown": {
       "kind": "function",

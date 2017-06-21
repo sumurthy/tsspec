@@ -3,99 +3,13 @@
   "summary": [],
   "remarks": [],
   "exports": {
-    "BaseComponentContext": {
-      "kind": "class",
-      "extends": "",
-      "implements": "",
-      "typeParameters": [],
-      "deprecatedMessage": [],
-      "summary": [
-        {
-          "kind": "textDocElement",
-          "value": "The base class for context objects for client-side components."
-        }
-      ],
-      "remarks": [
-        {
-          "kind": "textDocElement",
-          "value": "A \"context\" object is a collection of well-known services and other objects that are likely to be needed by any business logic working with the associated component. Each component type has its own specialized subclass ofClientSideComponentContext, e.g. WebPartContext for web parts, ExtensionContext for client-side extensions, etc."
-        }
-      ],
-      "isBeta": false,
-      "members": {
-        "__constructor": {
-          "kind": "constructor",
-          "signature": "constructor(parameters: IComponentContextParameters);",
-          "parameters": {},
-          "deprecatedMessage": [],
-          "summary": [],
-          "remarks": []
-        },
-        "getBaseManifest": {
-          "kind": "method",
-          "signature": "protected getBaseManifest(): IClientSideComponentManifest;",
-          "accessModifier": "protected",
-          "isOptional": false,
-          "isStatic": false,
-          "returnValue": {
-            "type": "IClientSideComponentManifest",
-            "description": []
-          },
-          "parameters": {},
-          "deprecatedMessage": [],
-          "summary": [
-            {
-              "kind": "textDocElement",
-              "value": "The child class's overridden \"manifest\" property should call this method."
-            }
-          ],
-          "remarks": [
-            {
-              "kind": "textDocElement",
-              "value": "This is a workaround for a TypeScript/ES5 limitation, which prevents a subclass using \"super\" to access properties from the base class (even though functions work okay). It will be fixed in TypeScript/ES6."
-            }
-          ],
-          "isBeta": false
-        },
-        "manifest": {
-          "kind": "property",
-          "isOptional": false,
-          "isReadOnly": true,
-          "isStatic": false,
-          "type": "IClientSideComponentManifest",
-          "deprecatedMessage": [],
-          "summary": [
-            {
-              "kind": "textDocElement",
-              "value": "Manifest for the client side component."
-            }
-          ],
-          "remarks": [],
-          "isBeta": false
-        },
-        "serviceScope": {
-          "kind": "property",
-          "isOptional": false,
-          "isReadOnly": true,
-          "isStatic": false,
-          "type": "ServiceScope",
-          "deprecatedMessage": [],
-          "summary": [
-            {
-              "kind": "textDocElement",
-              "value": "Service scope instance that is scoped to this particular web part."
-            }
-          ],
-          "remarks": [],
-          "isBeta": false
-        }
-      }
-    },
     "BaseExtension": {
       "kind": "class",
       "extends": "BaseComponent",
       "implements": "",
-      "typeParameters": [],
+      "typeParameters": [
+        "TProperties"
+      ],
       "deprecatedMessage": [],
       "summary": [
         {
@@ -103,31 +17,31 @@
           "value": "The base class for all client-side extensions."
         }
       ],
-      "remarks": [],
-      "isBeta": false,
+      "remarks": [
+        {
+          "kind": "textDocElement",
+          "value": "The constructor for this class is marked as internal; third party code should not inherit directly from this base class."
+        }
+      ],
+      "isBeta": true,
       "members": {
-        "getBaseProperties": {
-          "kind": "method",
-          "signature": "protected getBaseProperties(): IBaseExtensionProperties | undefined;",
-          "accessModifier": "protected",
+        "context": {
+          "kind": "property",
           "isOptional": false,
+          "isReadOnly": false,
           "isStatic": false,
-          "returnValue": {
-            "type": "IBaseExtensionProperties | undefined",
-            "description": []
-          },
-          "parameters": {},
+          "type": "ExtensionContext",
           "deprecatedMessage": [],
           "summary": [
             {
               "kind": "textDocElement",
-              "value": "The child class's \"properties\" property getter should call this method."
+              "value": "Use context object to access common services and state associated with the component."
             }
           ],
           "remarks": [
             {
               "kind": "textDocElement",
-              "value": "This is a workaround for a TypeScript/ES5 limitation, which prevents a subclass's \"context\" property from using \"super\" to access the base class's implementation."
+              "value": "Child classes are expected to override this field by redeclaring it with a specialized type. It is meant to be a read-only property; the type cannot be declared as read-only in the base class (because it is initialized outside the constructor), but child classes should redeclare it as readonly."
             }
           ],
           "isBeta": false
@@ -179,7 +93,7 @@
           "isOptional": false,
           "isReadOnly": true,
           "isStatic": false,
-          "type": "IBaseExtensionProperties | undefined",
+          "type": "TProperties",
           "deprecatedMessage": [],
           "summary": [
             {
@@ -209,22 +123,14 @@
           "value": "The base class for context objects for client-side extensions."
         }
       ],
-      "remarks": [],
-      "isBeta": false,
+      "remarks": [
+        {
+          "kind": "textDocElement",
+          "value": "The constructor for this class is marked as internal; third party code should not inherit directly from this base class."
+        }
+      ],
+      "isBeta": true,
       "members": {
-        "__constructor": {
-          "kind": "constructor",
-          "signature": "constructor(parameters: IExtensionContextParameters);",
-          "parameters": {},
-          "deprecatedMessage": [],
-          "summary": [
-            {
-              "kind": "textDocElement",
-              "value": "Creates a new instance of extension context"
-            }
-          ],
-          "remarks": []
-        },
         "graphHttpClient": {
           "kind": "property",
           "isOptional": false,
@@ -274,21 +180,6 @@
           "isBeta": false
         }
       }
-    },
-    "IBaseExtensionProperties": {
-      "kind": "interface",
-      "extends": "",
-      "implements": "",
-      "typeParameters": [],
-      "deprecatedMessage": [],
-      "summary": [
-        {
-          "kind": "textDocElement",
-          "value": "Subclasses should extend this interface and override BaseExtension.properties."
-        }
-      ],
-      "remarks": [],
-      "isBeta": false
     }
   }
 }

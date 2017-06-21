@@ -1,1 +1,104 @@
-{}
+{
+  "BaseComponent": {
+    "isBeta": true,
+    "implementsExtendsName": "",
+    "genericType": "",
+    "descr": "Base class for client-side components such as BaseClientSideWebPart, BaseExtension, etc.",
+    "remarks": "The constructor for this class is marked as internal; third party code should not inherit directly from this base class.",
+    "properties": {
+      "context": {
+        "descr": "Use context object to access common services and state associated with the component.",
+        "remarks": "Child classes are expected to override this field by redeclaring it with a specialized type. It is meant to be a read-only property; the type cannot be declared as read-only in the base class (because it is initialized outside the constructor), but child classes should redeclare it as readonly.",
+        "dataType": "BaseComponentContext",
+        "isOptional": false,
+        "readonly": false,
+        "accessModifier": "public",
+        "isCollection": false,
+        "function": null,
+        "returnType": null,
+        "assignValue": null
+      }
+    },
+    "functions": {},
+    "methods": {
+      "onProvideServices-basecomponent": {
+        "isBeta": false,
+        "showBetaMessage": true,
+        "descr": "Constructs the object that will be returned by the \"services\" property.",
+        "remarks": "Child classes can expose additional services by extending the IExtensionServiceCollection interface, and then overriding consumeServices() function and the \"services\" property.",
+        "accessModifier": "protected",
+        "signature": "@virtual protected onProvideServices(serviceScope: ServiceScope): void;",
+        "isStatic": false,
+        "isOptional": false,
+        "genericType": null,
+        "returnType": "void",
+        "returnDescr": "",
+        "params": [],
+        "docName": "onProvideServices()",
+        "mdLink": "onprovideservices"
+      }
+    },
+    "constructor": {},
+    "types": {},
+    "variables": {},
+    "modules": {},
+    "objects": {}
+  },
+  "BaseComponentContext": {
+    "isBeta": true,
+    "implementsExtendsName": "",
+    "genericType": "",
+    "descr": "The base class for context objects for client-side components.",
+    "remarks": "A \"context\" object is a collection of well-known services and other objects that are likely to be needed by any business logic working with the associated component. Each component type has its own specialized subclass ofClientSideComponentContext, e.g. WebPartContext for web parts, ExtensionContext for client-side extensions, etc. The constructor for this class is marked as internal; third party code should not inherit directly from this base class.",
+    "properties": {
+      "manifest": {
+        "descr": "Manifest for the client side component.",
+        "remarks": null,
+        "dataType": "IClientSideComponentManifest",
+        "isOptional": false,
+        "readonly": true,
+        "accessModifier": "public",
+        "isCollection": false,
+        "function": null,
+        "returnType": null,
+        "assignValue": null
+      },
+      "serviceScope": {
+        "descr": "Service scope instance that is scoped to this particular web part.",
+        "remarks": null,
+        "dataType": "ServiceScope",
+        "isOptional": false,
+        "readonly": true,
+        "accessModifier": "public",
+        "isCollection": false,
+        "function": null,
+        "returnType": null,
+        "assignValue": null
+      }
+    },
+    "functions": {},
+    "methods": {
+      "getBaseManifest-basecomponentcontext": {
+        "isBeta": false,
+        "showBetaMessage": true,
+        "descr": "The child class's overridden \"manifest\" property should call this method.",
+        "remarks": "This is a workaround for a TypeScript/ES5 limitation, which prevents a subclass using \"super\" to access properties from the base class (even though functions work okay). It will be fixed in TypeScript/ES6.",
+        "accessModifier": "protected",
+        "signature": "protected getBaseManifest(): IClientSideComponentManifest;",
+        "isStatic": false,
+        "isOptional": false,
+        "genericType": null,
+        "returnType": "IClientSideComponentManifest",
+        "returnDescr": "",
+        "params": [],
+        "docName": "getBaseManifest()",
+        "mdLink": "getbasemanifest"
+      }
+    },
+    "constructor": {},
+    "types": {},
+    "variables": {},
+    "modules": {},
+    "objects": {}
+  }
+}

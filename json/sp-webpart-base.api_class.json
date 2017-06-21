@@ -372,7 +372,7 @@
       "onPropertyPaneFieldChanged-baseclientsidewebpart": {
         "isBeta": false,
         "showBetaMessage": false,
-        "descr": "This API is invoked after updating the new value of the property in the property bag when the PropertyPane is being used in Reactive mode. The base implementation of this API re-renders the web part.",
+        "descr": "This API is invoked after updating the new value of the property in the property bag when the PropertyPane is being used in Reactive mode.",
         "remarks": null,
         "accessModifier": "protected",
         "signature": "@virtual protected onPropertyPaneFieldChanged(propertyPath: string, oldValue: any, newValue: any): void;",
@@ -384,19 +384,19 @@
         "params": [
           {
             "name": "propertyPath",
-            "descr": "JSON path of the property in the property bag.",
+            "descr": "JSON path of the property in the property bag. In the case of custom field, if no target property is provided then a custom value is assigned, which will be in the form of '__CustomField_<key provided when the custom field is created>'.",
             "isOptional": false,
             "dataType": "string"
           },
           {
             "name": "oldValue",
-            "descr": "Old value of the property.",
+            "descr": "Old value of the property. This value could be undefined/empty in the case of custom field.",
             "isOptional": false,
             "dataType": "any"
           },
           {
             "name": "newValue",
-            "descr": "New value of the property.",
+            "descr": "New value of the property. This value could be undefined/empty in the case of custom field.",
             "isOptional": false,
             "dataType": "any"
           }

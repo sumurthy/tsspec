@@ -1,6 +1,6 @@
 {
   "IGraphHttpClientConfiguration": {
-    "isBeta": false,
+    "isBeta": true,
     "implementsExtendsName": "",
     "genericType": "",
     "descr": "Flags interface for GraphHttpClientCommonConfiguration",
@@ -15,7 +15,7 @@
     "objects": {}
   },
   "IGraphHttpClientConfigurations": {
-    "isBeta": false,
+    "isBeta": true,
     "implementsExtendsName": "",
     "genericType": "",
     "descr": "This interface provides standard predefined GraphHttpClientConfiguration objects for use with the GraphHttpClient class. In general, clients should choose the latest available version number, which enables all the switches that are recommended for typical scenarios. (If new switches are introduced in the future, a new version number will be introduced, which ensures that existing code will continue to function the way it did at the time when it was tested.)",
@@ -43,7 +43,7 @@
     "objects": {}
   },
   "IGraphHttpClientOptions": {
-    "isBeta": false,
+    "isBeta": true,
     "implementsExtendsName": "",
     "genericType": "",
     "descr": "This interface defines the options for the GraphHttpClient operations such as get(), post(), fetch(), etc. It is based on the WHATWG API standard parameters that are documented here: https://fetch.spec.whatwg.org/",

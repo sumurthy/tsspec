@@ -1,14 +1,13 @@
 # get(url,configuration,options)
-**Note:** The SharePoint Framework is currently in preview and is subject to change. SharePoint Framework client-side web parts are not currently supported for use in production environments.
 
-
+> _This API is provided as a preview for developers and may change based on feedback that we receive.  Do not use this API in a production environment._
 
 Calls fetch(), but sets the method to 'GET'.
 
 **Signature:** _public get(url: string, configuration: [GraphHttpClientConfiguration](../../sp-http.api/class/graphhttpclientconfiguration.md),
-    options?: [IGraphHttpClientOptions](../../sp-http.api/interface/igraphhttpclientoptions.md)): [Promise](../../es6-promise.api/class/promise.md)<GraphHttpClientResponse>;_
+    options?: [IGraphHttpClientOptions](../../sp-http.api/interface/igraphhttpclientoptions.md)): [Promise](../../web-apis.api/class/promise.md)<GraphHttpClientResponse>;_
 
-**Returns**: [`Promise`](../../es6-promise.api/class/promise.md)<GraphHttpClientResponse>
+**Returns**: [`Promise`](../../web-apis.api/class/promise.md)<GraphHttpClientResponse>
 
 
 

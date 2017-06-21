@@ -7,7 +7,7 @@ let allMembers = {}
 let functionObj = {}
 let iObj = {}
 let classObj = {}
-let moduleObj = {}
+let packageObj = {}
 let enumObj = {}
 let variableObj = {}
 let typeObj = {}
@@ -21,7 +21,7 @@ let moduleName = ''
 let objectName = ''
 let interfaceName = ''
 
-let moduleT = []
+let packageT = []
 let classInterfaceT = []
 let methodfuncT = []
 let enumT = []
@@ -29,11 +29,10 @@ let anchor = ''
 let subAnchor = ''
 
 let WRITE_BACK = ['#', '|', '*', '_', '%']
-
+const BETA_MESSAGE = '> _This API is provided as a preview for developers and may change based on feedback that we receive.  Do not use this API in a production environment._'
 let TAKE_REPEAT_ACTION = ['>']
 let NEW_REGION = ['<']
 let IGNORE = ['/']
-const BETA_MESSAGE = ' Note: This is being made avaiable in **beta** mode. This is not recommended for use in Production.'
 
 
 function dclone(o) {
@@ -183,12 +182,13 @@ function set_region(tline = '', obj = {}, localName = '', isClass = true) {
                     skipFlag = true
                 }
                 break;
-            case 'module':
-                if (Object.keys(moduleObj).length === 0) {
-                    skipFlag = true
-                }
-                break;
+            // case 'module':
+            //     if (Object.keys(packageObj).length === 0) {
+            //         skipFlag = true
+            //     }
+            //     break;
             case 'property':
+                console.log(localName)
                 if (!isClass) {
                     skipFlag = true
                 }
@@ -281,17 +281,21 @@ function set_region(tline = '', obj = {}, localName = '', isClass = true) {
 
 function doSub(tline = '') {
     if (tline.includes('%module%')) tline = tline.replace('%module%', moduleName)
+    if (tline.includes('%packagedesc%')) {
+        let package_descr = `${packageObj['summary']}\n\n${packageObj['remarks']}`
+        tline = tline.replace('%packagedesc%', package_descr)
+    }
     if (tline.includes('%resourcename%')) tline = tline.replace('%resourcename%', objectName)
     return tline
 }
 
 
-function doSubClassInterface(tline = '', localO = {}, localName = '', isClass = true, isModule = false) {
+function doSubClassInterface(tline = '', localO = {}, localName = '', isClass = true) {
 
     if (tline.includes('%resourcedescription%')) tline = tline.replace('%resourcedescription%', localO[localName]['descr'])
     if (tline.includes('%betatext%')) {
         if (localO[localName]['showBetaMessage'] || localO[localName]['isBeta'] ) {
-            tline = tline.replace('%betatext%', 'This is in beta mode')
+            tline = tline.replace('%betatext%', BETA_MESSAGE)
         }
         else {
             tline = tline.replace('%betatext%', '')
@@ -303,11 +307,7 @@ function doSubClassInterface(tline = '', localO = {}, localName = '', isClass = 
         if (isClass) {
             tline = tline.replace('%resourcetype%', ' class')
         } else {
-            if (isModule) {
-                    tline = tline.replace('%resourcetype%', ' module')
-            } else {
-                tline = tline.replace('%resourcetype%', ' interface')
-            }
+            tline = tline.replace('%resourcetype%', ' interface')
         }
 
     }
@@ -407,19 +407,19 @@ var dFunction = {
 
     classGenIndividual: function(e = '') {
         objectName = e
-        genClassInterfaceModuleView(true, e, false)
+        genClassInterfaceModuleView(true, e)
         return
     },
     interfaceGenIndividual: function(e = '') {
         objectName = e
-        genClassInterfaceModuleView(false, e, false)
+        genClassInterfaceModuleView(false, e)
         return
     },
-    moduleGenIndividual: function(e = '') {
-        objectName = e
-        genClassInterfaceModuleView(false, e, true)
-        return
-    },
+    // moduleGenIndividual: function(e = '') {
+    //     objectName = e
+    //     genClassInterfaceModuleView(false, e, true)
+    //     return
+    // },
     functionsGenIndividual: function(e = '') {
         genMemberview(e, functionObj[e], funcMthd_mdout, false, true)
         console.log(`*** Writing Function file for ${e}`)
@@ -446,10 +446,10 @@ function addRegions(tline = '', type = '') {
             o = classObj
             subAnchor = 'class'
             break;
-        case 'module':
-            subAnchor = 'module'
-            o = moduleObj
-            break;
+        // case 'module':
+        //     subAnchor = 'module'
+        //     o = packageObj
+        //     break;
         case 'interface':
             subAnchor = 'interface'
             o = iObj
@@ -586,11 +586,11 @@ function addParams(tline = '', member = {}, targetArray = []) {
     })
 }
 
-function genClassInterfaceModuleView(isClass = true, localName = '', isModule = false) {
+function genClassInterfaceModuleView(isClass = true, localName = '') {
     var localO = isClass ? classObj : iObj
-    if (isModule) {
-        localO = moduleObj
-    }
+    // if (isModule) {
+    //     localO = packageObj
+    // }
     mem_mdout = []
     var o = localO[localName]
         //var o = classObj[objectName]
@@ -607,7 +607,7 @@ function genClassInterfaceModuleView(isClass = true, localName = '', isModule = 
         var hasVar = tline.includes('%') ? true : false
 
         if (WRITE_BACK.includes(key)) {
-            if (hasVar) tline = doSubClassInterface(tline, localO, localName, isClass, isModule)
+            if (hasVar) tline = doSubClassInterface(tline, localO, localName, isClass)
             mem_mdout.push(tline)
         } else if (TAKE_REPEAT_ACTION.includes(key)) {
             switch (region) {
@@ -646,11 +646,11 @@ function genClassInterfaceModuleView(isClass = true, localName = '', isModule = 
     }
 
     console.log(`*** Writing Class/Interface/Module file for ${localName}`)
-    if (!isModule) {
-        FileOps.writeFile(mem_mdout, `./markdown/${anchor}/${subAnchor}/${Utils.trimGenerics(localName)}.md`)
-    } else {
-        FileOps.writeFile(mem_mdout, `./markdown/${anchor}/${subAnchor}/${Utils.trimGenerics(localName)}-imodule.md`)
-    }
+    // if (!isModule) {
+    //     FileOps.writeFile(mem_mdout, `./markdown/${anchor}/${subAnchor}/${Utils.trimGenerics(localName)}.md`)
+    // } else {
+    FileOps.writeFile(mem_mdout, `./markdown/${anchor}/${subAnchor}/${Utils.trimGenerics(localName)}-imodule.md`)
+    // }
 
 }
 
@@ -682,7 +682,7 @@ function genMemberview(memName = '', member = {}, targetArray = [], isClass = tr
 }
 
 function genExtModuleView() {
-    moduleT.forEach((tline) => {
+    packageT.forEach((tline) => {
         tline = tline.trim()
         var key = tline[0] || '*'
         var key2 = tline.substring(0, 2)
@@ -765,7 +765,7 @@ FileOps.createFolder('./markdown')
 console.log('** Output setup done')
 
 try {
-    moduleT = FileOps.loadFile('./config/module.md')
+    packageT = FileOps.loadFile('./config/package.md')
     classInterfaceT = FileOps.loadFile('./config/class_interface.md')
     methodfuncT = FileOps.loadFile('./config/method_function.md')
     enumT = FileOps.loadFile('./config/enum.md')
@@ -797,10 +797,10 @@ function loadModule(files = []) {
 
         FileOps.createFolder(`./markdown/${anchor}`)
 
-        if (e.includes('_module.json')) {
-            moduleObj = JSON.parse(FileOps.loadJson(`./json/${e}`))
+        if (e.includes('_package.json')) {
+            packageObj = JSON.parse(FileOps.loadJson(`./json/${e}`))
             FileOps.createFolder(`./markdown/${anchor}/module`)
-            console.log(`*** Read Module JSON file, ${Object.keys(moduleObj)}`)
+            console.log(`*** Read Package JSON file, ${Object.keys(packageObj)}`)
         } else if (e.includes('_class.json')) {
             classObj = JSON.parse(FileOps.loadJson(`./json/${e}`))
             FileOps.createFolder(`./markdown/${anchor}/class`)
@@ -827,7 +827,7 @@ function loadModule(files = []) {
             console.log(`*** Read Typedef JSON file, ${Object.keys(typeObj)}`)
         }
         else {
-            throw "Unrecognized file in inut JSON folder. Should be *_{module|class|enum|type|variable|function|interface).json"
+            throw "Unrecognized file in inut JSON folder. Should be *_{package|class|enum|type|variable|function|interface).json"
         }
         })
         //

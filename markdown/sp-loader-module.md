@@ -1,5 +1,8 @@
 # sp-loader package
 
+The SharePoint Framework loader
+
+Built on familiar standards such as SystemJS and WebPack, the loader is the first part of the SharePoint Framework to load on a page. It manages versioning and loading of client-side components, web parts, and other assets. It also implements the developer dashboard.
 
 
 ## Classes

@@ -1,17 +1,1 @@
-{
-  "IBaseExtensionProperties": {
-    "isBeta": false,
-    "implementsExtendsName": "",
-    "genericType": "",
-    "descr": "Subclasses should extend this interface and override BaseExtension.properties.",
-    "remarks": null,
-    "properties": {},
-    "functions": {},
-    "methods": {},
-    "constructor": {},
-    "types": {},
-    "variables": {},
-    "modules": {},
-    "objects": {}
-  }
-}
+{}

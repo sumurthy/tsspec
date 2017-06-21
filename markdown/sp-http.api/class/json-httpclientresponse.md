@@ -1,13 +1,12 @@
 # json()
-**Note:** The SharePoint Framework is currently in preview and is subject to change. SharePoint Framework client-side web parts are not currently supported for use in production environments.
 
 
 
+See documentation for whatwg-fetch:Body.json
 
+**Signature:** _public json(): [Promise](../../web-apis.api/class/promise.md)<any>;_
 
-**Signature:** _public json(): [Promise](../../es6-promise.api/class/promise.md)<any>;_
-
-**Returns**: [`Promise`](../../es6-promise.api/class/promise.md)<any>
+**Returns**: [`Promise`](../../web-apis.api/class/promise.md)<any>
 
 
 

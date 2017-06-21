@@ -1,13 +1,12 @@
 # formData()
-**Note:** The SharePoint Framework is currently in preview and is subject to change. SharePoint Framework client-side web parts are not currently supported for use in production environments.
 
 
 
+See documentation for whatwg-fetch:Body.formData
 
+**Signature:** _public formData(): [Promise](../../web-apis.api/class/promise.md)<FormData>;_
 
-**Signature:** _public formData(): [Promise](../../es6-promise.api/class/promise.md)<FormData>;_
-
-**Returns**: [`Promise`](../../es6-promise.api/class/promise.md)<FormData>
+**Returns**: [`Promise`](../../web-apis.api/class/promise.md)<FormData>
 
 
 

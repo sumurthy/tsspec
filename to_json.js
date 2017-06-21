@@ -61,7 +61,7 @@ let iObj = {}
 let interfaceName = ''
 let moduleName = ''
 let functionObj = {}
-let moduleObj = {}
+let packageObj = {}
 let methodObj = {}
 let propObj = {}
 let typeObj = {}
@@ -88,7 +88,7 @@ function file_reset() {
     enumObj = {}
     enumKey = ''
     classObj = {}
-    moduleObj = {}
+    packageObj = {}
     functionObj = {}
     iObj = {}
     propObj = {}
@@ -154,6 +154,19 @@ let inputFiles = FileOps.walkFiles('./input', '.json')
 inputFiles.forEach((e) => {
     console.log('** Processing: ' + e);
     let fileObj = JSON.parse(FileOps.loadJson(`./input/${e}`))
+    if (fileObj['summary'][0]) {
+        packageObj['summary'] = fileObj['summary'][0]['value']
+    }
+    else {
+        packageObj['summary'] = ''
+    }
+
+    if (fileObj['remarks'][0]) {
+        packageObj['remarks'] = fileObj['remarks'][0]['value']
+    }
+    else {
+        packageObj['remarks'] = ''
+    }
     processModule(fileObj['exports'], e.split('.json')[0])
     file_reset()
 })
@@ -164,39 +177,39 @@ FileOps.writeObject(allMembers, `./types/allMembers.json`)
  * End program
  */
 
-function processModule(packageObj={}, fileName="error") {
+function processModule(packageContent={}, fileName="error") {
     toc.push(Utils.moduleTocEntry(fileName))
 
-    Object.keys(packageObj).forEach((e) => {
+    Object.keys(packageContent).forEach((e) => {
         //console.log("**** Processing: " + e + " " + packageObj[e]['kind']);
 
-        switch (packageObj[e]['kind']) {
+        switch (packageContent[e]['kind']) {
             case 'class':
-                classObj[e] = processClassInterface(packageObj[e], e.toLowerCase(), fileName.toLowerCase(), 'class')
+                classObj[e] = processClassInterface(packageContent[e], e.toLowerCase(), fileName.toLowerCase(), 'class')
                 nClass++
                 break;
             case 'interface':
-                iObj[e] = processClassInterface(packageObj[e], e.toLowerCase(), fileName.toLowerCase(), 'interface')
+                iObj[e] = processClassInterface(packageContent[e], e.toLowerCase(), fileName.toLowerCase(), 'interface')
                 nInterface++
                 break;
             case 'enum':
-                enumObj[e] = processEnum(packageObj[e])
+                enumObj[e] = processEnum(packageContent[e])
                 nEnum++
                 break;
             case 'function':
-                functionObj[e] = Utils.processMethod(packageObj[e], e)
+                functionObj[e] = Utils.processMethod(packageContent[e], e)
                 nFunction++
                 break;
             default:
-                console.log('ERROR Unmatched type: ' + packageObj[e]['kind']);
+                console.log('ERROR Unmatched type: ' + packageContent[e]['kind']);
                 break;
         }
-        allTypes[e] = '../../' + fileName.toLowerCase() + '/' + packageObj[e]['kind'] + '/' + e.toLowerCase() + '.md'
+        allTypes[e] = '../../' + fileName.toLowerCase() + '/' + packageContent[e]['kind'] + '/' + e.toLowerCase() + '.md'
 
     })
 
     FileOps.writeObject(enumObj, `./json/${fileName}_enum.json`)
-    FileOps.writeObject(moduleObj, `./json/${fileName}_module.json`)
+    FileOps.writeObject(packageObj, `./json/${fileName}_package.json`)
     FileOps.writeObject(functionObj, `./json/${fileName}_function.json`)
     FileOps.writeObject(iObj, `./json/${fileName}_interface.json`)
     FileOps.writeObject(classObj, `./json/${fileName}_class.json`)

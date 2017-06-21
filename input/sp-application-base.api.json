@@ -16,7 +16,7 @@
         }
       ],
       "remarks": [],
-      "isBeta": false,
+      "isBeta": true,
       "members": {
         "pageContext": {
           "kind": "property",
@@ -56,7 +56,9 @@
       "kind": "class",
       "extends": "BaseExtension",
       "implements": "",
-      "typeParameters": [],
+      "typeParameters": [
+        "TProperties"
+      ],
       "deprecatedMessage": [],
       "summary": [
         {
@@ -65,17 +67,27 @@
         }
       ],
       "remarks": [],
-      "isBeta": false,
+      "isBeta": true,
       "members": {
         "context": {
           "kind": "property",
           "isOptional": false,
-          "isReadOnly": true,
+          "isReadOnly": false,
           "isStatic": false,
           "type": "ApplicationCustomizerContext",
           "deprecatedMessage": [],
-          "summary": [],
-          "remarks": [],
+          "summary": [
+            {
+              "kind": "textDocElement",
+              "value": "Use context object to access common services and state associated with the component."
+            }
+          ],
+          "remarks": [
+            {
+              "kind": "textDocElement",
+              "value": "Child classes are expected to override this field by redeclaring it with a specialized type. It is meant to be a read-only property; the type cannot be declared as read-only in the base class (because it is initialized outside the constructor), but child classes should redeclare it as readonly."
+            }
+          ],
           "isBeta": false
         },
         "onRender": {
@@ -98,34 +110,8 @@
           ],
           "remarks": [],
           "isBeta": false
-        },
-        "properties": {
-          "kind": "property",
-          "isOptional": false,
-          "isReadOnly": true,
-          "isStatic": false,
-          "type": "IBaseApplicationCustomizerProperties | undefined",
-          "deprecatedMessage": [],
-          "summary": [],
-          "remarks": [],
-          "isBeta": false
         }
       }
-    },
-    "IBaseApplicationCustomizerProperties": {
-      "kind": "interface",
-      "extends": "IBaseExtensionProperties",
-      "implements": "",
-      "typeParameters": [],
-      "deprecatedMessage": [],
-      "summary": [
-        {
-          "kind": "textDocElement",
-          "value": "Extend this interface if you are overriding BaseExtension.properties."
-        }
-      ],
-      "remarks": [],
-      "isBeta": false
     },
     "IPlaceholderAttachOptions": {
       "kind": "interface",
@@ -136,11 +122,11 @@
       "summary": [
         {
           "kind": "textDocElement",
-          "value": "Options for the Placeholder.attach() method."
+          "value": "Options for the PlaceholderCollection.tryAttach() method."
         }
       ],
       "remarks": [],
-      "isBeta": false,
+      "isBeta": true,
       "members": {
         "onDispose": {
           "kind": "property",
@@ -152,7 +138,7 @@
           "summary": [
             {
               "kind": "textDocElement",
-              "value": "An event handler that will be invoked when the Placeholder.attachedDiv is disposed."
+              "value": "An event handler that will be invoked when the Placeholder.dispose() is called."
             }
           ],
           "remarks": [],
@@ -169,54 +155,12 @@
       "summary": [
         {
           "kind": "textDocElement",
-          "value": "A content placeholder is a designated region on the page (i.e. empty HTML \"div\" element) where third party extensions can inject arbitrary HTML content."
+          "value": "A content placeholder is a designated region on the page (i.e. empty HTML \"div\" element) where third party extensions can inject HTML content."
         }
       ],
       "remarks": [],
-      "isBeta": false,
+      "isBeta": true,
       "members": {
-        "attach": {
-          "kind": "method",
-          "signature": "public attach(options: IPlaceholderAttachOptions): void;",
-          "accessModifier": "public",
-          "isOptional": false,
-          "isStatic": false,
-          "returnValue": {
-            "type": "void",
-            "description": []
-          },
-          "parameters": {},
-          "deprecatedMessage": [],
-          "summary": [
-            {
-              "kind": "textDocElement",
-              "value": "Creates a new HTML \"div\" under this placeholder."
-            }
-          ],
-          "remarks": [
-            {
-              "kind": "textDocElement",
-              "value": "This \"div\" element belongs to the third party and may be used until it is disposed. Once the attach() function has been called, it may not be called again unless dispose() is called first."
-            }
-          ],
-          "isBeta": false
-        },
-        "attachedDiv": {
-          "kind": "property",
-          "isOptional": false,
-          "isReadOnly": true,
-          "isStatic": false,
-          "type": "HTMLDivElement|undefined",
-          "deprecatedMessage": [],
-          "summary": [
-            {
-              "kind": "textDocElement",
-              "value": "The HTML \"div\" element that was when attach() was called. This property is undefined if attach() was not been called, or if dispose() was called after the last call to attach()."
-            }
-          ],
-          "remarks": [],
-          "isBeta": false
-        },
         "dispose": {
           "kind": "method",
           "signature": "public dispose(): void;",
@@ -232,15 +176,31 @@
           "summary": [
             {
               "kind": "textDocElement",
-              "value": "Diposes the attachedDiv."
+              "value": "Diposes the attached DOM tree."
             }
           ],
           "remarks": [
             {
               "kind": "textDocElement",
-              "value": "This method can be called to immediately dispose the attachedDiv; otherwise, it will be disposed by the application when the placeholder is disposed. Calling dispose() invokes the IPlaceholderAttachOptions.onDispose() callback, removes the attachedDiv from the DOM, and assigns attachedDiv to undefined."
+              "value": "This method can be called to immediately dispose the attached DOM element. Otherwise, it will be disposed by the application when the placeholder is disposed. Calling dispose() invokes the IPlaceholderAttachOptions.onDispose() callback, removes the attached DOM element from the DOM, and assigns DOM element to undefined."
             }
           ],
+          "isBeta": false
+        },
+        "domElement": {
+          "kind": "property",
+          "isOptional": false,
+          "isReadOnly": true,
+          "isStatic": false,
+          "type": "HTMLDivElement",
+          "deprecatedMessage": [],
+          "summary": [
+            {
+              "kind": "textDocElement",
+              "value": "The HTML element on which the placeholder will be attached. This property is undefined if PlaceHolderCollection.tryAttach() was not been called, or if dispose() was called after the last call to PlaceHolderCollection.tryAttach()."
+            }
+          ],
+          "remarks": [],
           "isBeta": false
         },
         "name": {
@@ -259,7 +219,7 @@
           "remarks": [
             {
               "kind": "textDocElement",
-              "value": "NOTE: This is not an HTML \"div\" ID; third party code must NOT make assumptions about the DOM structure of a client-side application."
+              "value": "This is not an HTML element id. This is a logical name to represent a placeholder container. Third party code must NOT make assumptions about the DOM structure of a page."
             }
           ],
           "isBeta": false
@@ -279,16 +239,8 @@
         }
       ],
       "remarks": [],
-      "isBeta": false,
+      "isBeta": true,
       "members": {
-        "__constructor": {
-          "kind": "constructor",
-          "signature": "constructor(serviceScope: ServiceScope);",
-          "parameters": {},
-          "deprecatedMessage": [],
-          "summary": [],
-          "remarks": []
-        },
         "placeholderNames": {
           "kind": "property",
           "isOptional": false,
@@ -305,9 +257,9 @@
           "remarks": [],
           "isBeta": false
         },
-        "tryGetByName": {
+        "tryAttach": {
           "kind": "method",
-          "signature": "public tryGetByName(name: string): Placeholder | undefined;",
+          "signature": "public tryAttach(name: string,\r\n    options?: IPlaceholderAttachOptions): Placeholder | undefined;",
           "accessModifier": "public",
           "isOptional": false,
           "isStatic": false,
@@ -315,18 +267,43 @@
             "type": "Placeholder | undefined",
             "description": []
           },
-          "parameters": {},
+          "parameters": {
+            "name": {
+              "name": "name",
+              "description": [
+                {
+                  "kind": "textDocElement",
+                  "value": "logical name of the placeholder. This name should not be confused with the DOM id or the attribute value of the placeholder."
+                }
+              ],
+              "isOptional": false,
+              "isSpread": false,
+              "type": "string"
+            },
+            "options": {
+              "name": "options",
+              "description": [
+                {
+                  "kind": "textDocElement",
+                  "value": "placeholder options."
+                }
+              ],
+              "isOptional": true,
+              "isSpread": false,
+              "type": "IPlaceholderAttachOptions"
+            }
+          },
           "deprecatedMessage": [],
           "summary": [
             {
               "kind": "textDocElement",
-              "value": "Searches for a content placeholder with the specified name; if none is found, then the function returns undefined."
+              "value": "Searches for a content placeholder with the specified name. If none is found, then the function returns undefined. If one is found, we try to attach to it. If the caller tries to re-attached a placeholder, an exception will be thrown. A dispose has to happen before re-attach can happen."
             }
           ],
           "remarks": [
             {
               "kind": "textDocElement",
-              "value": "The host application makes no guarantees about the availability of a given placeholder. In situations where an expected placeholder is not available, the third party extension must handle this, e.g. by not rendering anything, or by choosing an alternative placeholder."
+              "value": "The host application makes no guarantees about the availability of a given placeholder. In situations where an expected placeholder is not available, the third party extension must handle it gracefully, e.g. by not rendering anything, or by choosing an alternative placeholder."
             }
           ],
           "isBeta": false

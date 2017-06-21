@@ -1,7 +1,6 @@
 # onRender()
-**Note:** The SharePoint Framework is currently in preview and is subject to change. SharePoint Framework client-side web parts are not currently supported for use in production environments.
 
-
+> _This API is provided as a preview for developers and may change based on feedback that we receive.  Do not use this API in a production environment._
 
 This lifecycle event occurs after the shell has constructed the initial page DOM, after the application's onRender() event has occurred.
 

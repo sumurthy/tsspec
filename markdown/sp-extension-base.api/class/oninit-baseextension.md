@@ -1,13 +1,12 @@
 # onInit()
-**Note:** The SharePoint Framework is currently in preview and is subject to change. SharePoint Framework client-side web parts are not currently supported for use in production environments.
 
-
+> _This API is provided as a preview for developers and may change based on feedback that we receive.  Do not use this API in a production environment._
 
 This event hook is called when the client-side extension is first activated on the page.
 
-**Signature:** _@virtual public onInit(): [Promise](../../es6-promise.api/class/promise.md)<void>;_
+**Signature:** _@virtual public onInit(): [Promise](../../web-apis.api/class/promise.md)<void>;_
 
-**Returns**: [`Promise`](../../es6-promise.api/class/promise.md)<void>
+**Returns**: [`Promise`](../../web-apis.api/class/promise.md)<void>
 
 
 

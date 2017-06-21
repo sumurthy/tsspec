@@ -1,5 +1,8 @@
 # sp-core-library package
 
+SharePoint Framework core libraries
+
+This package provides a core foundation of common definitions that ensure a consistent character across all the other SharePoint Framework APIs. Because this package is a dependency of every other package, it is effectively mandatory, so its design goals are small code size and broad applicability, versus flexibility or richness of features.
 
 
 ## Classes

@@ -2,13 +2,16 @@
 
 
 
+
+
+
 ## Classes
 
 | Class	   |  Description |
 |:-------------|:---------------|
 | [`ApplicationCustomizerContext`](./sp-application-base.api/class/applicationcustomizercontext.md)     | This object provides contextual information for BaseApplicationCustomizer. |
 | [`BaseApplicationCustomizer`](./sp-application-base.api/class/baseapplicationcustomizer.md)     | This is the base class that third parties should extend when implementing a client-side extension that runs when an application is first starting. In the component manifest, the "extensionType" should be set to "ApplicationCustomizer". |
-| [`Placeholder`](./sp-application-base.api/class/placeholder.md)     | A content placeholder is a designated region on the page (i.e. empty HTML "div" element) where third party extensions can inject arbitrary HTML content. |
+| [`Placeholder`](./sp-application-base.api/class/placeholder.md)     | A content placeholder is a designated region on the page (i.e. empty HTML "div" element) where third party extensions can inject HTML content. |
 | [`PlaceholderCollection`](./sp-application-base.api/class/placeholdercollection.md)     | Exposes a collection of content placeholders for use by third parties. |
 
 
@@ -17,8 +20,7 @@
 
 | Interface	   |  Description |
 |:-------------|:---------------|
-| [`IBaseApplicationCustomizerProperties`](./sp-application-base.api/interface/ibaseapplicationcustomizerproperties.md)   | Extend this interface if you are overriding BaseExtension.properties.  |
-| [`IPlaceholderAttachOptions`](./sp-application-base.api/interface/iplaceholderattachoptions.md)   | Options for the Placeholder.attach() method.  |
+| [`IPlaceholderAttachOptions`](./sp-application-base.api/interface/iplaceholderattachoptions.md)   | Options for the PlaceholderCollection.tryAttach() method.  |
 
 
 

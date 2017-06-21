@@ -1,13 +1,12 @@
 # blob()
-**Note:** The SharePoint Framework is currently in preview and is subject to change. SharePoint Framework client-side web parts are not currently supported for use in production environments.
 
 
 
+See documentation for whatwg-fetch:Body.blob
 
+**Signature:** _public blob(): [Promise](../../web-apis.api/class/promise.md)<Blob>;_
 
-**Signature:** _public blob(): [Promise](../../es6-promise.api/class/promise.md)<Blob>;_
-
-**Returns**: [`Promise`](../../es6-promise.api/class/promise.md)<Blob>
+**Returns**: [`Promise`](../../web-apis.api/class/promise.md)<Blob>
 
 
 

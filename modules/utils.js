@@ -12,7 +12,7 @@ const MODULEDEF = 'module '
 const FUNCTION = 'function '
 const EXTENDS = 'extends '
 const IMPLEMENTS = 'implements '
-const BETA_MESSAGE = ' Note: This is being made avaiable in **beta** mode. This is not recommended for use in Production.'
+const BETA_MESSAGE = '_This API is provided as a preview for developers and may change based on feedback that we receive.  Do not use this API in a production environment._'
 
 var self = module.exports = {
 
@@ -151,9 +151,9 @@ var self = module.exports = {
         var m = {}
         m['isBeta'] = false
         m['showBetaMessage'] = false
-        // Set member showBetaMessage flag to true only if the class's isBeta is false. That way we can avoid repearing "isBeta" all over the place.
-        if (method['isBeta'] && !isClassBeta) {
-            m['showBetaMessage'] = method['isBeta']
+        // Set member showBetaMessage flag to true when either class/interface is in beta or indovodual method is in beta.
+        if (method['isBeta'] || isClassBeta) {
+            m['showBetaMessage'] = true
         }
         if (method['isBeta']) {
             m['isBeta'] = method['isBeta']
@@ -197,13 +197,13 @@ var self = module.exports = {
         return m
     },
 
-    processProperty: (property={}, name="", isBeta=false) => {
+    processProperty: (property={}, name="", isObjBeta=false) => {
         var p = {}
         p['descr'] = ''
         if (property['summary'].length > 0) {
             p['descr'] = property['summary'][0]['value']
         }
-        if (property['isBeta'] && !isBeta) {
+        if (property['isBeta'] && !isObjBeta) {
             p['descr'] = p['descr'] + BETA_MESSAGE
         }
         p['remarks'] = null

@@ -1,6 +1,6 @@
 {
   "ApplicationCustomizerContext": {
-    "isBeta": false,
+    "isBeta": true,
     "implementsExtendsName": "",
     "genericType": "",
     "descr": "This object provides contextual information for BaseApplicationCustomizer.",
@@ -40,30 +40,18 @@
     "objects": {}
   },
   "BaseApplicationCustomizer": {
-    "isBeta": false,
+    "isBeta": true,
     "implementsExtendsName": "",
-    "genericType": "",
+    "genericType": "TProperties",
     "descr": "This is the base class that third parties should extend when implementing a client-side extension that runs when an application is first starting. In the component manifest, the \"extensionType\" should be set to \"ApplicationCustomizer\".",
     "remarks": null,
     "properties": {
       "context": {
-        "descr": "",
-        "remarks": null,
+        "descr": "Use context object to access common services and state associated with the component.",
+        "remarks": "Child classes are expected to override this field by redeclaring it with a specialized type. It is meant to be a read-only property; the type cannot be declared as read-only in the base class (because it is initialized outside the constructor), but child classes should redeclare it as readonly.",
         "dataType": "ApplicationCustomizerContext",
         "isOptional": false,
-        "readonly": true,
-        "accessModifier": "public",
-        "isCollection": false,
-        "function": null,
-        "returnType": null,
-        "assignValue": null
-      },
-      "properties": {
-        "descr": "",
-        "remarks": null,
-        "dataType": "IBaseApplicationCustomizerProperties | undefined",
-        "isOptional": false,
-        "readonly": true,
+        "readonly": false,
         "accessModifier": "public",
         "isCollection": false,
         "function": null,
@@ -75,7 +63,7 @@
     "methods": {
       "onRender-baseapplicationcustomizer": {
         "isBeta": false,
-        "showBetaMessage": false,
+        "showBetaMessage": true,
         "descr": "This lifecycle event occurs after the shell has constructed the initial page DOM, after the application's onRender() event has occurred.",
         "remarks": null,
         "accessModifier": "public",
@@ -97,16 +85,16 @@
     "objects": {}
   },
   "Placeholder": {
-    "isBeta": false,
+    "isBeta": true,
     "implementsExtendsName": "",
     "genericType": "",
-    "descr": "A content placeholder is a designated region on the page (i.e. empty HTML \"div\" element) where third party extensions can inject arbitrary HTML content.",
+    "descr": "A content placeholder is a designated region on the page (i.e. empty HTML \"div\" element) where third party extensions can inject HTML content.",
     "remarks": null,
     "properties": {
-      "attachedDiv": {
-        "descr": "The HTML \"div\" element that was when attach() was called. This property is undefined if attach() was not been called, or if dispose() was called after the last call to attach().",
+      "domElement": {
+        "descr": "The HTML element on which the placeholder will be attached. This property is undefined if PlaceHolderCollection.tryAttach() was not been called, or if dispose() was called after the last call to PlaceHolderCollection.tryAttach().",
         "remarks": null,
-        "dataType": "HTMLDivElement|undefined",
+        "dataType": "HTMLDivElement",
         "isOptional": false,
         "readonly": true,
         "accessModifier": "public",
@@ -117,7 +105,7 @@
       },
       "name": {
         "descr": "A symbolic name used to identify the placeholder. Example: \"PageHeader\"",
-        "remarks": "NOTE: This is not an HTML \"div\" ID; third party code must NOT make assumptions about the DOM structure of a client-side application.",
+        "remarks": "This is not an HTML element id. This is a logical name to represent a placeholder container. Third party code must NOT make assumptions about the DOM structure of a page.",
         "dataType": "string",
         "isOptional": false,
         "readonly": true,
@@ -130,27 +118,11 @@
     },
     "functions": {},
     "methods": {
-      "attach-placeholder": {
-        "isBeta": false,
-        "showBetaMessage": false,
-        "descr": "Creates a new HTML \"div\" under this placeholder.",
-        "remarks": "This \"div\" element belongs to the third party and may be used until it is disposed. Once the attach() function has been called, it may not be called again unless dispose() is called first.",
-        "accessModifier": "public",
-        "signature": "public attach(options: IPlaceholderAttachOptions): void;",
-        "isStatic": false,
-        "isOptional": false,
-        "genericType": null,
-        "returnType": "void",
-        "returnDescr": "",
-        "params": [],
-        "docName": "attach()",
-        "mdLink": "attach"
-      },
       "dispose-placeholder": {
         "isBeta": false,
-        "showBetaMessage": false,
-        "descr": "Diposes the attachedDiv.",
-        "remarks": "This method can be called to immediately dispose the attachedDiv; otherwise, it will be disposed by the application when the placeholder is disposed. Calling dispose() invokes the IPlaceholderAttachOptions.onDispose() callback, removes the attachedDiv from the DOM, and assigns attachedDiv to undefined.",
+        "showBetaMessage": true,
+        "descr": "Diposes the attached DOM tree.",
+        "remarks": "This method can be called to immediately dispose the attached DOM element. Otherwise, it will be disposed by the application when the placeholder is disposed. Calling dispose() invokes the IPlaceholderAttachOptions.onDispose() callback, removes the attached DOM element from the DOM, and assigns DOM element to undefined.",
         "accessModifier": "public",
         "signature": "public dispose(): void;",
         "isStatic": false,
@@ -170,7 +142,7 @@
     "objects": {}
   },
   "PlaceholderCollection": {
-    "isBeta": false,
+    "isBeta": true,
     "implementsExtendsName": "",
     "genericType": "",
     "descr": "Exposes a collection of content placeholders for use by third parties.",
@@ -191,36 +163,37 @@
     },
     "functions": {},
     "methods": {
-      "tryGetByName-placeholdercollection": {
+      "tryAttach-placeholdercollection": {
         "isBeta": false,
-        "showBetaMessage": false,
-        "descr": "Searches for a content placeholder with the specified name; if none is found, then the function returns undefined.",
-        "remarks": "The host application makes no guarantees about the availability of a given placeholder. In situations where an expected placeholder is not available, the third party extension must handle this, e.g. by not rendering anything, or by choosing an alternative placeholder.",
+        "showBetaMessage": true,
+        "descr": "Searches for a content placeholder with the specified name. If none is found, then the function returns undefined. If one is found, we try to attach to it. If the caller tries to re-attached a placeholder, an exception will be thrown. A dispose has to happen before re-attach can happen.",
+        "remarks": "The host application makes no guarantees about the availability of a given placeholder. In situations where an expected placeholder is not available, the third party extension must handle it gracefully, e.g. by not rendering anything, or by choosing an alternative placeholder.",
         "accessModifier": "public",
-        "signature": "public tryGetByName(name: string): Placeholder | undefined;",
+        "signature": "public tryAttach(name: string,\r\n    options?: IPlaceholderAttachOptions): Placeholder | undefined;",
         "isStatic": false,
         "isOptional": false,
         "genericType": null,
         "returnType": "Placeholder | undefined",
         "returnDescr": "",
-        "params": [],
-        "docName": "tryGetByName()",
-        "mdLink": "trygetbyname"
+        "params": [
+          {
+            "name": "name",
+            "descr": "logical name of the placeholder. This name should not be confused with the DOM id or the attribute value of the placeholder.",
+            "isOptional": false,
+            "dataType": "string"
+          },
+          {
+            "name": "options",
+            "descr": "placeholder options.",
+            "isOptional": true,
+            "dataType": "IPlaceholderAttachOptions"
+          }
+        ],
+        "docName": "tryAttach(name,options)",
+        "mdLink": "tryattachnameoptions"
       }
     },
-    "constructor": {
-      "isBeta": false,
-      "showBetaMessage": false,
-      "descr": "",
-      "remarks": null,
-      "signature": "constructor(serviceScope: ServiceScope);",
-      "genericType": null,
-      "returnType": "",
-      "returnDescr": "",
-      "params": [],
-      "docName": "constructor()",
-      "mdLink": "constructor"
-    },
+    "constructor": {},
     "types": {},
     "variables": {},
     "modules": {},

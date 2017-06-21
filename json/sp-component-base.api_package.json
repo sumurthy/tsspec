@@ -1,0 +1,4 @@
+{
+  "summary": "SharePoint Framework support for building client-side components",
+  "remarks": "This package supports development of client-side components (e.g. web parts, client-side extensions, and applications) built using the SharePoint Framework. It defines the base classes/interfaces that represent the functionality that is common across all client-side component types."
+}

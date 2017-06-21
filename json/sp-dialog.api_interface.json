@@ -1,0 +1,101 @@
+{
+  "IAlertOptions": {
+    "isBeta": true,
+    "implementsExtendsName": "",
+    "genericType": "",
+    "descr": "Options for showing an alert dialog",
+    "remarks": null,
+    "properties": {},
+    "functions": {},
+    "methods": {},
+    "constructor": {},
+    "types": {},
+    "variables": {},
+    "modules": {},
+    "objects": {}
+  },
+  "IDialogConfiguration": {
+    "isBeta": true,
+    "implementsExtendsName": "",
+    "genericType": "",
+    "descr": "The interface for dialog configuration",
+    "remarks": null,
+    "properties": {
+      "isBlocking": {
+        "descr": "Whether the dialog can be closed by clicking outside the dialog (on the overlay).",
+        "remarks": null,
+        "dataType": "boolean",
+        "isOptional": true,
+        "readonly": false,
+        "accessModifier": "public",
+        "isCollection": false,
+        "function": null,
+        "returnType": null,
+        "assignValue": null
+      }
+    },
+    "functions": {},
+    "methods": {},
+    "constructor": {},
+    "types": {},
+    "variables": {},
+    "modules": {},
+    "objects": {}
+  },
+  "IDialogShowingOptions": {
+    "isBeta": true,
+    "implementsExtendsName": "",
+    "genericType": "",
+    "descr": "Options for showing a dialog",
+    "remarks": null,
+    "properties": {
+      "shouldAbort": {
+        "descr": "Provide this callback if there is a case when you want to abort showing the dialog before it's approved by the framework. For example, you can check if a long time has passed since the request was made or the the component requesting the dialog is disposed and you don't want to show the dialog anymore. It is important to keep this callback lightweight so the framework can resolve it quickly and the user interface does not have to wait a long time for it.",
+        "remarks": null,
+        "dataType": "() => boolean",
+        "isOptional": true,
+        "readonly": false,
+        "accessModifier": "public",
+        "isCollection": false,
+        "function": null,
+        "returnType": null,
+        "assignValue": null
+      }
+    },
+    "functions": {},
+    "methods": {},
+    "constructor": {},
+    "types": {},
+    "variables": {},
+    "modules": {},
+    "objects": {}
+  },
+  "IPromptOptions": {
+    "isBeta": true,
+    "implementsExtendsName": "",
+    "genericType": "",
+    "descr": "Options for showing an prompt dialog",
+    "remarks": null,
+    "properties": {
+      "defaultValue": {
+        "descr": "The default value for the input text field of prompt dialog",
+        "remarks": null,
+        "dataType": "string",
+        "isOptional": true,
+        "readonly": false,
+        "accessModifier": "public",
+        "isCollection": false,
+        "function": null,
+        "returnType": null,
+        "assignValue": null
+      }
+    },
+    "functions": {},
+    "methods": {},
+    "constructor": {},
+    "types": {},
+    "variables": {},
+    "modules": {},
+    "objects": {}
+  }
+}

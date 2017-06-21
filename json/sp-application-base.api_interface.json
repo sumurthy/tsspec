@@ -1,28 +1,13 @@
 {
-  "IBaseApplicationCustomizerProperties": {
-    "isBeta": false,
-    "implementsExtendsName": "",
-    "genericType": "",
-    "descr": "Extend this interface if you are overriding BaseExtension.properties.",
-    "remarks": null,
-    "properties": {},
-    "functions": {},
-    "methods": {},
-    "constructor": {},
-    "types": {},
-    "variables": {},
-    "modules": {},
-    "objects": {}
-  },
   "IPlaceholderAttachOptions": {
-    "isBeta": false,
+    "isBeta": true,
     "implementsExtendsName": "",
     "genericType": "",
-    "descr": "Options for the Placeholder.attach() method.",
+    "descr": "Options for the PlaceholderCollection.tryAttach() method.",
     "remarks": null,
     "properties": {
       "onDispose": {
-        "descr": "An event handler that will be invoked when the Placeholder.attachedDiv is disposed.",
+        "descr": "An event handler that will be invoked when the Placeholder.dispose() is called.",
         "remarks": null,
         "dataType": "(placeholder: Placeholder) => void",
         "isOptional": true,

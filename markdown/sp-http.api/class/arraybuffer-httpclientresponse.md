@@ -1,13 +1,12 @@
 # arrayBuffer()
-**Note:** The SharePoint Framework is currently in preview and is subject to change. SharePoint Framework client-side web parts are not currently supported for use in production environments.
 
 
 
+See documentation for whatwg-fetch:Body.arrayBuffer
 
+**Signature:** _public arrayBuffer(): [Promise](../../web-apis.api/class/promise.md)<ArrayBuffer>;_
 
-**Signature:** _public arrayBuffer(): [Promise](../../es6-promise.api/class/promise.md)<ArrayBuffer>;_
-
-**Returns**: [`Promise`](../../es6-promise.api/class/promise.md)<ArrayBuffer>
+**Returns**: [`Promise`](../../web-apis.api/class/promise.md)<ArrayBuffer>
 
 
 

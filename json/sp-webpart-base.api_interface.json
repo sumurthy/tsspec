@@ -125,94 +125,6 @@
     "modules": {},
     "objects": {}
   },
-  "IPlaceholderProps": {
-    "isBeta": false,
-    "implementsExtendsName": "",
-    "genericType": "",
-    "descr": "Used to display a placeholder in case of no or temporary content. Button is optional.",
-    "remarks": null,
-    "properties": {
-      "buttonLabel": {
-        "descr": "Text label to be displayed on button below the description. Optional: As the button is optional.",
-        "remarks": null,
-        "dataType": "string",
-        "isOptional": true,
-        "readonly": false,
-        "accessModifier": "public",
-        "isCollection": false,
-        "function": null,
-        "returnType": null,
-        "assignValue": null
-      },
-      "contentClassName": {
-        "descr": "This className is applied to the root element of content. Use this to apply custom styles to the placeholder.",
-        "remarks": null,
-        "dataType": "string",
-        "isOptional": true,
-        "readonly": false,
-        "accessModifier": "public",
-        "isCollection": false,
-        "function": null,
-        "returnType": null,
-        "assignValue": null
-      },
-      "description": {
-        "descr": "Text description for the placeholder. Appears bellow the Icon and IconText.",
-        "remarks": null,
-        "dataType": "string",
-        "isOptional": false,
-        "readonly": false,
-        "accessModifier": "public",
-        "isCollection": false,
-        "function": null,
-        "returnType": null,
-        "assignValue": null
-      },
-      "icon": {
-        "descr": "Icon className from the MDL2 set. Example: 'ms-Icon--Add'.",
-        "remarks": null,
-        "dataType": "string",
-        "isOptional": false,
-        "readonly": false,
-        "accessModifier": "public",
-        "isCollection": false,
-        "function": null,
-        "returnType": null,
-        "assignValue": null
-      },
-      "iconText": {
-        "descr": "Heading displayed against the Icon.",
-        "remarks": null,
-        "dataType": "string",
-        "isOptional": false,
-        "readonly": false,
-        "accessModifier": "public",
-        "isCollection": false,
-        "function": null,
-        "returnType": null,
-        "assignValue": null
-      },
-      "onAdd": {
-        "descr": "onClick handler for the button. Optional: As the button is optional.",
-        "remarks": null,
-        "dataType": "() => void",
-        "isOptional": true,
-        "readonly": false,
-        "accessModifier": "public",
-        "isCollection": false,
-        "function": null,
-        "returnType": null,
-        "assignValue": null
-      }
-    },
-    "functions": {},
-    "methods": {},
-    "constructor": {},
-    "types": {},
-    "variables": {},
-    "modules": {},
-    "objects": {}
-  },
   "IPlaceholderSpinnerProps": {
     "isBeta": false,
     "implementsExtendsName": "",
@@ -262,6 +174,22 @@
     "properties": {},
     "functions": {},
     "methods": {
+      "isPropertyPaneOpen-ipropertypaneaccessor": {
+        "isBeta": false,
+        "showBetaMessage": false,
+        "descr": "Returns true if the PropertyPane is open.",
+        "remarks": null,
+        "accessModifier": "",
+        "signature": "isPropertyPaneOpen(): boolean;",
+        "isStatic": false,
+        "isOptional": false,
+        "genericType": null,
+        "returnType": "boolean",
+        "returnDescr": "",
+        "params": [],
+        "docName": "isPropertyPaneOpen()",
+        "mdLink": "ispropertypaneopen"
+      },
       "isRenderedByWebPart-ipropertypaneaccessor": {
         "isBeta": false,
         "showBetaMessage": false,
@@ -512,6 +440,18 @@
         "returnType": null,
         "assignValue": null
       },
+      "iconProps": {
+        "descr": "The Icon component props for choice field.",
+        "remarks": null,
+        "dataType": "IPropertyPaneChoiceGroupOptionIconProps",
+        "isOptional": true,
+        "readonly": false,
+        "accessModifier": "public",
+        "isCollection": false,
+        "function": null,
+        "returnType": null,
+        "assignValue": null
+      },
       "imageSize": {
         "descr": "The width and height of the image in px for choice field.",
         "remarks": null,
@@ -565,6 +505,34 @@
         "remarks": null,
         "dataType": "string",
         "isOptional": false,
+        "readonly": false,
+        "accessModifier": "public",
+        "isCollection": false,
+        "function": null,
+        "returnType": null,
+        "assignValue": null
+      }
+    },
+    "functions": {},
+    "methods": {},
+    "constructor": {},
+    "types": {},
+    "variables": {},
+    "modules": {},
+    "objects": {}
+  },
+  "IPropertyPaneChoiceGroupOptionIconProps": {
+    "isBeta": false,
+    "implementsExtendsName": "",
+    "genericType": "",
+    "descr": "PropertyPane ChoiceGroup icon props.",
+    "remarks": null,
+    "properties": {
+      "officeFabricIconFontName": {
+        "descr": "The name of the icon to use from th office fabric icon set.",
+        "remarks": null,
+        "dataType": "string | null",
+        "isOptional": true,
         "readonly": false,
         "accessModifier": "public",
         "isCollection": false,
@@ -731,7 +699,7 @@
       "onRender": {
         "descr": "This API will be called once the custom field is mounted on the host element.",
         "remarks": null,
-        "dataType": "(domElement: HTMLElement, context?: any) => void",
+        "dataType": "(\r\n    domElement: HTMLElement,\r\n    context?: any,\r\n    changeCallback?: (targetProperty?: string, newValue?: any) => void) => void",
         "isOptional": false,
         "readonly": false,
         "accessModifier": "public",
@@ -1357,7 +1325,7 @@
         "assignValue": null
       },
       "errorMessage": {
-        "descr": "Default value of the textfield, if any.",
+        "descr": "If set, this will be displayed as an error message. When onGetErrorMessage returns empty string, if this property has a value set then this will be displayed as the error message. So, make sure to set this only if you want to see an error message dispalyed for the text field.",
         "remarks": null,
         "dataType": "string",
         "isOptional": true,
@@ -1380,6 +1348,18 @@
         "returnType": null,
         "assignValue": null
       },
+      "maxLength": {
+        "descr": "Maximum number of characters that the PropertyPaneTextField can have. (If the value is set to a negative number, an exception will be thrown.)",
+        "remarks": null,
+        "dataType": "number",
+        "isOptional": true,
+        "readonly": false,
+        "accessModifier": "public",
+        "isCollection": false,
+        "function": null,
+        "returnType": null,
+        "assignValue": null
+      },
       "multiline": {
         "descr": "Whether or not the textfield is a multiline textfield. Default value is false.",
         "remarks": null,
@@ -1393,7 +1373,7 @@
         "assignValue": null
       },
       "onGetErrorMessage": {
-        "descr": "The method is used to get the validation error message and determine whether the input value is valid or not. When it returns string: - If valid, it returns empty string. - If invalid, it returns the error message string and the text field will show a red border and show an error message below the text field. When it returns Promise<string>: - The resolved value is display as error message. - The rejected, the value is thrown away.",
+        "descr": "The method is used to get the validation error message and determine whether the input value is valid or not. When it returns string: - If valid, it returns empty string. - If invalid, it returns the error message string and an error message is displayed below the text field. When it returns Promise<string>: - The resolved value is display as error message. - The rejected, the value is thrown away.",
         "remarks": null,
         "dataType": "(value: string) => string | Promise<string>",
         "isOptional": true,
@@ -1452,8 +1432,32 @@
         "returnType": null,
         "assignValue": null
       },
+      "validateOnFocusIn": {
+        "descr": "Run validation when the PropertyPaneTextField is focused. default value is false",
+        "remarks": null,
+        "dataType": "boolean",
+        "isOptional": true,
+        "readonly": false,
+        "accessModifier": "public",
+        "isCollection": false,
+        "function": null,
+        "returnType": null,
+        "assignValue": null
+      },
+      "validateOnFocusOut": {
+        "descr": "Run validation when the PropertyPaneTextField is out of focus or on blur. default value is false",
+        "remarks": null,
+        "dataType": "boolean",
+        "isOptional": true,
+        "readonly": false,
+        "accessModifier": "public",
+        "isCollection": false,
+        "function": null,
+        "returnType": null,
+        "assignValue": null
+      },
       "value": {
-        "descr": "Current value of the textfield. Only provide this if the textfield is a controlled component where you are maintaining its current state.",
+        "descr": "Value to be displayed in the textfield when the value of the targetProperty in the manifest's property bag is empty or contains null value.",
         "remarks": null,
         "dataType": "string",
         "isOptional": true,
@@ -1569,7 +1573,7 @@
     "remarks": null,
     "properties": {
       "htmlStrings": {
-        "descr": "A key-value map where keys are string identifiers and values are rich text with HTML format. SharePoint servers treat the values as HTML content and run services like safety checks, search index and link fixup on them Example: { 'myRichDescription': '<div>Some standard <b>HTML content</b><a href='http://somelink'>A Link</a></div>' 'anotherRichText': <div class='aClass'><span style='color:red'>Some red text</div> }",
+        "descr": "A key-value map where keys are string identifiers and values are rich text with HTML format. SharePoint servers treat the values as HTML content and run services like safety checks, search index and link fixup on them. Example: { 'myRichDescription': '<div>Some standard <b>HTML content</b><a href='http://somelink'>A Link</a></div>' 'anotherRichText': <div class='aClass'><span style='color:red'>Some red text</div> }",
         "remarks": null,
         "dataType": "{ [key: string]: string }",
         "isOptional": true,
@@ -1581,7 +1585,7 @@
         "assignValue": null
       },
       "imageSources": {
-        "descr": "A key-value map where keys are string identifiers and values are image sources. SharePoint servers treat the values as image sources and run services like search index and link fixup on them Example: { 'myImage1': 'http://res.contoso.com/path/to/file' 'myImage2': 'https://res.contoso.com/someName.jpg' }",
+        "descr": "A key-value map where keys are string identifiers and values are image sources. SharePoint servers treat the values as image sources and run services like search index and link fixup on them. Example: { 'myImage1': 'http://res.contoso.com/path/to/file' 'myImage2': 'https://res.contoso.com/someName.jpg' }",
         "remarks": null,
         "dataType": "{ [key: string]: string }",
         "isOptional": true,
@@ -1593,7 +1597,19 @@
         "assignValue": null
       },
       "links": {
-        "descr": "A key-value map where keys are string identifiers and values are links. SharePoint servers treat the values as links and run services like link fixup on them Example: { 'myWebURL': 'http://contoso.com' 'myFileLink': 'https://res.contoso.com/file.docx' }",
+        "descr": "A key-value map where keys are string identifiers and values are links. SharePoint servers treat the values as links and run services like link fixup on them. Example: { 'myWebURL': 'http://contoso.com' 'myFileLink': 'https://res.contoso.com/file.docx' }",
+        "remarks": null,
+        "dataType": "{ [key: string]: string }",
+        "isOptional": true,
+        "readonly": false,
+        "accessModifier": "public",
+        "isCollection": false,
+        "function": null,
+        "returnType": null,
+        "assignValue": null
+      },
+      "searchablePlainTexts": {
+        "descr": "A key-value map where keys are string identifiers and values are strings that should be search indexed. The values are html-encoded before being sent to the server. The encoded values are visible to the search indexer, but are not treated as valid html. So, other services such as link fixup will not run on them. Example: { 'justSomeText': 'This is some plain text', 'anotherText': 'Can have <any> characters here: \"<>&\\'' }",
         "remarks": null,
         "dataType": "{ [key: string]: string }",
         "isOptional": true,
@@ -1676,6 +1692,18 @@
         "descr": "Reference to the DOM element that hosts this client side component.",
         "remarks": null,
         "dataType": "HTMLElement",
+        "isOptional": false,
+        "readonly": false,
+        "accessModifier": "public",
+        "isCollection": false,
+        "function": null,
+        "returnType": null,
+        "assignValue": null
+      },
+      "graphHttpClient": {
+        "descr": "GraphHttpClient instance scoped to this web part._This API is provided as a preview for developers and may change based on feedback that we receive.  Do not use this API in a production environment._",
+        "remarks": null,
+        "dataType": "GraphHttpClient",
         "isOptional": false,
         "readonly": false,
         "accessModifier": "public",

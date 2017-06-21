@@ -1,5 +1,8 @@
 # sp-http package
 
+Base communication layer for the SharePoint Framework
+
+This package defines the base communication layer for the SharePoint Framework. For REST calls, it handles authentication, logging, diagnostics, and batching. It also simplifies requests by adding default headers that follow the recommended best practices.
 
 
 ## Classes

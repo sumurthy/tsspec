@@ -1,7 +1,17 @@
 {
   "kind": "package",
-  "summary": [],
-  "remarks": [],
+  "summary": [
+    {
+      "kind": "textDocElement",
+      "value": "SharePoint Framework core libraries"
+    }
+  ],
+  "remarks": [
+    {
+      "kind": "textDocElement",
+      "value": "This package provides a core foundation of common definitions that ensure a consistent character across all the other SharePoint Framework APIs. Because this package is a dependency of every other package, it is effectively mandatory, so its design goals are small code size and broad applicability, versus flexibility or richness of features."
+    }
+  ],
   "exports": {
     "DisplayMode": {
       "kind": "enum",
@@ -71,7 +81,7 @@
       "values": {
         "ClassicSharePoint": {
           "kind": "enum value",
-          "value": "ClassicSharePoint",
+          "value": "",
           "deprecatedMessage": [],
           "summary": [
             {
@@ -84,7 +94,7 @@
         },
         "Local": {
           "kind": "enum value",
-          "value": "Local",
+          "value": "",
           "deprecatedMessage": [],
           "summary": [
             {
@@ -97,7 +107,7 @@
         },
         "SharePoint": {
           "kind": "enum value",
-          "value": "SharePoint",
+          "value": "",
           "deprecatedMessage": [],
           "summary": [
             {
@@ -110,7 +120,7 @@
         },
         "Test": {
           "kind": "enum value",
-          "value": "Test",
+          "value": "",
           "deprecatedMessage": [],
           "summary": [
             {
@@ -1444,6 +1454,22 @@
           "summary": [],
           "remarks": [],
           "isBeta": false
+        },
+        "serviceKey": {
+          "kind": "property",
+          "isOptional": false,
+          "isReadOnly": false,
+          "isStatic": true,
+          "type": "ServiceKey<ITimeProvider>",
+          "deprecatedMessage": [],
+          "summary": [
+            {
+              "kind": "textDocElement",
+              "value": "The service key for ITimeProvider."
+            }
+          ],
+          "remarks": [],
+          "isBeta": true
         }
       }
     },
