@@ -647,9 +647,9 @@ function genClassInterfaceModuleView(isClass = true, localName = '') {
 
     console.log(`*** Writing Class/Interface/Module file for ${localName}`)
     // if (!isModule) {
-    //     FileOps.writeFile(mem_mdout, `./markdown/${anchor}/${subAnchor}/${Utils.trimGenerics(localName)}.md`)
+    FileOps.writeFile(mem_mdout, `./markdown/${anchor}/${subAnchor}/${Utils.trimGenerics(localName)}.md`)
     // } else {
-    FileOps.writeFile(mem_mdout, `./markdown/${anchor}/${subAnchor}/${Utils.trimGenerics(localName)}-imodule.md`)
+    // FileOps.writeFile(mem_mdout, `./markdown/${anchor}/${subAnchor}/${Utils.trimGenerics(localName)}-imodule.md`)
     // }
 
 }
