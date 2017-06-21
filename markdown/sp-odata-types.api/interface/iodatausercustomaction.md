@@ -15,8 +15,8 @@ Represents an OData SP.UserCustomAction object. For more information about this 
 
 | Property	   | Type	| Description|
 |:-------------|:-------|:-----------|
-|`ClientSideComponentId`      | `string` | The unique identifier of the client-side component defined with SharePoint Framework_This API is provided as a preview for developers and may change based on feedback that we receive.  Do not use this API in a production environment._ |
-|`ClientSideComponentProperties`      | `string` | Custom initialization properties for the client-side component._This API is provided as a preview for developers and may change based on feedback that we receive.  Do not use this API in a production environment._ |
+|`ClientSideComponentId`      | `string` | The unique identifier of the client-side component defined with SharePoint Framework<br/> _This API is provided as a preview for developers and may change based on feedback that we receive.  Do not use this API in a production environment._ |
+|`ClientSideComponentProperties`      | `string` | Custom initialization properties for the client-side component.<br/> _This API is provided as a preview for developers and may change based on feedback that we receive.  Do not use this API in a production environment._ |
 |`CommandUIExtension`      | `string` | Gets or sets a value that specifies an implementation specific XML fragment that determines user interface properties of the custom action. |
 |`Description`      | `string` | Gets or sets the description of the custom action. |
 |`Group`      | `string` | Gets or sets a value that specifies an implementation-specific value that determines the position of the custom action in the page. |

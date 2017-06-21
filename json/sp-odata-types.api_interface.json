@@ -639,7 +639,7 @@
     "remarks": null,
     "properties": {
       "ClientSideComponentId": {
-        "descr": "The unique identifier of the client-side component defined with SharePoint Framework_This API is provided as a preview for developers and may change based on feedback that we receive.  Do not use this API in a production environment._",
+        "descr": "The unique identifier of the client-side component defined with SharePoint Framework<br/> _This API is provided as a preview for developers and may change based on feedback that we receive.  Do not use this API in a production environment._",
         "remarks": "Example: \"359af2a7-b73c-4aac-874c-60a865da0be7\"",
         "dataType": "string",
         "isOptional": false,
@@ -651,7 +651,7 @@
         "assignValue": null
       },
       "ClientSideComponentProperties": {
-        "descr": "Custom initialization properties for the client-side component._This API is provided as a preview for developers and may change based on feedback that we receive.  Do not use this API in a production environment._",
+        "descr": "Custom initialization properties for the client-side component.<br/> _This API is provided as a preview for developers and may change based on feedback that we receive.  Do not use this API in a production environment._",
         "remarks": "This property is only used when a ClientSideComponentId is specified. It is optional. If non-empty, the string must contain a JSON object with custom initialization properties whose format and meaning are defined by the client-side component. Example: \"{ \\\"maxItemsToShow\\\": 123 }\"",
         "dataType": "string",
         "isOptional": false,

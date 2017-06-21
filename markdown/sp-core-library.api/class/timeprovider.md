@@ -26,7 +26,7 @@ None
 
 | Property	   | Access Modifier | Type	| Description|
 |:-------------|:----|:-------|:-----------|
-|`serviceKey`     | `public` | [`ServiceKey`](../../sp-core-library.api/class/servicekey.md)<[`ITimeProvider`](../../sp-core-library.api/interface/itimeprovider.md)> | The service key for ITimeProvider._This API is provided as a preview for developers and may change based on feedback that we receive.  Do not use this API in a production environment._ |
+|`serviceKey`     | `public` | [`ServiceKey`](../../sp-core-library.api/class/servicekey.md)<[`ITimeProvider`](../../sp-core-library.api/interface/itimeprovider.md)> | The service key for ITimeProvider.<br/> _This API is provided as a preview for developers and may change based on feedback that we receive.  Do not use this API in a production environment._ |
 
 
 

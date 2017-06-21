@@ -16,7 +16,7 @@ The base context interface for client-side web parts.
 | Property	   | Type	| Description|
 |:-------------|:-------|:-----------|
 |`domElement`      | `HTMLElement` | Reference to the DOM element that hosts this client side component. |
-|`graphHttpClient`      | [`GraphHttpClient`](../../sp-http.api/class/graphhttpclient.md) | GraphHttpClient instance scoped to this web part._This API is provided as a preview for developers and may change based on feedback that we receive.  Do not use this API in a production environment._ |
+|`graphHttpClient`      | [`GraphHttpClient`](../../sp-http.api/class/graphhttpclient.md) | GraphHttpClient instance scoped to this web part.<br/> _This API is provided as a preview for developers and may change based on feedback that we receive.  Do not use this API in a production environment._ |
 |`httpClient`      | [`HttpClient`](../../sp-http.api/class/httpclient.md) | HttpClient instance scoped to this web part. |
 |`instanceId`      | `string` | Web part instance id. This is a globally unique value. |
 |`manifest`      | `IClientSideWebPartManifestInstance<any>` | Manifest for the client side web part. |
