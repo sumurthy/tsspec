@@ -19,10 +19,10 @@ let tocFile = []
 let tocBottom = []
 
 let item1 = "<Item text=\""
-let item2 = "\" url=\"spdx/"
+let item2 = "\" url=\"spfx/"
 let item3 = "\" SEODescription=\"\">"
 let item3End = "\" SEODescription=\"\"/>"
-let item4 = "url=\"spdx/"
+let item4 = "url=\"spfx/"
 let itemEnd = "</Item>"
 let fileEnd = "</Item></Menu>"
 
@@ -71,27 +71,27 @@ try {
 //                 ,'sp-page-context.json'
 //                 ]
 
-let inputFiles = ['sp-application-base.api.json',
-            'sp-component-base.api.json',
-            'sp-core-library.api.json',
+let inputFiles = ['sp-application-base.json',
+            'sp-component-base.json',
+            'sp-core-library.json',
             'sp-dialog.api',
-            'sp-extension-base.api.json',
-            'sp-http.api.json',
-            'sp-listview-extensibility.api.json',
-            'sp-odata-types.api.json',
-            'sp-page-context.api.json',
-            'sp-webpart-base.api.json',
-            'web-apis.api.json'
+            'sp-extension-base.json',
+            'sp-http.json',
+            'sp-listview-extensibility.json',
+            'sp-odata-types.json',
+            'sp-page-context.json',
+            'sp-webpart-base.json',
+            'web-apis.json'
                 ]
 
-let inputFilesExternal = ['es6-collections.api.json',
-                    'es6-promise.api.json',
-                    'whatwg-fetch.api.json'
+let inputFilesExternal = ['es6-collections.json',
+                    'es6-promise.json',
+                    'whatwg-fetch.json'
                 ]
 
 
-// inputFilesExternal.forEach((e) => {
-inputFiles.forEach((e) => {
+inputFilesExternal.forEach((e) => {
+// inputFiles.forEach((e) => {
     console.log('** Processing: ' + e);
     let files = FileOps.walkFiles('./json', e.replace('.json',''))
     moduleName = e.split('.')[0]
